@@ -7,14 +7,336 @@
 <title>Journal | Verdant Virtual</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
-body { font-family: 'Inter', sans-serif; }
-:root { --mouse-x: 0px; --mouse-y: 0px; }
-@keyframes beam {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+:root {
+  --cream: #F5EFE6;
+  --parchment: #EDE5D8;
+  --charcoal: #2C2824;
+  --forest: #2D6A4F;
+  --sage: #6B9E82;
+  --blush: #C4A8A0;
+  --warm-gold: #B8975A;
+  --dark-forest: #1A2218;
+  --ink: #1C1915;
 }
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--cream); }
+body { font-family: 'Geist', sans-serif; background: var(--cream); color: var(--charcoal); antialiased; }
+.font-display { font-family: 'Cormorant Garamond', serif !important; }
+.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+.font-geist { font-family: 'Geist', sans-serif !important; }
+::selection { background: var(--charcoal); color: var(--cream); }
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 128px;
+}
+
+/* Navigation */
+.nav-pill {
+  background: rgba(245,239,230,0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(44,40,36,0.09);
+  box-shadow: 0 2px 16px rgba(44,40,36,0.06);
+}
+.gradient-border-btn { position: relative; isolation: isolate; padding: 3px; border-radius: 10px; overflow: hidden; background-color: transparent; }
+.gradient-border-btn .cp-border { position: absolute; top: 0; left: 0; height: 100%; width: 400%; background: linear-gradient(115deg, rgb(45,106,79), rgb(184,151,90), rgb(74,160,120), rgb(45,106,79), rgb(184,151,90)) 0% 0% / 25% 100%; transform: translateX(-5%); z-index: 0; transition: transform .25s ease-out; }
+
+/* Vertical grid lines */
+.grid-lines { position: fixed; inset: 0; pointer-events: none; z-index: 50; display: flex; justify-content: center; }
+.grid-lines-inner { width: 100%; max-width: 88rem; height: 100%; display: flex; justify-content: space-between; padding: 0 3rem; mix-blend-mode: multiply; opacity: 0.04; }
+.grid-line { width: 1px; height: 100%; background: currentColor; }
+
+/* Hero */
+.journal-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 88vh;
+  display: flex;
+  align-items: flex-end;
+}
+.botanical-bg {
+  position: absolute;
+  right: -4%;
+  top: -8%;
+  width: 60%;
+  height: 115%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.45;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-text-col {
+  position: relative;
+  z-index: 2;
+  padding: 8rem 0 5rem;
+  max-width: 54%;
+}
+.journal-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  color: var(--forest);
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.journal-label::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--forest);
+  opacity: 0.6;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(3.5rem, 7vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--forest);
+}
+.hero-desc {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  opacity: 0.52;
+  max-width: 24rem;
+  margin-bottom: 3rem;
+}
+.hero-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(44,40,36,0.12);
+}
+.category-tag {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(44,40,36,0.15);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--charcoal);
+}
+.category-tag:hover, .category-tag.active {
+  background: var(--charcoal);
+  color: var(--cream);
+  border-color: var(--charcoal);
+}
+.category-tag.active {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: white;
+}
+
+/* Featured article */
+.featured-frame {
+  position: relative;
+  border: 1px solid rgba(44,40,36,0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.featured-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 64px rgba(26,34,24,0.12);
+}
+.featured-img-col {
+  position: relative;
+  overflow: hidden;
+  background: #1a2218;
+}
+.featured-img-col img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.88;
+}
+.featured-frame:hover .featured-img-col img {
+  transform: scale(1.04);
+}
+.featured-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,34,24,0.4), transparent 60%, rgba(26,34,24,0.2));
+  z-index: 1;
+}
+.featured-content-col {
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--parchment);
+  position: relative;
+}
+.featured-content-col::before {
+  content: '';
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  width: 3px;
+  height: 40px;
+  background: var(--forest);
+  opacity: 0.5;
+  border-radius: 0 2px 2px 0;
+}
+.article-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  line-height: 1;
+  font-weight: 300;
+  color: var(--charcoal);
+  opacity: 0.07;
+  position: absolute;
+  top: 1.5rem;
+  right: 2.5rem;
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+}
+.featured-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--forest);
+  background: rgba(45,106,79,0.1);
+  border: 1px solid rgba(45,106,79,0.2);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+.featured-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(1.6rem, 2.8vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+  transition: color 0.2s ease;
+}
+.featured-frame:hover .featured-title {
+  color: var(--forest);
+}
+.featured-excerpt {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  opacity: 0.58;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+.author-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(44,40,36,0.1);
+}
+.author-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(44,40,36,0.1);
+}
+.read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--forest);
+  transition: gap 0.2s ease;
+}
+.featured-frame:hover .read-link { gap: 0.8rem; }
+.read-link::after {
+  content: '→';
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.featured-frame:hover .read-link::after { transform: translateX(3px); }
+
+/* Coming soon section */
+.coming-soon {
+  position: relative;
+  overflow: hidden;
+  background: var(--dark-forest);
+  padding: 8rem 0;
+}
+.coming-soon-botanical {
+  position: absolute;
+  left: -5%;
+  top: -20%;
+  width: 55%;
+  height: 140%;
+  object-fit: cover;
+  opacity: 0.12;
+  mix-blend-mode: luminosity;
+  pointer-events: none;
+}
+.coming-soon-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1.2;
+  color: #F5EFE6;
+  opacity: 0.7;
+  letter-spacing: -0.02em;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--dark-forest);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  position: relative;
+  overflow: hidden;
+  color: #F5EFE6;
+}
+
+/* Btn hover beam */
+@keyframes beam { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
 .btn-beam { position: relative; z-index: 1; }
 .btn-beam::before {
   content: ''; position: absolute; inset: -1px; border-radius: inherit;
@@ -24,268 +346,257 @@ body { font-family: 'Inter', sans-serif; }
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude; padding: 1px;
 }
-.dark-btn.btn-beam::before { background: linear-gradient(90deg, transparent, rgba(0,0,0,0.3), transparent); }
 .btn-beam:hover::before { opacity: 1; }
-.card-flashlight {
-  position: relative; border-radius: 1rem;
-  background: rgba(255,255,255,0.4); backdrop-filter: blur(12px);
-  border: 1px solid rgba(0,0,0,0.05); overflow: hidden; transition: transform 0.3s ease;
-}
-.card-flashlight::before {
-  content: ""; position: absolute; inset: 0;
-  background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.8), transparent 40%);
-  z-index: 0; opacity: 0; transition: opacity 0.4s ease; pointer-events: none;
-}
-.card-flashlight:hover::before { opacity: 1; }
-.card-content { position: relative; z-index: 2; }
-.section-container { position: relative; }
-.hl { color: #2D6A4F; }
-.section-h2 { position: relative; }
-.section-h2::before { content: ''; display: block; width: 28px; height: 2px; background: #2D6A4F; margin-bottom: 14px; opacity: 0.65; border-radius: 999px; }
-.gradient-border-btn { position: relative; isolation: isolate; padding: 3px; border-radius: 10px; overflow: hidden; background-color: transparent; }
-.gradient-border-btn .cp-border { position: absolute; top: 0; left: 0; height: 100%; width: 400%; background: linear-gradient(115deg, rgb(45,106,79), rgb(212,168,83), rgb(74,160,120), rgb(45,106,79), rgb(212,168,83)) 0% 0% / 25% 100%; transform: translateX(-5%); z-index: 0; transition: transform .25s ease-out; }
-/* Sub-headline animated underline */
+
+/* Reveal on scroll */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.22s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+
+/* Sub-hl */
 .sub-hl { display: inline-block; position: relative; }
-.sub-hl::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px; background: #2D6A4F; animation: vv-underline 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; animation-play-state: paused; }
+.sub-hl::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px; background: var(--forest); animation: vv-underline 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; animation-play-state: paused; }
 .sub-hl.is-visible::after { animation-play-state: running; }
 @keyframes vv-underline { from { width: 0; } to { width: 100%; } }
+
+@media (max-width: 768px) {
+  .featured-frame { grid-template-columns: 1fr; }
+  .featured-img-col { height: 260px; }
+  .hero-text-col { max-width: 100%; padding: 7rem 0 3rem; }
+  .botanical-bg { width: 100%; right: 0; top: 0; height: 100%; opacity: 0.2; }
+}
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
-<style>.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
-<style>.font-geist { font-family: 'Geist', sans-serif !important; }</style>
 </head>
-<body class="bg-[#F2EFEA] text-[#2C2824] antialiased selection:bg-[#2C2824] selection:text-[#F2EFEA]">
+<body>
 
-  <!-- Vertical Container Lines -->
-  <div class="fixed inset-0 pointer-events-none z-50 flex justify-center w-full mix-blend-multiply opacity-[0.04]">
-    <div class="w-full max-w-[88rem] h-full flex justify-between px-6 lg:px-12">
-      <div class="w-px h-full bg-current"></div>
-      <div class="w-px h-full bg-current hidden md:block"></div>
-      <div class="w-px h-full bg-current hidden lg:block"></div>
-      <div class="w-px h-full bg-current"></div>
-    </div>
+<!-- Grain / grid lines -->
+<div class="grid-lines" aria-hidden="true">
+  <div class="grid-lines-inner">
+    <div class="grid-line"></div>
+    <div class="grid-line hidden md:block"></div>
+    <div class="grid-line hidden lg:block"></div>
+    <div class="grid-line"></div>
   </div>
+</div>
 
-  <!-- Navigation -->
-  <div class="fixed top-0 left-0 right-0 z-40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="mt-4 rounded-2xl border border-black/10 bg-[#F2EFEA]/85 backdrop-blur-md shadow-sm">
-        <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
-          <a href="index.html" class="flex items-center gap-2 group">
-            <div style="height:44px;width:44px;flex-shrink:0;border-radius:8px;background:url(images/logo.png) center/180% no-repeat #0a0a0a;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
-            <span class="text-lg tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
-          </a>
-          <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
-            <a href="services.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Services</a>
-            <a href="about.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">About</a>
-            <a href="contact.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Contact</a>
-            <a href="blog.html" class="font-medium text-[#2D6A4F] font-geist">Blog</a>
-          </nav>
-          <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn" onmouseenter="this.dataset.h='1'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .75s linear'; let dir=0; (function loop(){ if (this.dataset.h!=='1') return; dir = dir===0 ? -25 : 0; g.style.transform='translateX('+dir+'%)'; setTimeout(loop.bind(this),750); }).call(this);" onmouseleave="this.dataset.h='0'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .25s ease-out'; g.style.transform='translateX(-5%)';">
-            <div class="cp-border" aria-hidden="true"></div>
-            <span style="position:relative;display:block;padding:0.5rem 0.85rem;font-size:0.875rem;background:#2D6A4F;border-radius:8px;height:100%;z-index:1;" class="font-geist">Book a Discovery Call</span>
-          </a>
-        </div>
+<!-- Navigation -->
+<div class="fixed top-0 left-0 right-0 z-40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="mt-4 nav-pill rounded-2xl">
+      <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div style="height:44px;width:44px;flex-shrink:0;background:url(images/logo.png) center/220% no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
+          <span class="text-base tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
+          <a href="services.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Services</a>
+          <a href="about.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">About</a>
+          <a href="contact.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Contact</a>
+          <a href="blog.html" class="font-medium text-[#2D6A4F] font-geist">Blog</a>
+        </nav>
+        <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn" onmouseenter="this.dataset.h='1'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .75s linear'; let dir=0; (function loop(){ if (this.dataset.h!=='1') return; dir = dir===0 ? -25 : 0; g.style.transform='translateX('+dir+'%)'; setTimeout(loop.bind(this),750); }).call(this);" onmouseleave="this.dataset.h='0'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .25s ease-out'; g.style.transform='translateX(-5%)';">
+          <div class="cp-border" aria-hidden="true"></div>
+          <span style="position:relative;display:block;padding:0.5rem 0.85rem;font-size:0.875rem;background:#2D6A4F;border-radius:8px;height:100%;z-index:1;" class="font-geist">Book a Discovery Call</span>
+        </a>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Hero -->
-  <section class="pt-40 pb-16 section-container border-b border-black/5">
-    <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-20">
+<!-- Journal Hero -->
+<section class="journal-hero">
+  <img src="images/blog-hero.jpg" alt="" aria-hidden="true" class="botanical-bg">
+  <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full">
+    <div class="hero-text-col">
+      <div class="journal-label reveal">Verdant Journal</div>
+      <h1 class="hero-title reveal reveal-delay-1">
+        Thoughts<br>on <em>growth,</em><br>operations<br>&amp; working well.
+      </h1>
+      <p class="hero-desc reveal reveal-delay-2">Practical insight from 8+ years of executive support across government, film, and the creative industries.</p>
+      <!-- Category filters -->
+      <div class="hero-divider reveal reveal-delay-3">
+        <button class="category-tag active">All</button>
+        <button class="category-tag">Operations</button>
+        <button class="category-tag">Lead Gen</button>
+        <button class="category-tag hidden sm:inline-flex">Hiring &amp; VAs</button>
+        <button class="category-tag hidden md:inline-flex">Founder Life</button>
+      </div>
+    </div>
+  </div>
+  <!-- Decorative rule at bottom -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(44,40,36,0.12) 20%,rgba(44,40,36,0.12) 80%,transparent);"></div>
+</section>
+
+<!-- Featured Article -->
+<section class="py-20 max-w-[88rem] mx-auto px-6 lg:px-12">
+  <div class="flex items-center justify-between mb-12 reveal">
+    <div class="flex items-center gap-4">
+      <div style="width:28px;height:1px;background:#2D6A4F;opacity:0.6;"></div>
+      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:#2D6A4F;opacity:0.7;letter-spacing:0.05em;">Featured</span>
+    </div>
+    <span style="font-family:'Geist',sans-serif;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.3;">Issue No. 01</span>
+  </div>
+
+  <a href="blog/what-is-a-virtual-assistant.html" class="featured-frame reveal">
+    <!-- Image column -->
+    <div class="featured-img-col">
+      <img src="images/hannah-portrait.jpg" alt="Hannah, Verdant Virtual — Growth & Operations Partner">
+      <div class="featured-img-overlay"></div>
+      <!-- Image overlay badges -->
+      <div style="position:absolute;bottom:1.75rem;left:1.75rem;z-index:2;display:flex;gap:0.6rem;flex-wrap:wrap;">
+        <span style="background:rgba(45,106,79,0.88);color:white;font-family:'Geist',sans-serif;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 0.9rem;border-radius:999px;backdrop-filter:blur(8px);">Hiring &amp; VAs</span>
+        <span style="background:rgba(255,255,255,0.12);color:white;font-family:'Geist',sans-serif;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 0.9rem;border-radius:999px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);">8 min read</span>
+      </div>
+      <!-- Decorative corner marks -->
+      <svg style="position:absolute;top:1.25rem;right:1.25rem;z-index:2;opacity:0.4;" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M20 0H12V2H18V8H20V0Z" fill="#B8975A"/>
+        <path d="M0 20H8V18H2V12H0V20Z" fill="#B8975A"/>
+      </svg>
+    </div>
+
+    <!-- Content column -->
+    <div class="featured-content-col">
+      <div class="article-number">01</div>
+      <div>
+        <div class="featured-badge">
+          <iconify-icon icon="solar:pen-new-round-linear" style="font-size:0.75rem;"></iconify-icon>
+          Featured Article
+        </div>
+        <h2 class="featured-title">What Is a Virtual Assistant? (And Why the Right One Changes Everything)</h2>
+        <p class="featured-excerpt">If you've been googling "virtual assistant" lately, you've probably landed on about a hundred different definitions — most of them vague, slightly out of date, or written by someone who has never actually been one. Here's a straightforward answer from someone who is.</p>
+        <div class="read-link mb-6">Read the article</div>
+      </div>
+      <div class="author-row">
+        <img src="images/hannah-portrait.jpg" alt="Hannah" class="author-avatar">
         <div>
-          <div class="inline-flex items-center gap-2 bg-[#2D6A4F]/10 border border-[#2D6A4F]/20 text-[#2D6A4F] px-4 py-2 rounded-full text-xs font-medium tracking-wide mb-8 font-geist">
-            <iconify-icon icon="solar:pen-new-round-linear" class="text-sm"></iconify-icon>
-            Verdant Journal
-          </div>
-          <h1 class="section-h2 text-6xl md:text-7xl lg:text-8xl tracking-tighter font-jakarta font-light leading-none">
-            Thoughts on growth,<br><span class="hl">operations &amp; working well.</span>
-          </h1>
+          <p style="font-family:'Geist',sans-serif;font-size:0.82rem;font-weight:500;color:#2C2824;">Hannah</p>
+          <p style="font-family:'Geist',sans-serif;font-size:0.72rem;opacity:0.4;">15 January 2026</p>
         </div>
-        <p class="text-base opacity-55 font-geist max-w-xs leading-relaxed">Practical insight from 8+ years of executive support across government, film, and the creative industries.</p>
-      </div>
-
-      <!-- Category strip -->
-      <div class="flex flex-wrap gap-3 pb-10 border-b border-black/8">
-        <button class="px-4 py-2 rounded-full text-xs font-medium font-geist bg-[#2C2824] text-[#F2EFEA]">All</button>
-        <button class="px-4 py-2 rounded-full text-xs font-medium font-geist border border-black/15 hover:border-[#2D6A4F]/40 hover:text-[#2D6A4F] transition-colors">Operations</button>
-        <button class="px-4 py-2 rounded-full text-xs font-medium font-geist border border-black/15 hover:border-[#2D6A4F]/40 hover:text-[#2D6A4F] transition-colors">Lead Generation</button>
-        <button class="px-4 py-2 rounded-full text-xs font-medium font-geist border border-black/15 hover:border-[#2D6A4F]/40 hover:text-[#2D6A4F] transition-colors">Hiring &amp; VAs</button>
-        <button class="px-4 py-2 rounded-full text-xs font-medium font-geist border border-black/15 hover:border-[#2D6A4F]/40 hover:text-[#2D6A4F] transition-colors">Founder Life</button>
+        <div style="margin-left:auto;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:0.78rem;font-style:italic;opacity:0.35;letter-spacing:0.04em;">Verdant Virtual</span>
+        </div>
       </div>
     </div>
-  </section>
+  </a>
+</section>
 
-  <!-- Featured Article -->
-  <section class="py-20 section-container">
-    <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
+<!-- Botanical divider -->
+<div class="max-w-[88rem] mx-auto px-6 lg:px-12 py-4">
+  <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(44,40,36,0.1) 20%,rgba(44,40,36,0.1) 80%,transparent);"></div>
+</div>
 
-      <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-10">Featured</p>
-
-      <a href="blog/what-is-a-virtual-assistant.html" class="group block">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-
-          <!-- Image -->
-          <div class="lg:col-span-7 relative overflow-hidden rounded-2xl aspect-[16/9] lg:aspect-auto lg:h-[520px] bg-[#1a2218]">
-            <img
-              src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1800&auto=format&fit=crop"
-              alt="Hannah, virtual assistant UK, working at desk"
-              class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700 ease-out"
-            >
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1a2218]/60 via-transparent to-transparent"></div>
-            <div class="absolute bottom-6 left-6 flex gap-2 flex-wrap">
-              <span class="px-3 py-1.5 rounded-full text-xs font-medium font-geist bg-[#2D6A4F]/90 text-white backdrop-blur-sm">Hiring &amp; VAs</span>
-              <span class="px-3 py-1.5 rounded-full text-xs font-medium font-geist bg-white/15 text-white backdrop-blur-sm border border-white/20">8 min read</span>
-            </div>
-          </div>
-
-          <!-- Content -->
-          <div class="lg:col-span-5 flex flex-col justify-center py-4">
-            <div class="flex items-center gap-4 mb-6">
-              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=80&auto=format&fit=crop" alt="Hannah" class="w-9 h-9 rounded-full object-cover">
-              <div>
-                <p class="text-sm font-medium font-geist">Hannah</p>
-                <p class="text-xs opacity-40 font-geist">15 January 2026</p>
-              </div>
-            </div>
-
-            <h2 class="text-3xl md:text-4xl lg:text-5xl tracking-tighter font-jakarta font-light leading-[1.05] mb-6 group-hover:text-[#2D6A4F] transition-colors duration-300">
-              What Is a Virtual Assistant? (And Why the Right One Changes Everything)
-            </h2>
-
-            <p class="text-base opacity-60 font-geist leading-relaxed mb-8 max-w-md">
-              If you've been googling "virtual assistant" lately, you've probably landed on about a hundred different definitions — most of them vague, slightly out of date, or written by someone who has never actually been one. Here's a straightforward answer from someone who is.
-            </p>
-
-            <div class="flex items-center gap-3">
-              <span class="inline-flex items-center gap-2 text-sm font-medium font-geist text-[#2D6A4F] group-hover:gap-3 transition-all duration-200">
-                Read the article
-                <iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon>
-              </span>
-            </div>
-          </div>
-
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- Coming soon strip -->
-  <section class="py-20 border-t border-black/5 section-container bg-white/20">
-    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 text-center">
-      <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-4">More articles on the way</p>
-      <p class="sub-hl text-2xl md:text-3xl font-jakarta font-light tracking-tight opacity-50">Practical guides on systems, outreach, and delegation.</p>
-      <p class="text-sm font-geist opacity-35 mt-3">New articles published regularly — check back soon, or follow along on Instagram.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="relative overflow-hidden text-[#F2EFEA] section-container dark-section" style="background:#1a2218;border-top:1px solid rgba(255,255,255,0.08);">
-    <svg class="absolute w-0 h-0" aria-hidden="true">
-      <filter id="footer-watercolor">
-        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise"/>
-        <feDisplacementMap in="SourceGraphic" in2="noise" scale="12"/>
-        <feGaussianBlur stdDeviation="0.5"/>
-      </filter>
-    </svg>
-    <canvas id="footer-botanical" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;filter:url(#footer-watercolor);opacity:0.55;"></canvas>
-    <div class="relative z-10 pt-10 pb-8">
-      <div aria-hidden="true" class="text-center w-full px-2 select-none pointer-events-none" style="mask-image:linear-gradient(180deg,black 0%,black 60%,transparent 100%);-webkit-mask-image:linear-gradient(180deg,black 0%,black 60%,transparent 100%);">
-        <div class="font-jakarta font-bold" style="font-size:clamp(3.5rem,14.5vw,20rem);line-height:0.78;letter-spacing:-0.04em;color:#2A3E26;mix-blend-mode:screen;transform:scaleY(1.08);">VERDANT<br>VIRTUAL</div>
+<!-- Coming Soon -->
+<section class="coming-soon">
+  <img src="images/blog-hero.jpg" alt="" aria-hidden="true" class="coming-soon-botanical">
+  <div class="max-w-[88rem] mx-auto px-6 lg:px-12 relative z-10">
+    <div class="max-w-2xl">
+      <div class="flex items-center gap-4 mb-8 reveal">
+        <div style="width:28px;height:1px;background:rgba(245,239,230,0.4);"></div>
+        <span style="font-family:'Geist',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(245,239,230,0.35);">More articles on the way</span>
       </div>
-      <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
-        <div class="md:col-span-5">
-          <p class="text-2xl font-jakarta font-light tracking-tight mb-4 opacity-90">Verdant Virtual</p>
-          <p class="text-sm opacity-50 font-geist leading-relaxed mb-3 max-w-xs">Growth &amp; Operations Partner for founders who need more than just an extra pair of hands. 8+ years executive experience across government, film, and creative industries.</p>
-          <p class="text-xs opacity-30 font-geist italic">Open to growth partnerships and affiliate collaborations.</p>
-        </div>
-        <div class="md:col-span-3">
-          <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-5">Pages</p>
-          <div class="flex flex-col gap-3 text-sm font-geist font-medium opacity-60">
-            <a href="services.html" class="hover:opacity-100 transition-opacity">Services</a>
-            <a href="about.html" class="hover:opacity-100 transition-opacity">About</a>
-            <a href="contact.html" class="hover:opacity-100 transition-opacity">Contact</a>
-            <a href="blog.html" class="hover:opacity-100 transition-opacity">Blog</a>
-            <a href="privacy.html" class="hover:opacity-100 transition-opacity">Privacy</a>
-          </div>
-        </div>
-        <div class="md:col-span-4">
-          <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-5">Connect</p>
-          <div class="flex flex-col gap-3 text-sm font-geist font-medium opacity-60">
-            <a href="#" class="hover:opacity-100 transition-opacity flex items-center gap-2"><iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon> Instagram</a>
-            <a href="#" class="hover:opacity-100 transition-opacity flex items-center gap-2"><iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon> LinkedIn</a>
-            <a href="mailto:hello@verdantvirtual.co.uk" class="hover:opacity-100 transition-opacity text-xs opacity-40 normal-case mt-1">hello@verdantvirtual.co.uk</a>
-          </div>
-        </div>
-      </div>
-      <div class="max-w-[88rem] mx-auto px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-white/10 pt-6 text-xs font-geist opacity-40">
-        <span>© 2026 Verdant Virtual</span>
-        <a href="https://lynck.studio" target="_blank" class="hover:opacity-70 transition-opacity">Built by Lynck Studio</a>
+      <p class="coming-soon-title sub-hl reveal reveal-delay-1">
+        Practical guides on systems, outreach, and delegation.
+      </p>
+      <p style="font-family:'Geist',sans-serif;font-size:0.875rem;color:rgba(245,239,230,0.38);margin-top:1.25rem;line-height:1.8;" class="reveal reveal-delay-2">
+        New articles published regularly — check back soon, or follow along on Instagram.
+      </p>
+      <div class="mt-10 reveal reveal-delay-3">
+        <a href="contact.html" class="btn-beam inline-flex items-center gap-2 bg-[#2D6A4F] text-white px-6 py-3 rounded-full text-sm font-medium font-geist transition-all hover:bg-[#3a8a65]">
+          Book a Discovery Call
+          <iconify-icon icon="solar:arrow-right-up-linear" style="font-size:1rem;"></iconify-icon>
+        </a>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.card-flashlight');
-    cards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-      });
-    });
+<!-- Footer -->
+<footer class="site-footer">
+  <svg class="absolute w-0 h-0" aria-hidden="true">
+    <filter id="footer-watercolor">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="12"/>
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+  </svg>
+  <canvas id="footer-botanical" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;filter:url(#footer-watercolor);opacity:0.55;"></canvas>
+  <div class="relative z-10 pt-10 pb-8">
+    <div aria-hidden="true" class="text-center w-full px-2 select-none pointer-events-none" style="mask-image:linear-gradient(180deg,black 0%,black 60%,transparent 100%);-webkit-mask-image:linear-gradient(180deg,black 0%,black 60%,transparent 100%);">
+      <div class="font-jakarta font-bold" style="font-size:clamp(3.5rem,14.5vw,20rem);line-height:0.78;letter-spacing:-0.04em;color:#2A3E26;mix-blend-mode:screen;transform:scaleY(1.08);">VERDANT<br>VIRTUAL</div>
+    </div>
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
+      <div class="md:col-span-5">
+        <p class="text-2xl font-jakarta font-light tracking-tight mb-4 opacity-90">Verdant Virtual</p>
+        <p class="text-sm opacity-50 font-geist leading-relaxed mb-3 max-w-xs">Growth &amp; Operations Partner for founders who need more than just an extra pair of hands. 8+ years executive experience across government, film, and creative industries.</p>
+        <p class="text-xs opacity-30 font-geist italic">Open to growth partnerships and affiliate collaborations.</p>
+      </div>
+      <div class="md:col-span-3">
+        <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-5">Pages</p>
+        <div class="flex flex-col gap-3 text-sm font-geist font-medium opacity-60">
+          <a href="services.html" class="hover:opacity-100 transition-opacity">Services</a>
+          <a href="about.html" class="hover:opacity-100 transition-opacity">About</a>
+          <a href="contact.html" class="hover:opacity-100 transition-opacity">Contact</a>
+          <a href="blog.html" class="hover:opacity-100 transition-opacity">Blog</a>
+          <a href="privacy.html" class="hover:opacity-100 transition-opacity">Privacy</a>
+        </div>
+      </div>
+      <div class="md:col-span-4">
+        <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-5">Connect</p>
+        <div class="flex flex-col gap-3 text-sm font-geist font-medium opacity-60">
+          <a href="#" class="hover:opacity-100 transition-opacity flex items-center gap-2"><iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon> Instagram</a>
+          <a href="#" class="hover:opacity-100 transition-opacity flex items-center gap-2"><iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon> LinkedIn</a>
+          <a href="mailto:hello@verdantvirtual.co.uk" class="hover:opacity-100 transition-opacity text-xs opacity-40 normal-case mt-1">hello@verdantvirtual.co.uk</a>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-white/10 pt-6 text-xs font-geist opacity-40">
+      <span>© 2026 Verdant Virtual</span>
+      <a href="https://lynck.studio" target="_blank" class="hover:opacity-70 transition-opacity">Built by Lynck Studio</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }});
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Sub-hl observer
+const subObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); subObs.unobserve(e.target); }});
+}, { threshold: 0.3 });
+document.querySelectorAll('.sub-hl').forEach(el => subObs.observe(el));
+
+// Category filter buttons
+document.querySelectorAll('.category-tag').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.category-tag').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
   });
+});
 
-  (function(){
-    const canvas = document.getElementById('footer-botanical');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let w, h, stems = [], animId;
-    const petalColors = [{h:155,s:55,l:40},{h:140,s:40,l:52},{h:85,s:30,l:58},{h:45,s:35,l:62},{h:160,s:45,l:35}];
-    const stemColors = [{h:155,s:45,l:22},{h:140,s:35,l:28},{h:120,s:28,l:32}];
-    function resize() { const r = canvas.parentElement.getBoundingClientRect(); w = canvas.width = r.width; h = canvas.height = r.height; }
-    class Stem {
-      constructor(x) {
-        this.x=x; this.y=h+5; this.curr=0; this.len=h*(0.25+Math.random()*0.45);
-        this.color=stemColors[Math.floor(Math.random()*stemColors.length)]; this.done=false;
-        this.flowerType=Math.floor(Math.random()*4); this.segs=[];
-        let cx=x,cy=h+5,ca=-Math.PI/2+(Math.random()-0.5)*0.35;
-        for(let i=0;i<this.len/5;i++){ca+=(Math.random()-0.5)*0.12;cx+=Math.cos(ca)*5;cy+=Math.sin(ca)*5;this.segs.push({x:cx,y:cy});}
-      }
-      draw() {
-        const drawn = Math.floor(this.curr);
-        if (drawn < 1) { this.curr += 0.6; return; }
-        ctx.beginPath(); ctx.strokeStyle=`hsla(${this.color.h},${this.color.s}%,${this.color.l}%,0.18)`; ctx.lineWidth=1.5; ctx.lineCap='round';
-        ctx.moveTo(this.segs[0].x, this.segs[0].y);
-        for(let i=1;i<Math.min(drawn,this.segs.length);i++) ctx.lineTo(this.segs[i].x,this.segs[i].y);
-        ctx.stroke();
-        if(drawn >= this.segs.length) this.done = true;
-        else this.curr += 0.6;
-      }
-      get tip() { const i=Math.min(Math.floor(this.curr)-1,this.segs.length-1); return this.segs[Math.max(0,i)]; }
-    }
-    function spawnStems() { stems=[]; const n=Math.floor(w/80)+3; for(let i=0;i<n;i++) stems.push(new Stem(w*(i+0.5)/n+(Math.random()-0.5)*60)); }
-    function draw() {
-      ctx.clearRect(0,0,w,h);
-      let allDone=true;
-      stems.forEach(s=>{ s.draw(); if(!s.done) allDone=false; });
-      if(!allDone) animId=requestAnimationFrame(draw);
-    }
-    new ResizeObserver(()=>{cancelAnimationFrame(animId);resize();spawnStems();draw();}).observe(canvas.parentElement);
-    resize();spawnStems();draw();
-  })();
-  </script>
-  <script>
-  (function(){
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.sub-hl').forEach(el => obs.observe(el));
-  })();
-  </script>
+// Footer botanical canvas
+(function(){
+  const canvas = document.getElementById('footer-botanical');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h, stems = [], animId;
+  const petalColors = [{h:155,s:55,l:40},{h:140,s:40,l:52},{h:85,s:30,l:58},{h:45,s:35,l:62},{h:160,s:45,l:35}];
+  const stemColors = [{h:155,s:45,l:22},{h:140,s:35,l:28},{h:120,s:28,l:32}];
+  function resize() { const r = canvas.parentElement.getBoundingClientRect(); w = canvas.width = r.width; h = canvas.height = r.height; }
+  class Stem {
+    constructor(x) { this.x=x;this.y=h+5;this.curr=0;this.len=h*(0.25+Math.random()*0.45);this.color=stemColors[Math.floor(Math.random()*stemColors.length)];this.done=false;this.segs=[];let cx=x,cy=h+5,ca=-Math.PI/2+(Math.random()-0.5)*0.35;for(let i=0;i<this.len/5;i++){ca+=(Math.random()-0.5)*0.12;cx+=Math.cos(ca)*5;cy+=Math.sin(ca)*5;this.segs.push({x:cx,y:cy});} }
+    draw() { const d=Math.floor(this.curr);if(d<1){this.curr+=0.6;return;}ctx.beginPath();ctx.strokeStyle=`hsla(${this.color.h},${this.color.s}%,${this.color.l}%,0.18)`;ctx.lineWidth=1.5;ctx.lineCap='round';ctx.moveTo(this.segs[0].x,this.segs[0].y);for(let i=1;i<Math.min(d,this.segs.length);i++)ctx.lineTo(this.segs[i].x,this.segs[i].y);ctx.stroke();if(d>=this.segs.length)this.done=true;else this.curr+=0.6; }
+  }
+  function spawnStems(){stems=[];const n=Math.floor(w/80)+3;for(let i=0;i<n;i++)stems.push(new Stem(w*(i+0.5)/n+(Math.random()-0.5)*60));}
+  function draw(){ctx.clearRect(0,0,w,h);let allDone=true;stems.forEach(s=>{s.draw();if(!s.done)allDone=false;});if(!allDone)animId=requestAnimationFrame(draw);}
+  new ResizeObserver(()=>{cancelAnimationFrame(animId);resize();spawnStems();draw();}).observe(canvas.parentElement);
+  resize();spawnStems();draw();
+})();
+</script>
 </body>
 </html>
