@@ -101,6 +101,75 @@ body { font-family: 'Inter', sans-serif; }
 .hero-shift { transform: translateY(12%); }
 @media (max-width: 1024px) { .hero-shift { transform: translateY(8%); } }
 @media (max-width: 768px) { .hero-shift { transform: translateY(4%); } }
+
+/* Readability + hover motion across sections */
+section :is(h1,h2,h3,h4,p,li,span) {
+  transition: color .26s ease, transform .26s ease, letter-spacing .26s ease, opacity .26s ease;
+}
+section :is(h1,h2,h3,h4,p,li,span):hover {
+  transform: translateY(-1px);
+  letter-spacing: 0.01em;
+  color: #2D6A4F;
+  opacity: 1 !important;
+}
+.dark-section :is(h1,h2,h3,h4,p,li,span):hover {
+  color: #9EF0A0;
+}
+
+/* Global contrast/boldness lift */
+.section-container p, .section-container li {
+  font-weight: 500;
+}
+.section-container .opacity-40 { opacity: 0.62 !important; }
+.section-container .opacity-50 { opacity: 0.72 !important; }
+.section-container .opacity-60 { opacity: 0.82 !important; }
+
+/* Stronger credentials strip readability */
+#creds-strip p {
+  opacity: 0.72 !important;
+  font-weight: 600;
+  color: rgba(44,40,36,0.9);
+}
+#creds-strip span {
+  opacity: 0.82 !important;
+  font-weight: 600;
+  color: rgba(44,40,36,0.9);
+}
+#creds-strip .opacity-20 {
+  opacity: 0.4 !important;
+}
+
+/* Targeted labels: higher contrast + green animated underline */
+.strip-label, .meta-label {
+  position: relative;
+  display: inline-flex;
+  color: #1f1d1a !important;
+  font-weight: 800 !important;
+  opacity: 1 !important;
+}
+.strip-label::after, .meta-label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 48%;
+  height: 2px;
+  background: #2D6A4F;
+  transform: scaleX(1);
+  transform-origin: left;
+  opacity: 0.9;
+  transition: transform 0.32s ease, opacity 0.32s ease, width 0.32s ease;
+  animation: vv-label-underline 2.2s ease-in-out infinite;
+}
+.strip-label:hover::after, .meta-label:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+@keyframes vv-label-underline {
+  0% { opacity: 0.75; }
+  50% { opacity: 1; }
+  100% { opacity: 0.75; }
+}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap">
 <style>.font-jakarta { font-family: 'Archivo', sans-serif !important; }</style>
@@ -206,10 +275,10 @@ body { font-family: 'Inter', sans-serif; }
     </div>
 
     <div class="w-full border-t border-black/10 mt-16 pt-8">
-      <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm tracking-tight font-medium opacity-60">
-        <div class="flex items-center gap-3 font-geist"><span class="opacity-50">01</span> LEAD GENERATION</div>
-        <div class="flex items-center gap-3 md:justify-center font-geist"><span class="opacity-50">02</span> SYSTEMS &amp; OPERATIONS</div>
-        <div class="flex items-center gap-3 md:justify-end font-geist"><span class="opacity-50">03</span> EXECUTIVE SUPPORT</div>
+      <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm tracking-tight font-bold text-[#1f1d1a]">
+        <div class="flex items-center gap-3 font-geist strip-label"><span class="opacity-95">01</span> LEAD GENERATION</div>
+        <div class="flex items-center gap-3 md:justify-center font-geist strip-label"><span class="opacity-95">02</span> SYSTEMS &amp; OPERATIONS</div>
+        <div class="flex items-center gap-3 md:justify-end font-geist strip-label"><span class="opacity-95">03</span> EXECUTIVE SUPPORT</div>
       </div>
     </div>
   </section>
@@ -217,17 +286,17 @@ body { font-family: 'Inter', sans-serif; }
   <!-- Credentials Strip -->
   <section id="creds-strip" class="py-14 border-b border-black/5 bg-white/30 backdrop-blur-md">
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12 text-center">
-      <p class="text-sm uppercase tracking-widest opacity-40 mb-8 font-geist"><span id="exp-num">8</span>+ Years of Experience Across</p>
+      <p class="text-sm uppercase tracking-widest opacity-65 mb-8 font-geist font-semibold text-[#2C2824]/85"><span id="exp-num">8</span>+ Years of Experience Across</p>
       <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
-        <span class="font-geist text-base font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">NZ Government EA</span>
-        <span class="opacity-20 text-xl hidden sm:inline">·</span>
-        <span class="font-geist text-base font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">David Attenborough Productions</span>
-        <span class="opacity-20 text-xl hidden sm:inline">·</span>
-        <span class="font-geist text-base font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">First-Class Honours, Anthropology</span>
-        <span class="opacity-20 text-xl hidden sm:inline">·</span>
-        <span class="font-geist text-base font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">Remote Ready</span>
-        <span class="opacity-20 text-xl hidden sm:inline">·</span>
-        <span class="font-geist text-base font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">UK Based</span>
+        <span class="font-geist text-base font-semibold opacity-80 hover:opacity-100 transition-all duration-300 cursor-default hover:text-[#2D6A4F]">NZ Government EA</span>
+        <span class="opacity-40 text-xl hidden sm:inline">·</span>
+        <span class="font-geist text-base font-semibold opacity-80 hover:opacity-100 transition-all duration-300 cursor-default hover:text-[#2D6A4F]">David Attenborough Productions</span>
+        <span class="opacity-40 text-xl hidden sm:inline">·</span>
+        <span class="font-geist text-base font-semibold opacity-80 hover:opacity-100 transition-all duration-300 cursor-default hover:text-[#2D6A4F]">First-Class Honours, Anthropology</span>
+        <span class="opacity-40 text-xl hidden sm:inline">·</span>
+        <span class="font-geist text-base font-semibold opacity-80 hover:opacity-100 transition-all duration-300 cursor-default hover:text-[#2D6A4F]">Remote Ready</span>
+        <span class="opacity-40 text-xl hidden sm:inline">·</span>
+        <span class="font-geist text-base font-semibold opacity-80 hover:opacity-100 transition-all duration-300 cursor-default hover:text-[#2D6A4F]">UK Based</span>
       </div>
     </div>
   </section>
@@ -237,7 +306,7 @@ body { font-family: 'Inter', sans-serif; }
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         <div class="lg:col-span-7">
-          <p class="text-xs uppercase tracking-widest opacity-40 mb-6 font-geist">Yes, I'm a Virtual Assistant</p>
+          <p class="text-xs uppercase tracking-widest opacity-75 mb-6 font-geist meta-label">Yes, I'm a Virtual Assistant</p>
           <h2 class="section-h2 text-6xl md:text-7xl lg:text-8xl tracking-tighter font-jakarta font-light mb-8 leading-tight">
             The kind that actually <span class="hl">changes how your<br>business runs.</span>
           </h2>
