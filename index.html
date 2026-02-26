@@ -86,6 +86,10 @@ body { font-family: 'Inter', sans-serif; }
 .card-flashlight:hover::before, .card-flashlight:hover::after { opacity: 1; }
 .card-content { position: relative; z-index: 2; }
 .section-container { position: relative; }
+/* Headline highlight system */
+.hl { color: #2D6A4F; }
+.section-h2 { position: relative; }
+.section-h2::before { content: ''; display: block; width: 28px; height: 2px; background: #2D6A4F; margin-bottom: 14px; opacity: 0.65; border-radius: 999px; }
 .gradient-border-btn { position: relative; isolation: isolate; padding: 3px; border-radius: 10px; overflow: hidden; background-color: transparent; }
 .gradient-border-btn .cp-border { position: absolute; top: 0; left: 0; height: 100%; width: 400%; background: linear-gradient(115deg, rgb(45,106,79), rgb(212,168,83), rgb(74,160,120), rgb(45,106,79), rgb(212,168,83)) 0% 0% / 25% 100%; transform: translateX(-5%); z-index: 0; transition: transform .25s ease-out; }
 </style>
@@ -124,6 +128,7 @@ body { font-family: 'Inter', sans-serif; }
             <a href="services.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Services</a>
             <a href="about.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">About</a>
             <a href="contact.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Contact</a>
+            <a href="blog.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Blog</a>
           </nav>
           <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn" onmouseenter="this.dataset.h='1'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .75s linear'; let dir=0; (function loop(){ if (this.dataset.h!=='1') return; dir = dir===0 ? -25 : 0; g.style.transform='translateX('+dir+'%)'; setTimeout(loop.bind(this),750); }).call(this);" onmouseleave="this.dataset.h='0'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .25s ease-out'; g.style.transform='translateX(-5%)';">
             <div class="cp-border" aria-hidden="true"></div>
@@ -195,19 +200,19 @@ body { font-family: 'Inter', sans-serif; }
   </section>
 
   <!-- Credentials Strip -->
-  <section class="py-14 border-b border-black/5 bg-white/30 backdrop-blur-md">
+  <section id="creds-strip" class="py-14 border-b border-black/5 bg-white/30 backdrop-blur-md">
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12 text-center">
-      <p class="text-xs uppercase tracking-widest opacity-40 mb-8 font-geist">8+ Years of Experience Across</p>
+      <p class="text-sm uppercase tracking-widest opacity-40 mb-8 font-geist"><span id="exp-num">8</span>+ Years of Experience Across</p>
       <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
-        <span class="font-geist text-sm font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">NZ Government EA</span>
-        <span class="opacity-20 text-lg hidden sm:inline">·</span>
-        <span class="font-geist text-sm font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">David Attenborough Productions</span>
-        <span class="opacity-20 text-lg hidden sm:inline">·</span>
-        <span class="font-geist text-sm font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">First-Class Honours, Anthropology</span>
-        <span class="opacity-20 text-lg hidden sm:inline">·</span>
-        <span class="font-geist text-sm font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">Remote Ready</span>
-        <span class="opacity-20 text-lg hidden sm:inline">·</span>
-        <span class="font-geist text-sm font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">UK Based</span>
+        <span class="font-geist text-base font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">NZ Government EA</span>
+        <span class="opacity-20 text-xl hidden sm:inline">·</span>
+        <span class="font-geist text-base font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">David Attenborough Productions</span>
+        <span class="opacity-20 text-xl hidden sm:inline">·</span>
+        <span class="font-geist text-base font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">First-Class Honours, Anthropology</span>
+        <span class="opacity-20 text-xl hidden sm:inline">·</span>
+        <span class="font-geist text-base font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">Remote Ready</span>
+        <span class="opacity-20 text-xl hidden sm:inline">·</span>
+        <span class="font-geist text-base font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">UK Based</span>
       </div>
     </div>
   </section>
@@ -218,8 +223,8 @@ body { font-family: 'Inter', sans-serif; }
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         <div class="lg:col-span-7">
           <p class="text-xs uppercase tracking-widest opacity-40 mb-6 font-geist">Yes, I'm a Virtual Assistant</p>
-          <h2 class="text-6xl md:text-7xl lg:text-8xl tracking-tighter font-jakarta font-light mb-8 leading-tight">
-            The kind that actually changes how your business runs.
+          <h2 class="section-h2 text-6xl md:text-7xl lg:text-8xl tracking-tighter font-jakarta font-light mb-8 leading-tight">
+            The kind that actually <span class="hl">changes how your<br>business runs.</span>
           </h2>
           <p class="text-xl opacity-70 font-geist leading-relaxed mb-4 max-w-xl">
             Virtual Assistant is the category. What I do is the substance behind it — lead generation, operations, systems, and execution support that founders actually feel. Not admin for admin's sake. Work that moves things forward.
@@ -285,7 +290,7 @@ body { font-family: 'Inter', sans-serif; }
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
 
       <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
-        <h2 class="text-6xl md:text-7xl tracking-tighter font-jakarta font-light">You didn't start your business<br>to manage everything alone.</h2>
+        <h2 class="section-h2 text-6xl md:text-7xl tracking-tighter font-jakarta font-light">You didn't start your business<br>to <span class="hl">manage everything alone.</span></h2>
         <a href="services.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium flex-shrink-0">
           <span class="font-geist">Explore How I Help</span>
           <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
@@ -405,7 +410,7 @@ body { font-family: 'Inter', sans-serif; }
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12 relative z-10">
 
       <div class="flex justify-between items-end mb-20 border-b border-white/10 pb-8">
-        <h2 class="text-6xl md:text-7xl tracking-tighter font-jakarta font-light">Three Pillars<br>of Support</h2>
+        <h2 class="section-h2 text-6xl md:text-7xl tracking-tighter font-jakarta font-light">Three <span class="hl">Pillars</span><br>of Support</h2>
         <a href="services.html" class="text-sm font-geist opacity-50 hover:opacity-100 transition-opacity flex items-center gap-1">
           Full service detail
           <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
@@ -498,7 +503,7 @@ body { font-family: 'Inter', sans-serif; }
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
       <div class="max-w-md">
-        <h2 class="text-5xl md:text-6xl tracking-tighter mb-6 font-jakarta font-light">Working<br>Together</h2>
+        <h2 class="section-h2 text-5xl md:text-6xl tracking-tighter mb-6 font-jakarta font-light"><span class="hl">Working</span><br>Together</h2>
         <p class="text-lg opacity-80 font-normal leading-relaxed mb-12 border-b border-black/10 pb-12 font-geist">
           A clear process built around understanding your business first — so that every action taken adds genuine value, not just visible activity.
         </p>
@@ -671,6 +676,39 @@ body { font-family: 'Inter', sans-serif; }
         img.src = originalImg.src;
       }
       document.querySelectorAll('img').forEach(initWebGLImage);
+    })();
+
+    // Credentials number scramble: 0 → 8
+    (function() {
+      const el = document.getElementById('exp-num');
+      if (!el) return;
+      let triggered = false;
+      const target = 8;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting && !triggered) {
+            triggered = true;
+            observer.disconnect();
+            let frame = 0;
+            const totalFrames = 40;
+            const chars = '0123456789';
+            const interval = setInterval(() => {
+              frame++;
+              if (frame < totalFrames - 8) {
+                el.textContent = chars[Math.floor(Math.random() * chars.length)];
+              } else if (frame < totalFrames) {
+                // Count up in final frames
+                el.textContent = Math.min(Math.round((frame - (totalFrames - 8)) * target / 8), target);
+              } else {
+                el.textContent = target;
+                clearInterval(interval);
+              }
+            }, 40);
+          }
+        });
+      }, { threshold: 0.5 });
+      const section = document.getElementById('creds-strip');
+      if (section) observer.observe(section);
     })();
 
     // Botanical Footer Canvas

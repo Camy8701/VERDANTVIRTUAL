@@ -32,6 +32,9 @@ body { font-family: 'Inter', sans-serif; }
 .card-flashlight:hover::before, .card-flashlight:hover::after { opacity: 1; }
 .card-content { position: relative; z-index: 2; }
 .section-container { position: relative; }
+.hl { color: #2D6A4F; }
+.section-h2 { position: relative; }
+.section-h2::before { content: ''; display: block; width: 28px; height: 2px; background: #2D6A4F; margin-bottom: 14px; opacity: 0.65; border-radius: 999px; }
 .gradient-border-btn { position: relative; isolation: isolate; padding: 3px; border-radius: 10px; overflow: hidden; background-color: transparent; }
 .gradient-border-btn .cp-border { position: absolute; top: 0; left: 0; height: 100%; width: 400%; background: linear-gradient(115deg, rgb(45,106,79), rgb(212,168,83), rgb(74,160,120), rgb(45,106,79), rgb(212,168,83)) 0% 0% / 25% 100%; transform: translateX(-5%); z-index: 0; transition: transform .25s ease-out; }
 </style>
@@ -66,6 +69,7 @@ body { font-family: 'Inter', sans-serif; }
             <a href="services.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Services</a>
             <a href="about.html" class="font-medium text-[#2D6A4F] font-geist">About</a>
             <a href="contact.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Contact</a>
+            <a href="blog.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Blog</a>
           </nav>
           <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn" onmouseenter="this.dataset.h='1'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .75s linear'; let dir=0; (function loop(){ if (this.dataset.h!=='1') return; dir = dir===0 ? -25 : 0; g.style.transform='translateX('+dir+'%)'; setTimeout(loop.bind(this),750); }).call(this);" onmouseleave="this.dataset.h='0'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .25s ease-out'; g.style.transform='translateX(-5%)';">
             <div class="cp-border" aria-hidden="true"></div>
@@ -124,7 +128,7 @@ body { font-family: 'Inter', sans-serif; }
         <!-- Left: label + stats -->
         <div class="lg:col-span-4">
           <p class="text-xs uppercase tracking-widest opacity-40 mb-8 font-geist">The story</p>
-          <h2 class="text-5xl md:text-6xl tracking-tighter font-jakarta font-light mb-12">Where I've been.<br>Why I do this.</h2>
+          <h2 class="section-h2 text-5xl md:text-6xl tracking-tighter font-jakarta font-light mb-12">Where I've been.<br><span class="hl">Why I do this.</span></h2>
           <div class="space-y-8">
             <div class="border-b border-black/8 pb-8">
               <p class="text-4xl font-jakarta font-light tracking-tighter mb-1">8+</p>
@@ -186,7 +190,7 @@ body { font-family: 'Inter', sans-serif; }
   <section class="py-32 section-container">
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
-        <h2 class="text-6xl md:text-7xl tracking-tighter font-jakarta font-light">What it's like<br>working with me</h2>
+        <h2 class="section-h2 text-6xl md:text-7xl tracking-tighter font-jakarta font-light">What it's like<br><span class="hl">working with me</span></h2>
         <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium flex-shrink-0">
           <span class="font-geist">Let's talk</span>
           <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
@@ -277,7 +281,7 @@ body { font-family: 'Inter', sans-serif; }
   <section class="bg-[#26221E] text-[#F2EFEA] py-32 section-container dark-section">
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
       <div class="flex justify-between items-end mb-20 border-b border-white/10 pb-8">
-        <h2 class="text-6xl md:text-7xl tracking-tighter font-jakarta font-light">Background &amp;<br>Experience</h2>
+        <h2 class="section-h2 text-6xl md:text-7xl tracking-tighter font-jakarta font-light">Background &amp;<br><span class="hl">Experience</span></h2>
         <p class="text-xl tracking-tight opacity-30 font-jakarta font-light">Timeline</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -317,7 +321,7 @@ body { font-family: 'Inter', sans-serif; }
   <section class="py-32 section-container bg-white/20">
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12 text-center">
       <p class="text-xs uppercase tracking-widest opacity-40 mb-6 font-geist">Ready to start?</p>
-      <h2 class="text-6xl md:text-7xl tracking-tighter font-jakarta font-light mb-6">Let's build something<br>that actually runs.</h2>
+      <h2 class="section-h2 text-6xl md:text-7xl tracking-tighter font-jakarta font-light mb-6">Let's build something<br><span class="hl">that actually runs.</span></h2>
       <p class="text-lg opacity-60 font-geist max-w-xl mx-auto leading-relaxed mb-10">
         A 30-minute conversation to understand your business and figure out whether we're the right fit. No pitch, no pressure — just an honest discussion.
       </p>
