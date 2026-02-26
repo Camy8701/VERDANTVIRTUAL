@@ -6,6 +6,7 @@
 <title>Contact — Verdant Virtual</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 body { font-family: 'Inter', sans-serif; }
@@ -132,19 +133,24 @@ select.form-input { cursor: pointer; }
       <!-- Option 1: Book directly (Calendly) -->
       <div>
         <p class="text-xs uppercase tracking-widest opacity-40 mb-6 font-geist">Option 1 — Book directly</p>
-        <!-- Calendly inline widget placeholder -->
-        <div class="bg-white/50 backdrop-blur-sm border border-black/8 rounded-2xl h-[500px] flex flex-col items-center justify-center gap-4 text-center px-8" id="calendly-container">
-          <div class="relative text-[#2D6A4F] mb-2">
-            <iconify-icon icon="solar:calendar-add-linear" class="text-5xl opacity-60"></iconify-icon>
-            <div class="sonar-ring" style="inset: 8px;"></div>
+        <div class="bg-white/50 backdrop-blur-sm border border-black/8 rounded-2xl p-6 md:p-8" id="calendly-container">
+          <div class="flex flex-col items-center text-center gap-4">
+            <div class="relative text-[#2D6A4F] mb-1">
+              <iconify-icon icon="solar:calendar-add-linear" class="text-5xl opacity-60"></iconify-icon>
+              <div class="sonar-ring" style="inset: 8px;"></div>
+            </div>
+            <p class="font-geist font-medium opacity-80">Book your 30-minute discovery call</p>
+            <p class="text-sm font-geist opacity-50 max-w-xs leading-relaxed">Click once and Calendly opens right below without leaving this page.</p>
+            <button id="open-calendly-btn" type="button" class="btn-beam dark-btn mt-2 inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium font-geist hover:bg-[#2D6A4F] transition-colors">
+              <span id="open-calendly-label">Open Calendly</span>
+              <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+            </button>
+            <p id="calendly-status" class="text-xs opacity-35 font-geist">Inline booking loads in this section.</p>
           </div>
-          <p class="font-geist font-medium opacity-70">Book your 30-minute discovery call</p>
-          <p class="text-sm font-geist opacity-40 max-w-xs leading-relaxed">Pick a time that works for you — no chasing, no back and forth.</p>
-          <a href="https://calendly.com" target="_blank" class="btn-beam dark-btn mt-4 inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium font-geist">
-            Open Calendly
-            <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
-          </a>
-          <p class="text-xs opacity-30 font-geist">Add your Calendly embed script to activate inline booking</p>
+
+          <div id="calendly-inline" class="hidden mt-6 rounded-xl overflow-hidden border border-black/8 bg-white/70">
+            <div id="calendly-inline-widget" class="min-h-[700px]"></div>
+          </div>
         </div>
       </div>
 
@@ -337,6 +343,67 @@ select.form-input { cursor: pointer; }
           btn.textContent = 'Message sent — thank you!';
           btn.disabled = true;
           btn.classList.add('opacity-60');
+        });
+      }
+
+      // Calendly inline booking
+      const calendlyUrl = 'https://calendly.com/hello-verdantvirtual/30min?utm_source=ig&utm_medium=social&utm_content=link_in_bio&month=2026-02';
+      const calendlyBtn = document.getElementById('open-calendly-btn');
+      const calendlyInline = document.getElementById('calendly-inline');
+      const calendlyWidget = document.getElementById('calendly-inline-widget');
+      const calendlyStatus = document.getElementById('calendly-status');
+      const calendlyLabel = document.getElementById('open-calendly-label');
+      let calendlyInitialized = false;
+
+      const ensureCalendlyScript = () => new Promise((resolve, reject) => {
+        if (window.Calendly && typeof window.Calendly.initInlineWidget === 'function') {
+          resolve();
+          return;
+        }
+        const existing = document.querySelector('script[data-calendly-widget="true"]');
+        if (existing) {
+          existing.addEventListener('load', resolve, { once: true });
+          existing.addEventListener('error', reject, { once: true });
+          return;
+        }
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        script.dataset.calendlyWidget = 'true';
+        script.onload = resolve;
+        script.onerror = reject;
+        document.body.appendChild(script);
+      });
+
+      if (calendlyBtn && calendlyInline && calendlyWidget) {
+        calendlyBtn.addEventListener('click', async () => {
+          calendlyInline.classList.remove('hidden');
+          calendlyBtn.disabled = true;
+          calendlyBtn.classList.add('opacity-80');
+          if (calendlyLabel) calendlyLabel.textContent = 'Loading Calendly';
+
+          try {
+            await ensureCalendlyScript();
+            if (!calendlyInitialized) {
+              calendlyWidget.innerHTML = '';
+              window.Calendly.initInlineWidget({
+                url: calendlyUrl,
+                parentElement: calendlyWidget
+              });
+              calendlyInitialized = true;
+            }
+            calendlyStatus.textContent = 'Calendly is open below.';
+            if (calendlyLabel) calendlyLabel.textContent = 'Calendly Open';
+            calendlyBtn.disabled = false;
+            calendlyBtn.classList.remove('opacity-80');
+          } catch (err) {
+            calendlyStatus.innerHTML = 'Inline load failed. <a href="' + calendlyUrl + '" target="_blank" rel="noopener" class="underline decoration-[#2D6A4F] underline-offset-2">Open Calendly in a new tab</a>.';
+            if (calendlyLabel) calendlyLabel.textContent = 'Open Calendly';
+            calendlyBtn.disabled = false;
+            calendlyBtn.classList.remove('opacity-80');
+          }
+
+          calendlyInline.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       }
     });
