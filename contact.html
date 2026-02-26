@@ -6,7 +6,6 @@
 <title>Contact — Verdant Virtual</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 body { font-family: 'Inter', sans-serif; }
@@ -140,16 +139,23 @@ select.form-input { cursor: pointer; }
               <div class="sonar-ring" style="inset: 8px;"></div>
             </div>
             <p class="font-geist font-medium opacity-80">Book your 30-minute discovery call</p>
-            <p class="text-sm font-geist opacity-50 max-w-xs leading-relaxed">Click once and Calendly opens right below without leaving this page.</p>
-            <button id="open-calendly-btn" type="button" class="btn-beam dark-btn mt-2 inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium font-geist hover:bg-[#2D6A4F] transition-colors">
-              <span id="open-calendly-label">Open Calendly</span>
+            <p class="text-sm font-geist opacity-50 max-w-xs leading-relaxed">Calendly loads below inside this page.</p>
+            <a href="https://calendly.com/hello-verdantvirtual/30min?utm_source=ig&utm_medium=social&utm_content=link_in_bio&month=2026-02" target="_blank" rel="noopener" class="btn-beam dark-btn mt-2 inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium font-geist hover:bg-[#2D6A4F] transition-colors">
+              Open in New Tab
               <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
-            </button>
-            <p id="calendly-status" class="text-xs opacity-35 font-geist">Inline booking loads in this section.</p>
+            </a>
+            <p id="calendly-status" class="text-xs opacity-35 font-geist">If booking doesn't appear below, use the button above.</p>
           </div>
 
-          <div id="calendly-inline" class="hidden mt-6 rounded-xl overflow-hidden border border-black/8 bg-white/70">
-            <div id="calendly-inline-widget" class="min-h-[700px]"></div>
+          <div id="calendly-inline" class="mt-6 rounded-xl overflow-hidden border border-black/8 bg-white/70">
+            <iframe
+              id="calendly-inline-iframe"
+              src="https://calendly.com/hello-verdantvirtual/30min?utm_source=ig&utm_medium=social&utm_content=link_in_bio&month=2026-02&embed_domain=verdantvirtual.co.uk&embed_type=Inline"
+              title="Book a discovery call with Verdant Virtual"
+              class="w-full min-h-[720px]"
+              loading="lazy"
+              frameborder="0"
+            ></iframe>
           </div>
         </div>
       </div>
@@ -346,65 +352,19 @@ select.form-input { cursor: pointer; }
         });
       }
 
-      // Calendly inline booking
-      const calendlyUrl = 'https://calendly.com/hello-verdantvirtual/30min?utm_source=ig&utm_medium=social&utm_content=link_in_bio&month=2026-02';
-      const calendlyBtn = document.getElementById('open-calendly-btn');
-      const calendlyInline = document.getElementById('calendly-inline');
-      const calendlyWidget = document.getElementById('calendly-inline-widget');
+      const calendlyFrame = document.getElementById('calendly-inline-iframe');
       const calendlyStatus = document.getElementById('calendly-status');
-      const calendlyLabel = document.getElementById('open-calendly-label');
-      let calendlyInitialized = false;
-
-      const ensureCalendlyScript = () => new Promise((resolve, reject) => {
-        if (window.Calendly && typeof window.Calendly.initInlineWidget === 'function') {
-          resolve();
-          return;
-        }
-        const existing = document.querySelector('script[data-calendly-widget="true"]');
-        if (existing) {
-          existing.addEventListener('load', resolve, { once: true });
-          existing.addEventListener('error', reject, { once: true });
-          return;
-        }
-        const script = document.createElement('script');
-        script.src = 'https://assets.calendly.com/assets/external/widget.js';
-        script.async = true;
-        script.dataset.calendlyWidget = 'true';
-        script.onload = resolve;
-        script.onerror = reject;
-        document.body.appendChild(script);
-      });
-
-      if (calendlyBtn && calendlyInline && calendlyWidget) {
-        calendlyBtn.addEventListener('click', async () => {
-          calendlyInline.classList.remove('hidden');
-          calendlyBtn.disabled = true;
-          calendlyBtn.classList.add('opacity-80');
-          if (calendlyLabel) calendlyLabel.textContent = 'Loading Calendly';
-
-          try {
-            await ensureCalendlyScript();
-            if (!calendlyInitialized) {
-              calendlyWidget.innerHTML = '';
-              window.Calendly.initInlineWidget({
-                url: calendlyUrl,
-                parentElement: calendlyWidget
-              });
-              calendlyInitialized = true;
-            }
-            calendlyStatus.textContent = 'Calendly is open below.';
-            if (calendlyLabel) calendlyLabel.textContent = 'Calendly Open';
-            calendlyBtn.disabled = false;
-            calendlyBtn.classList.remove('opacity-80');
-          } catch (err) {
-            calendlyStatus.innerHTML = 'Inline load failed. <a href="' + calendlyUrl + '" target="_blank" rel="noopener" class="underline decoration-[#2D6A4F] underline-offset-2">Open Calendly in a new tab</a>.';
-            if (calendlyLabel) calendlyLabel.textContent = 'Open Calendly';
-            calendlyBtn.disabled = false;
-            calendlyBtn.classList.remove('opacity-80');
-          }
-
-          calendlyInline.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (calendlyFrame && calendlyStatus) {
+        let loaded = false;
+        calendlyFrame.addEventListener('load', () => {
+          loaded = true;
+          calendlyStatus.textContent = 'Calendly is open below.';
         });
+        setTimeout(() => {
+          if (!loaded) {
+            calendlyStatus.innerHTML = 'Inline booking may be blocked by privacy tools. Use <a href="https://calendly.com/hello-verdantvirtual/30min?utm_source=ig&utm_medium=social&utm_content=link_in_bio&month=2026-02" target="_blank" rel="noopener" class="underline decoration-[#2D6A4F] underline-offset-2">Open in New Tab</a>.';
+          }
+        }, 5000);
       }
     });
   </script>
