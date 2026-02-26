@@ -92,11 +92,6 @@ body { font-family: 'Inter', sans-serif; }
 .section-h2::before { content: ''; display: block; width: 28px; height: 2px; background: #2D6A4F; margin-bottom: 14px; opacity: 0.65; border-radius: 999px; }
 .gradient-border-btn { position: relative; isolation: isolate; padding: 3px; border-radius: 10px; overflow: hidden; background-color: transparent; }
 .gradient-border-btn .cp-border { position: absolute; top: 0; left: 0; height: 100%; width: 400%; background: linear-gradient(115deg, rgb(45,106,79), rgb(212,168,83), rgb(74,160,120), rgb(45,106,79), rgb(212,168,83)) 0% 0% / 25% 100%; transform: translateX(-5%); z-index: 0; transition: transform .25s ease-out; }
-/* Sub-headline animated underline */
-.sub-hl { display: inline-block; position: relative; }
-.sub-hl::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px; background: #2D6A4F; animation: vv-underline 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; animation-play-state: paused; }
-.sub-hl.is-visible::after { animation-play-state: running; }
-@keyframes vv-underline { from { width: 0; } to { width: 100%; } }
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
 <style>.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style>
@@ -145,110 +140,70 @@ body { font-family: 'Inter', sans-serif; }
   </div>
 
   <!-- Hero Section -->
-  <section class="relative pt-36 pb-16 min-h-screen flex flex-col justify-between overflow-hidden section-container">
+  <section class="relative pt-40 pb-24 min-h-screen flex flex-col justify-between overflow-hidden section-container">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full relative z-10 text-center flex-grow flex flex-col items-center justify-center">
 
-    <!-- Hero background image -->
-    <img src="images/hero-bg.jpg" alt="Hannah — Verdant Virtual" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0;opacity:0.54;">
+      <h1 class="text-6xl md:text-8xl lg:text-[10rem] font-medium tracking-tighter leading-none mb-12 flex justify-center flex-wrap gap-x-4 md:gap-x-8">
+        <span class="flex">
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.1s;">V</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.15s;">e</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.2s;">r</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.25s;">d</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.3s;">a</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.35s;">n</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.4s;">t</span></span>
+        </span>
+        <span class="flex">
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.45s;">V</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.5s;">i</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.55s;">r</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.6s;">t</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.65s;">u</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.7s;">a</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.75s;">l</span></span>
+        </span>
+      </h1>
 
-    <!-- DNA helix canvas animation (adapted from SGL Systems) -->
-    <canvas id="hero-dna-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0.35;"></canvas>
-
-    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full relative z-10 flex-grow flex flex-col justify-between">
-
-      <!-- Main headline — VERDANT / VIRTUAL (anchored to top) -->
-      <div class="font-jakarta font-light leading-none tracking-tighter pt-4" style="font-size:clamp(4.5rem,12.5vw,14rem);line-height:0.86;letter-spacing:-0.04em;">
-        <div style="color:#2D6A4F;">VERDANT</div>
-        <div style="color:#2C2824;opacity:0.85;">VIRTUAL</div>
+      <div class="w-full max-w-6xl relative mb-12 md:mb-14">
+        <div class="absolute -inset-4 bg-white/45 blur-2xl pointer-events-none"></div>
+        <div class="relative border-4 md:border-[6px] border-white/80 bg-white/50 p-2 md:p-3">
+          <div class="grid grid-cols-1 md:grid-cols-10 gap-2 md:gap-3">
+            <a href="services.html" class="group relative overflow-hidden md:col-span-5 aspect-[5/4] block">
+              <img src="images/hero-bg.jpg" alt="Verdant Virtual founder portrait" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="object-position:center top;">
+            </a>
+            <a href="services.html" class="group relative overflow-hidden md:col-span-5 aspect-[5/4] block">
+              <img src="images/desk-workspace.jpg" alt="Verdant Virtual systems workspace" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </a>
+            <a href="services.html" class="group relative overflow-hidden md:col-span-10 aspect-[16/7] block">
+              <img src="images/vr-growth.jpg" alt="Verdant Virtual growth operations setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            </a>
+          </div>
+          <div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-t from-[#F2EFEA] via-[#F2EFEA]/80 to-transparent"></div>
+        </div>
       </div>
 
-      <!-- Bottom block: sub-headline + body text + CTAs (anchored above the strip) -->
-      <div class="pb-10">
-        <!-- Hero service cards -->
-        <div class="mb-10 md:mb-12">
-          <div class="grid grid-cols-1 md:grid-cols-10 gap-4">
-            <a href="services.html" class="group block md:col-span-5 rounded-[2rem] border border-white/60 bg-white/55 backdrop-blur-sm p-3 shadow-[0_16px_50px_rgba(44,40,36,0.16)] transition-transform duration-300 hover:-translate-y-1">
-              <div class="relative overflow-hidden rounded-[1.5rem] aspect-[4/3]">
-                <img src="images/hero-bg.jpg" alt="Growth Operations" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="object-position:center top;">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent"></div>
-                <span class="absolute top-4 left-4 inline-flex rounded-full bg-[#2D6A4F] px-3 py-1 text-[11px] font-semibold tracking-wide uppercase text-white font-geist">Growth</span>
-              </div>
-              <div class="mt-4 flex items-center justify-between px-1 pb-1">
-                <div>
-                  <p class="text-[11px] tracking-widest uppercase text-[#2C2824]/55 font-geist">Lead generation</p>
-                  <h3 class="text-xl text-[#2C2824] font-medium tracking-tight font-jakarta">Growth Operations</h3>
-                </div>
-                <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#E8EDE9] text-[#2C2824] transition-colors group-hover:bg-[#2D6A4F] group-hover:text-white">
-                  <iconify-icon icon="solar:arrow-right-up-bold-duotone" class="text-lg"></iconify-icon>
-                </span>
-              </div>
-            </a>
-
-            <a href="services.html" class="group block md:col-span-5 rounded-[2rem] border border-white/60 bg-white/55 backdrop-blur-sm p-3 shadow-[0_16px_50px_rgba(44,40,36,0.16)] transition-transform duration-300 hover:-translate-y-1">
-              <div class="relative overflow-hidden rounded-[1.5rem] aspect-[4/3]">
-                <img src="images/desk-workspace.jpg" alt="Systems and Operations" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent"></div>
-                <span class="absolute top-4 left-4 inline-flex rounded-full bg-[#2D6A4F] px-3 py-1 text-[11px] font-semibold tracking-wide uppercase text-white font-geist">Systems</span>
-              </div>
-              <div class="mt-4 flex items-center justify-between px-1 pb-1">
-                <div>
-                  <p class="text-[11px] tracking-widest uppercase text-[#2C2824]/55 font-geist">Workflows and SOPs</p>
-                  <h3 class="text-xl text-[#2C2824] font-medium tracking-tight font-jakarta">Systems &amp; Operations</h3>
-                </div>
-                <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#E8EDE9] text-[#2C2824] transition-colors group-hover:bg-[#2D6A4F] group-hover:text-white">
-                  <iconify-icon icon="solar:arrow-right-up-bold-duotone" class="text-lg"></iconify-icon>
-                </span>
-              </div>
-            </a>
-
-            <a href="services.html" class="group block md:col-span-10 rounded-[2rem] border border-white/60 bg-white/55 backdrop-blur-sm p-3 shadow-[0_16px_50px_rgba(44,40,36,0.16)] transition-transform duration-300 hover:-translate-y-1">
-              <div class="relative overflow-hidden rounded-[1.5rem] aspect-[16/7]">
-                <img src="images/vr-growth.jpg" alt="Execution support workspace" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/5 to-transparent"></div>
-                <span class="absolute top-4 left-4 inline-flex rounded-full bg-[#2D6A4F] px-3 py-1 text-[11px] font-semibold tracking-wide uppercase text-white font-geist">Execution</span>
-              </div>
-              <div class="mt-4 flex items-center justify-between px-1 pb-1">
-                <div>
-                  <p class="text-[11px] tracking-widest uppercase text-[#2C2824]/55 font-geist">Launch and admin support</p>
-                  <h3 class="text-xl text-[#2C2824] font-medium tracking-tight font-jakarta">Execution &amp; Support</h3>
-                </div>
-                <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#E8EDE9] text-[#2C2824] transition-colors group-hover:bg-[#2D6A4F] group-hover:text-white">
-                  <iconify-icon icon="solar:arrow-right-up-bold-duotone" class="text-lg"></iconify-icon>
-                </span>
-              </div>
-            </a>
+      <div class="w-full flex flex-col md:flex-row justify-between items-start md:items-end text-left gap-8">
+        <div class="max-w-xs flex items-start gap-3">
+          <div class="relative mt-1 text-[#2D6A4F]">
+            <iconify-icon icon="solar:asterisk-bold-duotone" class="text-xl"></iconify-icon>
+            <div class="sonar-ring"></div>
           </div>
-        </div>
-
-        <!-- Sub-headline — no border, bigger/bolder, animated underline -->
-        <p class="sub-hl font-geist text-xl md:text-2xl uppercase tracking-wide leading-snug font-semibold mb-[10vh]" style="color:#2C2824;opacity:0.9;">
-          The operational backbone your business is missing.
-        </p>
-
-        <!-- Body text + CTAs — clean 2-column -->
-        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
-          <p class="text-base opacity-65 font-normal leading-relaxed font-geist max-w-sm">
-            Systems, lead generation and execution support — so you can stop holding everything together alone.
+          <p class="text-base md:text-lg opacity-80 font-normal leading-relaxed font-geist">
+            Systems and support for founders who need execution without operational chaos.
           </p>
-          <div class="flex flex-col items-start md:items-end gap-5">
-            <p class="text-base opacity-65 font-normal leading-relaxed font-geist max-w-sm text-left md:text-right">
-              Growth doesn't happen in chaos. It happens when things are well tended.
-            </p>
-            <div class="flex flex-row gap-3">
-              <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium font-geist transition-transform hover:scale-105">
-                Book a Discovery Call
-                <iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon>
-              </a>
-              <a href="services.html" class="btn-beam inline-flex items-center gap-2 border border-[#2C2824]/25 text-[#2C2824] bg-white/50 px-6 py-3 rounded-full text-sm font-medium font-geist hover:bg-white/70 transition-all">
-                See How I Work
-                <iconify-icon icon="solar:arrow-right-linear" class="text-base"></iconify-icon>
-              </a>
-            </div>
-          </div>
+        </div>
+        <div class="max-w-sm flex flex-col items-start md:items-end text-left md:text-right gap-6">
+          <p class="text-base md:text-lg opacity-80 font-normal leading-relaxed font-geist">
+            Growth happens when your backend operations are clear, tracked, and moving every day.
+          </p>
+          <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium transition-transform hover:scale-105">
+            <span class="font-geist">Book a Discovery Call</span>
+            <iconify-icon icon="solar:arrow-right-up-linear" class="text-lg"></iconify-icon>
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- Bottom strip -->
     <div class="w-full border-t border-black/10 mt-16 pt-8">
       <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm tracking-tight font-medium opacity-60">
         <div class="flex items-center gap-3 font-geist"><span class="opacity-50">01</span> LEAD GENERATION</div>
@@ -854,91 +809,5 @@ body { font-family: 'Inter', sans-serif; }
     })();
   </script>
 
-  <!-- Hero DNA helix animation (adapted from SGL Systems) -->
-  <script>
-  (function() {
-    const canvas = document.getElementById('hero-dna-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const verdant = ['V','E','R','D','A','N','T'];
-    const virtual_ = ['V','I','R','T','U','A','L'];
-    let w, h, t = 0, particles = [], animId;
-
-    function resize() {
-      const r = canvas.parentElement.getBoundingClientRect();
-      w = canvas.width = r.width || window.innerWidth;
-      h = canvas.height = r.height || window.innerHeight;
-      initParticles();
-    }
-
-    function initParticles() {
-      particles = [];
-      const spacing = 42;
-      const count = Math.floor(w / spacing) + 4;
-      for (let i = 0; i < count; i++) {
-        particles.push({
-          index: i,
-          char1: verdant[i % verdant.length],
-          char2: virtual_[i % virtual_.length],
-        });
-      }
-    }
-
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      ctx.font = 'bold 22px monospace';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      const waveH = h * 0.16;
-      const spacing = 42;
-      const totalW = particles.length * spacing;
-      const startX = (w - totalW) / 2;
-      const centerY = h * 0.54;
-
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        const angle = (p.index * 0.26) - t;
-        const x = startX + p.index * spacing;
-        const y1 = centerY + Math.sin(angle) * waveH;
-        const y2 = centerY + Math.sin(angle + Math.PI) * waveH;
-        const a1 = (Math.cos(angle) + 1) / 2 * 0.82 + 0.22;
-        const a2 = (Math.cos(angle + Math.PI) + 1) / 2 * 0.82 + 0.22;
-
-        // Connecting bridge
-        ctx.beginPath();
-        ctx.strokeStyle = `rgba(45,106,79,${Math.min(a1,a2) * 0.18})`;
-        ctx.lineWidth = 0.8;
-        ctx.moveTo(x, y1);
-        ctx.lineTo(x, y2);
-        ctx.stroke();
-
-        // VERDANT strand — forest green
-        ctx.fillStyle = `rgba(45,106,79,${a1})`;
-        ctx.fillText(p.char1, x, y1);
-
-        // VIRTUAL strand — warm gold
-        ctx.fillStyle = `rgba(196,140,86,${a2})`;
-        ctx.fillText(p.char2, x, y2);
-      }
-
-      t += 0.016;
-      animId = requestAnimationFrame(draw);
-    }
-
-    new ResizeObserver(resize).observe(canvas.parentElement);
-    resize();
-    draw();
-  })();
-  </script>
-
-  <!-- Sub-headline animated underline observer -->
-  <script>
-  (function(){
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.sub-hl').forEach(el => obs.observe(el));
-  })();
-  </script>
 </body>
 </html>
