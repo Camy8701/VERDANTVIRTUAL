@@ -7,6 +7,7 @@
 <title>Verdant Virtual — Virtual Assistant UK | Growth & Operations Partner for Founders</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://app.contactbutton.com/script/a2ab7b2e507a3034ec3eb460220c008b" async="async"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 body { font-family: 'Inter', sans-serif; }
@@ -92,9 +93,17 @@ body { font-family: 'Inter', sans-serif; }
 .section-h2::before { content: ''; display: block; width: 28px; height: 2px; background: #2D6A4F; margin-bottom: 14px; opacity: 0.65; border-radius: 999px; }
 .gradient-border-btn { position: relative; isolation: isolate; padding: 3px; border-radius: 10px; overflow: hidden; background-color: transparent; }
 .gradient-border-btn .cp-border { position: absolute; top: 0; left: 0; height: 100%; width: 400%; background: linear-gradient(115deg, rgb(45,106,79), rgb(212,168,83), rgb(74,160,120), rgb(45,106,79), rgb(212,168,83)) 0% 0% / 25% 100%; transform: translateX(-5%); z-index: 0; transition: transform .25s ease-out; }
+/* Sub-headline animated underline */
+.sub-hl { display: inline-block; position: relative; }
+.sub-hl::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px; background: #2D6A4F; animation: vv-underline 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; animation-play-state: paused; }
+.sub-hl.is-visible::after { animation-play-state: running; }
+@keyframes vv-underline { from { width: 0; } to { width: 100%; } }
+.hero-shift { transform: translateY(12%); }
+@media (max-width: 1024px) { .hero-shift { transform: translateY(8%); } }
+@media (max-width: 768px) { .hero-shift { transform: translateY(4%); } }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
-<style>.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap">
+<style>.font-jakarta { font-family: 'Archivo', sans-serif !important; }</style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
 <style>.font-geist { font-family: 'Geist', sans-serif !important; }</style>
 </head>
@@ -139,68 +148,60 @@ body { font-family: 'Inter', sans-serif; }
     </div>
   </div>
 
+  <!-- Side DNA Rails -->
+  <div id="dna-rails" aria-hidden="true" class="pointer-events-none absolute inset-x-0 z-[3]" style="top:0;height:0;">
+    <canvas id="hero-dna-left" style="position:absolute;left:8px;top:0;width:232px;height:100%;opacity:0.34;"></canvas>
+    <canvas id="hero-dna-right" style="position:absolute;right:8px;top:0;width:232px;height:100%;opacity:0.34;"></canvas>
+  </div>
+
   <!-- Hero Section -->
-  <section class="relative pt-40 pb-24 min-h-screen flex flex-col justify-between overflow-hidden section-container">
-    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full relative z-10 text-center flex-grow flex flex-col items-center justify-center">
+  <section id="hero-main" class="relative pt-36 pb-16 min-h-screen flex flex-col justify-between overflow-hidden section-container">
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-[#F2EFEA]/65 z-[2]"></div>
 
-      <h1 class="text-6xl md:text-8xl lg:text-[10rem] font-medium tracking-tighter leading-none mb-12 flex justify-center flex-wrap gap-x-4 md:gap-x-8">
-        <span class="flex">
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.1s;">V</span></span>
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.15s;">e</span></span>
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.2s;">r</span></span>
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.25s;">d</span></span>
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.3s;">a</span></span>
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.35s;">n</span></span>
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.4s;">t</span></span>
-        </span>
-        <span class="flex">
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.45s;">V</span></span>
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.5s;">i</span></span>
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.55s;">r</span></span>
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.6s;">t</span></span>
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.65s;">u</span></span>
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.7s;">a</span></span>
-          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay: 0.75s;">l</span></span>
-        </span>
-      </h1>
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full relative z-10 flex-grow flex items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center w-full hero-shift">
 
-      <div class="w-full max-w-6xl relative mb-12 md:mb-14">
-        <div class="absolute -inset-4 bg-white/45 blur-2xl pointer-events-none"></div>
-        <div class="relative border-4 md:border-[6px] border-white/80 bg-white/50 p-2 md:p-3">
-          <div class="grid grid-cols-1 md:grid-cols-10 gap-2 md:gap-3">
-            <a href="services.html" class="group relative overflow-hidden md:col-span-5 aspect-[5/4] block">
-              <img src="images/hero-bg.jpg" alt="Verdant Virtual founder portrait" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" style="object-position:center top;">
-            </a>
-            <a href="services.html" class="group relative overflow-hidden md:col-span-5 aspect-[5/4] block">
-              <img src="images/desk-workspace.jpg" alt="Verdant Virtual systems workspace" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-            </a>
-            <a href="services.html" class="group relative overflow-hidden md:col-span-10 aspect-[16/7] block">
+        <div class="lg:col-span-4 text-left relative z-20">
+          <h1 class="font-jakarta font-black uppercase text-[clamp(4.7rem,12.2vw,11.3rem)] leading-[0.9] tracking-[-0.05em] mb-7 -translate-y-[30%] transform-gpu will-change-transform">
+            <span class="block text-[#2D6A4F]">VERDANT</span>
+            <span class="block text-[#2C2824]">VIRTUAL</span>
+          </h1>
+
+          <p class="sub-hl font-geist text-xl md:text-2xl uppercase tracking-wide leading-snug font-semibold mb-6" style="color:#2C2824;opacity:0.9;">
+            The operational backbone your business is missing.
+          </p>
+
+          <p class="text-base md:text-lg opacity-70 font-normal leading-relaxed font-geist max-w-md mb-4">
+            Systems, lead generation and execution support — so you can stop holding everything together alone.
+          </p>
+          <p class="text-base md:text-lg opacity-65 font-normal leading-relaxed font-geist max-w-md mb-8">
+            Growth doesn't happen in chaos. It happens when things are well tended.
+          </p>
+        </div>
+
+        <div class="lg:col-span-8 relative z-10 lg:-ml-20">
+          <a href="services.html" class="group relative block rounded-[2rem] border border-white/70 bg-white/35 p-3 md:p-4 shadow-[0_24px_80px_rgba(44,40,36,0.16)] backdrop-blur-sm h-[56vh] md:h-[62vh] lg:h-[76vh] lg:-translate-y-[14%] transform-gpu will-change-transform">
+            <div class="relative overflow-hidden rounded-[1.5rem] h-full">
               <img src="images/vr-growth.jpg" alt="Verdant Virtual growth operations setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-            </a>
-          </div>
-          <div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-t from-[#F2EFEA] via-[#F2EFEA]/80 to-transparent"></div>
-        </div>
-      </div>
-
-      <div class="w-full flex flex-col md:flex-row justify-between items-start md:items-end text-left gap-8">
-        <div class="max-w-xs flex items-start gap-3">
-          <div class="relative mt-1 text-[#2D6A4F]">
-            <iconify-icon icon="solar:asterisk-bold-duotone" class="text-xl"></iconify-icon>
-            <div class="sonar-ring"></div>
-          </div>
-          <p class="text-base md:text-lg opacity-80 font-normal leading-relaxed font-geist">
-            Systems and support for founders who need execution without operational chaos.
-          </p>
-        </div>
-        <div class="max-w-sm flex flex-col items-start md:items-end text-left md:text-right gap-6">
-          <p class="text-base md:text-lg opacity-80 font-normal leading-relaxed font-geist">
-            Growth happens when your backend operations are clear, tracked, and moving every day.
-          </p>
-          <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium transition-transform hover:scale-105">
-            <span class="font-geist">Book a Discovery Call</span>
-            <iconify-icon icon="solar:arrow-right-up-linear" class="text-lg"></iconify-icon>
+              <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(90deg, rgba(242,239,234,0.96) 0%, rgba(242,239,234,0.82) 18%, rgba(242,239,234,0.58) 36%, rgba(242,239,234,0.26) 54%, rgba(242,239,234,0.08) 70%, rgba(242,239,234,0) 82%);"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1A1714]/30 via-transparent to-transparent"></div>
+            </div>
+            <div class="pointer-events-none absolute inset-x-5 bottom-5 h-24 bg-gradient-to-t from-[#F2EFEA]/80 via-[#F2EFEA]/45 to-transparent rounded-b-[1.2rem]"></div>
           </a>
         </div>
+      </div>
+    </div>
+
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full relative z-10 mb-4">
+      <div class="flex flex-wrap gap-3">
+        <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium font-geist transition-all duration-300 hover:scale-105 hover:bg-[#2D6A4F]">
+          Book a Discovery Call
+          <iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon>
+        </a>
+        <a href="services.html" class="btn-beam inline-flex items-center gap-2 border border-[#2C2824]/25 text-[#2C2824] bg-white/55 px-6 py-3 rounded-full text-sm font-medium font-geist transition-all duration-300 hover:scale-105 hover:bg-[#2D6A4F] hover:text-white hover:border-[#2D6A4F]">
+          See How I Work
+          <iconify-icon icon="solar:arrow-right-linear" class="text-base"></iconify-icon>
+        </a>
       </div>
     </div>
 
@@ -232,7 +233,7 @@ body { font-family: 'Inter', sans-serif; }
   </section>
 
   <!-- VA Positioning Section -->
-  <section class="py-28 section-container">
+  <section id="va-positioning" class="py-28 section-container">
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         <div class="lg:col-span-7">
@@ -807,6 +808,119 @@ body { font-family: 'Inter', sans-serif; }
       new ResizeObserver(init).observe(canvas.parentElement);
       init();
     })();
+  </script>
+
+  <!-- Side DNA rail animation -->
+  <script>
+  (function() {
+    const rails = document.getElementById('dna-rails');
+    const leftCanvas = document.getElementById('hero-dna-left');
+    const rightCanvas = document.getElementById('hero-dna-right');
+    const hero = document.getElementById('hero-main');
+    const va = document.getElementById('va-positioning');
+    if (!rails || !leftCanvas || !rightCanvas || !hero || !va) return;
+
+    const leftCtx = leftCanvas.getContext('2d');
+    const rightCtx = rightCanvas.getContext('2d');
+    const verdant = ['V','E','R','D','A','N','T'];
+    const virtual_ = ['V','I','R','T','U','A','L'];
+    let t = 0;
+    let rafId;
+    let particles = [];
+
+    function sizeCanvas(canvas, cssWidth, cssHeight) {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.style.height = `${cssHeight}px`;
+      canvas.width = Math.max(1, Math.floor(cssWidth * dpr));
+      canvas.height = Math.max(1, Math.floor(cssHeight * dpr));
+      return { w: cssWidth, h: cssHeight, dpr };
+    }
+
+    function layoutRails() {
+      const startY = hero.offsetTop;
+      const endY = va.offsetTop + va.offsetHeight;
+      const totalHeight = Math.max(200, endY - startY);
+      rails.style.top = `${startY}px`;
+      rails.style.height = `${totalHeight}px`;
+      particles = [];
+      const count = Math.floor(totalHeight / 15) + 12;
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          index: i,
+          char: verdant[i % verdant.length],
+          pair: virtual_[i % virtual_.length],
+        });
+      }
+      return {
+        left: sizeCanvas(leftCanvas, leftCanvas.getBoundingClientRect().width, totalHeight),
+        right: sizeCanvas(rightCanvas, rightCanvas.getBoundingClientRect().width, totalHeight),
+      };
+    }
+
+    function drawRail(ctx, dims, mirror) {
+      const { w, h, dpr } = dims;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+      ctx.font = 'bold 18px monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      const spacing = 20;
+      const centerX = w / 2;
+      const waveHeight = w * 0.34;
+      const spin = mirror ? -t : t;
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        const y = 10 + (p.index * spacing);
+        if (y < -30 || y > h + 30) continue;
+
+        const angle = (p.index * 0.2) - spin;
+        const x1 = centerX + Math.sin(angle) * waveHeight;
+        const x2 = centerX + Math.sin(angle + Math.PI) * waveHeight;
+        const a1 = (Math.cos(angle) + 1) / 2 * 0.8 + 0.2;
+        const a2 = (Math.cos(angle + Math.PI) + 1) / 2 * 0.8 + 0.2;
+        const alpha1 = Math.min(1, a1 * 1.2);
+        const alpha2 = Math.min(1, a2 * 1.2);
+
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(45,106,79,${Math.min(alpha1,alpha2) * 0.2})`;
+        ctx.lineWidth = 0.9;
+        ctx.moveTo(x1, y);
+        ctx.lineTo(x2, y);
+        ctx.stroke();
+
+        ctx.fillStyle = `rgba(45,106,79,${alpha1})`;
+        ctx.fillText(p.char, x1, y);
+
+        ctx.fillStyle = `rgba(196,140,86,${alpha2})`;
+        ctx.fillText(p.pair, x2, y);
+      }
+    }
+
+    let dims = layoutRails();
+    function tick() {
+      drawRail(leftCtx, dims.left, false);
+      drawRail(rightCtx, dims.right, true);
+      t += 0.02;
+      rafId = requestAnimationFrame(tick);
+    }
+
+    const onResize = () => { dims = layoutRails(); };
+    window.addEventListener('resize', onResize);
+    new ResizeObserver(onResize).observe(document.body);
+    tick();
+  })();
+  </script>
+
+  <!-- Sub-headline animated underline observer -->
+  <script>
+  (function(){
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.sub-hl').forEach(el => obs.observe(el));
+  })();
   </script>
 
 </body>
