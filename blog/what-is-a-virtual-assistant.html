@@ -748,7 +748,7 @@ body::before {
 </section>
 
 <!-- Footer -->
-<footer style="background:#1A2218;border-top:1px solid rgba(255,255,255,0.07);position:relative;overflow:hidden;color:#F5EFE6;">
+<footer class="relative overflow-hidden text-[#F2EFEA]" style="background:#1a2218;border-top:1px solid rgba(255,255,255,0.08);">
   <svg class="absolute w-0 h-0" aria-hidden="true">
     <filter id="footer-watercolor">
       <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise"/>
@@ -763,31 +763,32 @@ body::before {
     </div>
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
       <div class="md:col-span-5">
-        <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;font-weight:300;letter-spacing:-0.04em;margin-bottom:1rem;opacity:0.9;">Verdant Virtual</p>
-        <p style="font-family:'Geist',sans-serif;font-size:0.875rem;opacity:0.5;line-height:1.75;max-width:18rem;margin-bottom:0.75rem;">Growth &amp; Operations Partner for founders who need more than just an extra pair of hands. 8+ years executive experience across government, film, and creative industries.</p>
-        <p style="font-family:'Geist',sans-serif;font-size:0.75rem;opacity:0.28;font-style:italic;">Open to growth partnerships and affiliate collaborations.</p>
+        <p class="text-2xl font-jakarta font-light tracking-tight mb-4 opacity-90">Verdant Virtual</p>
+        <p class="text-sm opacity-50 font-geist leading-relaxed mb-3 max-w-xs">Growth &amp; Operations Partner for founders who need more than just an extra pair of hands. 8+ years executive experience across government, film, and creative industries.</p>
+        <p class="text-xs opacity-30 font-geist italic">Open to growth partnerships and affiliate collaborations.</p>
       </div>
       <div class="md:col-span-3">
-        <p style="font-family:'Geist',sans-serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.28;margin-bottom:1.25rem;">Pages</p>
-        <div style="display:flex;flex-direction:column;gap:0.75rem;font-family:'Geist',sans-serif;font-size:0.875rem;font-weight:500;opacity:0.6;">
-          <a href="../services.html" style="color:inherit;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">Services</a>
-          <a href="../about.html" style="color:inherit;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">About</a>
-          <a href="../contact.html" style="color:inherit;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">Contact</a>
-          <a href="../blog.html" style="color:inherit;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">Blog</a>
+        <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-5">Pages</p>
+        <div class="flex flex-col gap-3 text-sm font-geist font-medium opacity-60">
+          <a href="../services.html" class="hover:opacity-100 transition-opacity">Services</a>
+          <a href="../about.html" class="hover:opacity-100 transition-opacity">About</a>
+          <a href="../contact.html" class="hover:opacity-100 transition-opacity">Contact</a>
+          <a href="../blog.html" class="hover:opacity-100 transition-opacity">Blog</a>
+          <a href="../privacy.html" class="hover:opacity-100 transition-opacity">Privacy</a>
         </div>
       </div>
       <div class="md:col-span-4">
-        <p style="font-family:'Geist',sans-serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.28;margin-bottom:1.25rem;">Connect</p>
-        <div style="display:flex;flex-direction:column;gap:0.75rem;font-family:'Geist',sans-serif;font-size:0.875rem;font-weight:500;opacity:0.6;">
-          <a href="#" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'"><iconify-icon icon="solar:arrow-right-up-linear" style="font-size:1rem;"></iconify-icon> Instagram</a>
-          <a href="#" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'"><iconify-icon icon="solar:arrow-right-up-linear" style="font-size:1rem;"></iconify-icon> LinkedIn</a>
-          <a href="mailto:hello@verdantvirtual.co.uk" style="color:inherit;text-decoration:none;font-size:0.75rem;opacity:0.4;margin-top:0.25rem;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.4'">hello@verdantvirtual.co.uk</a>
+        <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-5">Connect</p>
+        <div class="flex flex-col gap-3 text-sm font-geist font-medium opacity-60">
+          <a href="#" class="hover:opacity-100 transition-opacity flex items-center gap-2"><iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon> Instagram</a>
+          <a href="#" class="hover:opacity-100 transition-opacity flex items-center gap-2"><iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon> LinkedIn</a>
+          <a href="mailto:hello@verdantvirtual.co.uk" class="hover:opacity-100 transition-opacity text-xs opacity-40 normal-case mt-1">hello@verdantvirtual.co.uk</a>
         </div>
       </div>
     </div>
-    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-white/10 pt-6" style="font-family:'Geist',sans-serif;font-size:0.75rem;opacity:0.38;">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-white/10 pt-6 text-xs font-geist opacity-40">
       <span>© 2026 Verdant Virtual</span>
-      <a href="https://lynck.studio" target="_blank" style="color:inherit;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Built by Lynck Studio</a>
+      <a href="https://lynck.studio" target="_blank" class="hover:opacity-70 transition-opacity">Built by Lynck Studio</a>
     </div>
   </div>
 </footer>
