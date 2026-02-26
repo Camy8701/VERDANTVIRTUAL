@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Verdant Virtual</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+body { font-family: 'Inter', sans-serif; }
+:root { --mouse-x: 0px; --mouse-y: 0px; }
+@keyframes sonar { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(2.5); opacity: 0; } }
+.sonar-ring { position: absolute; inset: 0; border-radius: 50%; border: 1px solid currentColor; animation: sonar 2s cubic-bezier(0, 0, 0.2, 1) infinite; pointer-events: none; }
+@keyframes beam { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+.btn-beam { position: relative; z-index: 1; }
+.btn-beam::before { content: ''; position: absolute; inset: -1px; border-radius: inherit; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent); background-size: 200% 100%; animation: beam 2s linear infinite; opacity: 0; transition: opacity 0.3s ease; z-index: -1; -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding: 1px; }
+.dark-btn.btn-beam::before { background: linear-gradient(90deg, transparent, rgba(0,0,0,0.3), transparent); }
+.btn-beam:hover::before { opacity: 1; }
+.card-flashlight { position: relative; border-radius: 1rem; background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(0, 0, 0, 0.05); overflow: hidden; transition: transform 0.3s ease; }
+.dark-section .card-flashlight { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); }
+.card-flashlight::before { content: ""; position: absolute; inset: 0; background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.8), transparent 40%); z-index: 0; opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+.dark-section .card-flashlight::before { background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.08), transparent 40%); }
+.card-flashlight::after { content: ""; position: absolute; inset: 0; padding: 1px; border-radius: inherit; background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(0,0,0,0.15), transparent 40%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; z-index: 1; opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+.dark-section .card-flashlight::after { background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.4), transparent 40%); }
+.card-flashlight:hover::before, .card-flashlight:hover::after { opacity: 1; }
+.card-content { position: relative; z-index: 2; }
+.section-container { position: relative; }
+.gradient-border-btn { position: relative; isolation: isolate; padding: 3px; border-radius: 10px; overflow: hidden; background-color: transparent; }
+.gradient-border-btn .cp-border { position: absolute; top: 0; left: 0; height: 100%; width: 400%; background: linear-gradient(115deg, rgb(45,106,79), rgb(212,168,83), rgb(74,160,120), rgb(45,106,79), rgb(212,168,83)) 0% 0% / 25% 100%; transform: translateX(-5%); z-index: 0; transition: transform .25s ease-out; }
+/* Form styles */
+.form-input {
+  width: 100%; background: rgba(255,255,255,0.5); border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 0.75rem; padding: 0.875rem 1rem; font-size: 0.875rem;
+  font-family: 'Geist', sans-serif; color: #2C2824; transition: border-color 0.2s ease;
+  outline: none;
+}
+.form-input:focus { border-color: #2D6A4F; background: rgba(255,255,255,0.8); }
+.form-input::placeholder { color: #2C2824; opacity: 0.35; }
+select.form-input { cursor: pointer; }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+<style>.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
+<style>.font-geist { font-family: 'Geist', sans-serif !important; }</style>
+</head>
+<body class="bg-[#F2EFEA] text-[#2C2824] antialiased selection:bg-[#2C2824] selection:text-[#F2EFEA]">
+
+  <!-- Vertical Container Lines -->
+  <div class="fixed inset-0 pointer-events-none z-50 flex justify-center w-full mix-blend-multiply opacity-[0.04]">
+    <div class="w-full max-w-[88rem] h-full flex justify-between px-6 lg:px-12">
+      <div class="w-px h-full bg-current"></div>
+      <div class="w-px h-full bg-current hidden md:block"></div>
+      <div class="w-px h-full bg-current hidden lg:block"></div>
+      <div class="w-px h-full bg-current"></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <!-- Navigation -->
+  <div class="fixed top-0 left-0 right-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mt-4 rounded-2xl border border-black/10 bg-[#F2EFEA]/85 backdrop-blur-md shadow-sm">
+        <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <iconify-icon icon="solar:leaf-bold-duotone" class="text-2xl text-[#2D6A4F] transition-transform group-hover:scale-110"></iconify-icon>
+            <span class="text-lg tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
+            <a href="services.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Services</a>
+            <a href="about.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">About</a>
+            <a href="contact.html" class="font-medium text-[#2D6A4F] font-geist">Contact</a>
+          </nav>
+          <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn" onmouseenter="this.dataset.h='1'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .75s linear'; let dir=0; (function loop(){ if (this.dataset.h!=='1') return; dir = dir===0 ? -25 : 0; g.style.transform='translateX('+dir+'%)'; setTimeout(loop.bind(this),750); }).call(this);" onmouseleave="this.dataset.h='0'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .25s ease-out'; g.style.transform='translateX(-5%)';">
+            <div class="cp-border" aria-hidden="true"></div>
+            <span style="position:relative;display:block;padding:0.5rem 0.85rem;font-size:0.875rem;background:#2D6A4F;border-radius:8px;height:100%;z-index:1;" class="font-geist">Book a Discovery Call</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="pt-20 pb-16 section-container">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+      <div>
+        <p class="text-xs uppercase tracking-widest opacity-40 mb-6 font-geist">Get in touch</p>
+        <h1 class="text-5xl md:text-6xl lg:text-7xl tracking-tighter font-jakarta font-light mb-6">Let's talk about<br>what you need.</h1>
+        <p class="text-lg opacity-70 font-geist leading-relaxed max-w-md">
+          A 30-minute discovery call. No obligation, no sales deck. Just an honest conversation to understand your business and whether I can genuinely help.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="card-flashlight p-6 text-center">
+          <div class="card-content">
+            <p class="text-2xl mb-3">🕐</p>
+            <p class="font-medium font-geist text-sm mb-1">30 minutes</p>
+            <p class="text-xs opacity-50 font-geist">Focused, no fluff, genuinely useful</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-6 text-center">
+          <div class="card-content">
+            <p class="text-2xl mb-3">📹</p>
+            <p class="font-medium font-geist text-sm mb-1">Zoom or Google Meet</p>
+            <p class="text-xs opacity-50 font-geist">You choose what works</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-6 text-center">
+          <div class="card-content">
+            <p class="text-2xl mb-3">👋</p>
+            <p class="font-medium font-geist text-sm mb-1">No obligation</p>
+            <p class="text-xs opacity-50 font-geist">If we're not the right fit, I'll say so</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section class="py-16 section-container border-t border-black/8">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-16">
+
+      <!-- Option 1: Book directly (Calendly) -->
+      <div>
+        <p class="text-xs uppercase tracking-widest opacity-40 mb-6 font-geist">Option 1 — Book directly</p>
+        <!-- Calendly inline widget placeholder -->
+        <div class="bg-white/50 backdrop-blur-sm border border-black/8 rounded-2xl h-[500px] flex flex-col items-center justify-center gap-4 text-center px-8" id="calendly-container">
+          <div class="relative text-[#2D6A4F] mb-2">
+            <iconify-icon icon="solar:calendar-add-linear" class="text-5xl opacity-60"></iconify-icon>
+            <div class="sonar-ring" style="inset: 8px;"></div>
+          </div>
+          <p class="font-geist font-medium opacity-70">Book your 30-minute discovery call</p>
+          <p class="text-sm font-geist opacity-40 max-w-xs leading-relaxed">Pick a time that works for you — no chasing, no back and forth.</p>
+          <a href="https://calendly.com" target="_blank" class="btn-beam dark-btn mt-4 inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium font-geist">
+            Open Calendly
+            <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+          </a>
+          <p class="text-xs opacity-30 font-geist">Add your Calendly embed script to activate inline booking</p>
+        </div>
+      </div>
+
+      <!-- Option 2: Send a message -->
+      <div>
+        <p class="text-xs uppercase tracking-widest opacity-40 mb-6 font-geist">Option 2 — Send a message</p>
+        <p class="text-sm opacity-60 font-geist leading-relaxed mb-8">
+          Prefer to send a message first? Tell me a bit about your business and what you're looking for.
+        </p>
+        <form action="#" method="POST" class="space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-geist opacity-50 uppercase tracking-wide mb-2">First Name</label>
+              <input type="text" name="first_name" placeholder="Sarah" class="form-input" required>
+            </div>
+            <div>
+              <label class="block text-xs font-geist opacity-50 uppercase tracking-wide mb-2">Last Name</label>
+              <input type="text" name="last_name" placeholder="Connor" class="form-input" required>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-geist opacity-50 uppercase tracking-wide mb-2">Email Address</label>
+            <input type="email" name="email" placeholder="sarah@yourbusiness.com" class="form-input" required>
+          </div>
+          <div>
+            <label class="block text-xs font-geist opacity-50 uppercase tracking-wide mb-2">Your Business / Website</label>
+            <input type="text" name="business" placeholder="yourbusiness.com" class="form-input">
+          </div>
+          <div>
+            <label class="block text-xs font-geist opacity-50 uppercase tracking-wide mb-2">What kind of support are you looking for?</label>
+            <select name="support_type" class="form-input">
+              <option value="" disabled selected>Select the best fit…</option>
+              <option value="growth">Growth Operations (leads, CRM, outreach)</option>
+              <option value="systems">Systems &amp; Operations (workflows, SOPs, automation)</option>
+              <option value="execution">Execution &amp; Support (admin, social, email, launches)</option>
+              <option value="mix">A mix of everything above</option>
+              <option value="unsure">I'm not sure yet — that's what the call is for</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-geist opacity-50 uppercase tracking-wide mb-2">Tell me a bit about where things stand</label>
+            <textarea name="message" rows="4" placeholder="What's working, what's falling through the cracks, what you're hoping to change — even rough notes are fine." class="form-input resize-none"></textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-geist opacity-50 uppercase tracking-wide mb-2">How did you find Verdant Virtual?</label>
+            <input type="text" name="referral" placeholder="Instagram, word of mouth, LinkedIn…" class="form-input">
+          </div>
+          <button type="submit" class="btn-beam dark-btn w-full inline-flex items-center justify-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3.5 rounded-full text-sm font-medium font-geist mt-2 hover:bg-[#1a1612] transition-colors">
+            Send Message →
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- What Happens Next (Dark) -->
+  <section class="bg-[#26221E] text-[#F2EFEA] py-32 section-container dark-section">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
+      <h2 class="text-5xl md:text-6xl tracking-tighter font-jakarta font-light mb-20">What happens after<br>you reach out</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="card-flashlight p-7">
+          <div class="card-content">
+            <p class="text-xs font-geist opacity-30 mb-4">01</p>
+            <h3 class="font-medium tracking-tight mb-3 font-geist">You get a calendar link</h3>
+            <p class="text-sm opacity-50 leading-relaxed font-geist">Pick a time that actually works for you — no chasing, no back and forth.</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-7">
+          <div class="card-content">
+            <p class="text-xs font-geist opacity-30 mb-4">02</p>
+            <h3 class="font-medium tracking-tight mb-3 font-geist">A short prep form arrives</h3>
+            <p class="text-sm opacity-50 leading-relaxed font-geist">Three or four questions to make your 30 minutes genuinely useful rather than spent on introductions.</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-7">
+          <div class="card-content">
+            <p class="text-xs font-geist opacity-30 mb-4">03</p>
+            <h3 class="font-medium tracking-tight mb-3 font-geist">We have an honest conversation</h3>
+            <p class="text-sm opacity-50 leading-relaxed font-geist">No pitch, no pressure. Just a real discussion about your business, your friction points, and whether I can help.</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-7">
+          <div class="card-content">
+            <p class="text-xs font-geist text-[#2D6A4F] mb-4 font-medium">04</p>
+            <h3 class="font-medium tracking-tight mb-3 font-geist">A clear proposal within 48 hours</h3>
+            <p class="text-sm opacity-50 leading-relaxed font-geist">If there's a fit, you'll receive a scope and proposal within two working days. No vagueness, no surprises.</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 p-6 border border-white/8 rounded-xl max-w-2xl">
+        <p class="text-sm opacity-40 font-geist leading-relaxed italic">
+          A note on fit: I take on a small number of clients so I can go deep rather than spread thin. If after our call I don't think I'm the right support for where you are right now, I'll tell you — and I'll do my best to point you toward someone who is.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Direct Contact Details -->
+  <section class="py-24 section-container border-b border-black/8">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card-flashlight p-8 group">
+          <div class="card-content">
+            <iconify-icon icon="solar:letter-linear" class="text-2xl text-[#2D6A4F] mb-4 opacity-70"></iconify-icon>
+            <p class="text-xs font-geist opacity-40 uppercase tracking-widest mb-3">Email</p>
+            <a href="mailto:hello@verdantvirtual.co.uk" class="font-medium font-geist text-sm hover:text-[#2D6A4F] transition-colors block mb-2">hello@verdantvirtual.co.uk</a>
+            <p class="text-xs opacity-40 font-geist">I aim to respond within 24 hours</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-8 group">
+          <div class="card-content">
+            <iconify-icon icon="solar:instagram-linear" class="text-2xl text-[#2D6A4F] mb-4 opacity-70"></iconify-icon>
+            <p class="text-xs font-geist opacity-40 uppercase tracking-widest mb-3">Instagram</p>
+            <a href="#" class="font-medium font-geist text-sm hover:text-[#2D6A4F] transition-colors block mb-2">@verdant.virtual</a>
+            <p class="text-xs opacity-40 font-geist">DMs welcome</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-8 group">
+          <div class="card-content">
+            <iconify-icon icon="solar:map-point-linear" class="text-2xl text-[#2D6A4F] mb-4 opacity-70"></iconify-icon>
+            <p class="text-xs font-geist opacity-40 uppercase tracking-widest mb-3">Location</p>
+            <p class="font-medium font-geist text-sm mb-2">United Kingdom</p>
+            <p class="text-xs opacity-40 font-geist">Working with clients globally</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative overflow-hidden text-[#F2EFEA] section-container dark-section" style="background:#1a2218;border-top:1px solid rgba(255,255,255,0.08);">
+    <svg class="absolute w-0 h-0" aria-hidden="true"><filter id="footer-watercolor"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="12"/><feGaussianBlur stdDeviation="0.5"/></filter></svg>
+    <canvas id="footer-botanical" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;filter:url(#footer-watercolor);opacity:0.55;"></canvas>
+
+    <!-- Footer Content -->
+    <div class="relative z-10 pt-10 pb-8">
+      <!-- Aether-style Giant Brand Text -->
+      <div aria-hidden="true" class="text-center w-full px-2 select-none pointer-events-none" style="mask-image:linear-gradient(180deg,black 0%,black 60%,transparent 100%);-webkit-mask-image:linear-gradient(180deg,black 0%,black 60%,transparent 100%);">
+        <div class="font-jakarta font-bold" style="font-size:clamp(3.5rem,14.5vw,20rem);line-height:0.78;letter-spacing:-0.04em;color:#2A3E26;mix-blend-mode:screen;transform:scaleY(1.08);">VERDANT<br>VIRTUAL</div>
+      </div>
+      <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
+        <div class="md:col-span-5">
+          <p class="text-2xl font-jakarta font-light tracking-tight mb-4 opacity-90">Verdant Virtual</p>
+          <p class="text-sm opacity-50 font-geist leading-relaxed mb-3 max-w-xs">Growth &amp; Operations Partner for founders who need more than just an extra pair of hands. 8+ years executive experience across government, film, and creative industries.</p>
+          <p class="text-xs opacity-30 font-geist italic">Open to growth partnerships and affiliate collaborations.</p>
+        </div>
+        <div class="md:col-span-3">
+          <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-5">Pages</p>
+          <div class="flex flex-col gap-3 text-sm font-geist font-medium opacity-60">
+            <a href="services.html" class="hover:opacity-100 transition-opacity">Services</a>
+            <a href="about.html" class="hover:opacity-100 transition-opacity">About</a>
+            <a href="contact.html" class="hover:opacity-100 transition-opacity">Contact</a>
+            <a href="privacy.html" class="hover:opacity-100 transition-opacity">Privacy</a>
+          </div>
+        </div>
+        <div class="md:col-span-4">
+          <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-5">Connect</p>
+          <div class="flex flex-col gap-3 text-sm font-geist font-medium opacity-60">
+            <a href="#" class="hover:opacity-100 transition-opacity flex items-center gap-2"><iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon> Instagram</a>
+            <a href="#" class="hover:opacity-100 transition-opacity flex items-center gap-2"><iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon> LinkedIn</a>
+            <a href="mailto:hello@verdantvirtual.co.uk" class="hover:opacity-100 transition-opacity text-xs opacity-40 normal-case mt-1">hello@verdantvirtual.co.uk</a>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-[88rem] mx-auto px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-white/10 pt-6 text-xs font-geist opacity-40">
+        <span>© 2026 Verdant Virtual</span>
+        <a href="https://lynck.studio" target="_blank" class="hover:opacity-70 transition-opacity">Built by Lynck Studio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.card-flashlight');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+          card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+      });
+      // Form submission handler
+      const form = document.querySelector('form');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const btn = form.querySelector('button[type="submit"]');
+          btn.textContent = 'Message sent — thank you!';
+          btn.disabled = true;
+          btn.classList.add('opacity-60');
+        });
+      }
+    });
+  </script>
+  <script>
+  (function(){
+    const canvas=document.getElementById('footer-botanical');
+    if(!canvas)return;
+    const ctx=canvas.getContext('2d');
+    let w,h,stems=[],animId;
+    const petalColors=[{h:155,s:55,l:40},{h:140,s:40,l:52},{h:85,s:30,l:58},{h:45,s:35,l:62},{h:160,s:45,l:35}];
+    const stemColors=[{h:155,s:45,l:22},{h:140,s:35,l:28},{h:120,s:28,l:32}];
+    class Stem{
+      constructor(){
+        this.x=Math.random()*w;
+        this.baseY=h+10;
+        this.height=h*(0.3+Math.random()*0.5);
+        this.sway=Math.random()*40-20;
+        this.segments=12;
+        this.color=stemColors[Math.floor(Math.random()*stemColors.length)];
+        this.thickness=0.8+Math.random()*1.2;
+        this.grown=0;
+        this.speed=0.004+Math.random()*0.006;
+        this.branches=[];
+        this.addBranches();
+      }
+      addBranches(){
+        const n=2+Math.floor(Math.random()*3);
+        for(let i=0;i<n;i++){
+          const t=0.3+Math.random()*0.6;
+          this.branches.push({t,dir:Math.random()>0.5?1:-1,len:0.3+Math.random()*0.4,petals:this.randomPetals()});
+        }
+      }
+      randomPetals(){
+        const c=petalColors[Math.floor(Math.random()*petalColors.length)];
+        return{color:c,count:5+Math.floor(Math.random()*4),size:6+Math.random()*10};
+      }
+      tipAt(t){
+        const y=this.baseY-this.height*t;
+        const x=this.x+this.sway*Math.sin(t*Math.PI);
+        return{x,y};
+      }
+      draw(){
+        ctx.save();
+        ctx.strokeStyle=`hsla(${this.color.h},${this.color.s}%,${this.color.l}%,0.25)`;
+        ctx.lineWidth=this.thickness;
+        ctx.lineCap='round';
+        ctx.beginPath();
+        ctx.moveTo(this.x,this.baseY);
+        const steps=20;
+        const g=Math.min(this.grown,1);
+        for(let i=1;i<=steps;i++){
+          const t=(i/steps)*g;
+          const p=this.tipAt(t);
+          ctx.lineTo(p.x,p.y);
+        }
+        ctx.stroke();
+        for(const b of this.branches){
+          if(this.grown<b.t)continue;
+          const bp=this.tipAt(b.t);
+          const ep=this.tipAt(Math.min(b.t+0.15,1));
+          const angle=Math.atan2(ep.y-bp.y,ep.x-bp.x)+b.dir*0.9;
+          const bl=this.height*b.len*Math.min((this.grown-b.t)/0.3,1);
+          ctx.beginPath();
+          ctx.moveTo(bp.x,bp.y);
+          ctx.lineTo(bp.x+Math.cos(angle)*bl,bp.y+Math.sin(angle)*bl);
+          ctx.stroke();
+          if(this.grown>b.t+0.25){
+            this.drawFlower(bp.x+Math.cos(angle)*bl,bp.y+Math.sin(angle)*bl,b.petals,Math.min((this.grown-b.t-0.25)/0.3,1));
+          }
+        }
+        if(this.grown>=0.95){this.drawFlower(this.tipAt(1).x,this.tipAt(1).y,this.branches[0]?.petals||{color:petalColors[0],count:6,size:8},Math.min((this.grown-0.95)/0.05,1));}
+        ctx.restore();
+        this.grown+=this.speed;
+      }
+      drawFlower(fx,fy,p,alpha){
+        if(alpha<=0)return;
+        ctx.save();
+        for(let i=0;i<p.count;i++){
+          const angle=(i/p.count)*Math.PI*2;
+          ctx.fillStyle=`hsla(${p.color.h},${p.color.s}%,${p.color.l}%,${0.07*alpha})`;
+          ctx.beginPath();
+          ctx.ellipse(fx+Math.cos(angle)*p.size*0.6,fy+Math.sin(angle)*p.size*0.6,p.size,p.size*0.45,angle,0,Math.PI*2);
+          ctx.fill();
+        }
+        ctx.fillStyle=`rgba(212,168,83,${0.2*alpha})`;
+        ctx.beginPath();
+        ctx.arc(fx,fy,p.size*0.2,0,Math.PI*2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+    function init(){
+      if(animId)cancelAnimationFrame(animId);
+      const rect=canvas.parentElement.getBoundingClientRect();
+      w=canvas.width=rect.width||800;
+      h=canvas.height=rect.height||400;
+      stems=[];
+      const n=Math.max(6,Math.floor(w/120));
+      for(let i=0;i<n;i++)stems.push(new Stem());
+      draw();
+    }
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      for(const s of stems)s.draw();
+      if(stems.some(s=>s.grown<2))animId=requestAnimationFrame(draw);
+    }
+    new ResizeObserver(init).observe(canvas.parentElement);
+    init();
+  })();
+  </script>
+</body>
+</html>

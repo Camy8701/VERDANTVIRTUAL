@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Hannah — Verdant Virtual</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+body { font-family: 'Inter', sans-serif; }
+:root { --mouse-x: 0px; --mouse-y: 0px; }
+@keyframes slideDownLetter { 0% { transform: translateY(-120%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+.clip-text-container { display: inline-flex; overflow: hidden; vertical-align: bottom; }
+.animate-letter { display: inline-block; transform: translateY(-120%); opacity: 0; animation: slideDownLetter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes beam { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+.btn-beam { position: relative; z-index: 1; }
+.btn-beam::before { content: ''; position: absolute; inset: -1px; border-radius: inherit; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent); background-size: 200% 100%; animation: beam 2s linear infinite; opacity: 0; transition: opacity 0.3s ease; z-index: -1; -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding: 1px; }
+.dark-btn.btn-beam::before { background: linear-gradient(90deg, transparent, rgba(0,0,0,0.3), transparent); }
+.btn-beam:hover::before { opacity: 1; }
+@keyframes sonar { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(2.5); opacity: 0; } }
+.sonar-ring { position: absolute; inset: 0; border-radius: 50%; border: 1px solid currentColor; animation: sonar 2s cubic-bezier(0, 0, 0.2, 1) infinite; pointer-events: none; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.marquee-mask { mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
+.animate-marquee { display: flex; width: max-content; animation: marquee 25s linear infinite; }
+.card-flashlight { position: relative; border-radius: 1rem; background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(0, 0, 0, 0.05); overflow: hidden; transition: transform 0.3s ease; }
+.dark-section .card-flashlight { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); }
+.card-flashlight::before { content: ""; position: absolute; inset: 0; background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.8), transparent 40%); z-index: 0; opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+.dark-section .card-flashlight::before { background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.08), transparent 40%); }
+.card-flashlight::after { content: ""; position: absolute; inset: 0; padding: 1px; border-radius: inherit; background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(0,0,0,0.15), transparent 40%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; z-index: 1; opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+.dark-section .card-flashlight::after { background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.4), transparent 40%); }
+.card-flashlight:hover::before, .card-flashlight:hover::after { opacity: 1; }
+.card-content { position: relative; z-index: 2; }
+.section-container { position: relative; }
+.gradient-border-btn { position: relative; isolation: isolate; padding: 3px; border-radius: 10px; overflow: hidden; background-color: transparent; }
+.gradient-border-btn .cp-border { position: absolute; top: 0; left: 0; height: 100%; width: 400%; background: linear-gradient(115deg, rgb(45,106,79), rgb(212,168,83), rgb(74,160,120), rgb(45,106,79), rgb(212,168,83)) 0% 0% / 25% 100%; transform: translateX(-5%); z-index: 0; transition: transform .25s ease-out; }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+<style>.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
+<style>.font-geist { font-family: 'Geist', sans-serif !important; }</style>
+</head>
+<body class="bg-[#F2EFEA] text-[#2C2824] antialiased selection:bg-[#2C2824] selection:text-[#F2EFEA]">
+
+  <!-- Vertical Container Lines -->
+  <div class="fixed inset-0 pointer-events-none z-50 flex justify-center w-full mix-blend-multiply opacity-[0.04]">
+    <div class="w-full max-w-[88rem] h-full flex justify-between px-6 lg:px-12">
+      <div class="w-px h-full bg-current"></div>
+      <div class="w-px h-full bg-current hidden md:block"></div>
+      <div class="w-px h-full bg-current hidden lg:block"></div>
+      <div class="w-px h-full bg-current"></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <!-- Navigation -->
+  <div class="fixed top-0 left-0 right-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mt-4 rounded-2xl border border-black/10 bg-[#F2EFEA]/85 backdrop-blur-md shadow-sm">
+        <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <iconify-icon icon="solar:leaf-bold-duotone" class="text-2xl text-[#2D6A4F] transition-transform group-hover:scale-110"></iconify-icon>
+            <span class="text-lg tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
+            <a href="services.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Services</a>
+            <a href="about.html" class="font-medium text-[#2D6A4F] font-geist">About</a>
+            <a href="contact.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Contact</a>
+          </nav>
+          <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn" onmouseenter="this.dataset.h='1'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .75s linear'; let dir=0; (function loop(){ if (this.dataset.h!=='1') return; dir = dir===0 ? -25 : 0; g.style.transform='translateX('+dir+'%)'; setTimeout(loop.bind(this),750); }).call(this);" onmouseleave="this.dataset.h='0'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .25s ease-out'; g.style.transform='translateX(-5%)';">
+            <div class="cp-border" aria-hidden="true"></div>
+            <span style="position:relative;display:block;padding:0.5rem 0.85rem;font-size:0.875rem;background:#2D6A4F;border-radius:8px;height:100%;z-index:1;" class="font-geist">Book a Discovery Call</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="relative pt-24 pb-20 min-h-[80vh] flex flex-col justify-between overflow-hidden section-container">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full relative z-10 flex-grow flex flex-col justify-center">
+      <p class="text-xs uppercase tracking-widest opacity-40 mb-8 font-geist">About</p>
+      <h1 class="text-7xl md:text-9xl lg:text-[12rem] font-medium tracking-tighter leading-none mb-8 flex flex-wrap">
+        <span class="flex">
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay:0.1s">H</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay:0.15s">a</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay:0.2s">n</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay:0.25s">n</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay:0.3s">a</span></span>
+          <span class="clip-text-container"><span class="animate-letter font-jakarta font-light" style="animation-delay:0.35s">h</span></span>
+        </span>
+      </h1>
+      <p class="text-2xl md:text-3xl font-jakarta font-light italic opacity-60 mb-10 max-w-2xl">
+        Growth &amp; Operations Partner for founders who need more than just an extra pair of hands.
+      </p>
+      <div class="flex flex-wrap gap-3 mb-10">
+        <span class="inline-flex items-center gap-2 bg-white/60 border border-black/8 px-4 py-2 rounded-full text-xs font-geist font-medium">📍 UK Based</span>
+        <span class="inline-flex items-center gap-2 bg-white/60 border border-black/8 px-4 py-2 rounded-full text-xs font-geist font-medium">🌐 Remote First</span>
+        <span class="inline-flex items-center gap-2 bg-white/60 border border-black/8 px-4 py-2 rounded-full text-xs font-geist font-medium">📅 8+ Years EA Experience</span>
+      </div>
+      <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium w-fit">
+        <span class="font-geist">Book a Discovery Call</span>
+        <iconify-icon icon="solar:arrow-right-up-linear" class="text-lg"></iconify-icon>
+      </a>
+    </div>
+
+    <!-- Hero portrait -->
+    <div class="absolute right-0 top-0 bottom-0 w-1/3 hidden lg:block overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" alt="Hannah — Verdant Virtual" class="w-full h-full object-cover object-top mix-blend-multiply opacity-60" style="mask-image: linear-gradient(to left, black 60%, transparent 100%);">
+      <div class="absolute bottom-8 left-8 card-flashlight p-4 max-w-xs">
+        <div class="card-content">
+          <p class="text-xs font-geist opacity-40 uppercase tracking-widest mb-2">Highlight</p>
+          <p class="text-sm font-geist opacity-80 leading-relaxed">Executive Assistant to senior government officials during New Zealand's Covid-19 response. Absolute trust and precision under pressure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hannah's Story -->
+  <section class="py-32 section-container border-t border-black/8">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+
+        <!-- Left: label + stats -->
+        <div class="lg:col-span-4">
+          <p class="text-xs uppercase tracking-widest opacity-40 mb-8 font-geist">The story</p>
+          <h2 class="text-5xl md:text-6xl tracking-tighter font-jakarta font-light mb-12">Where I've been.<br>Why I do this.</h2>
+          <div class="space-y-8">
+            <div class="border-b border-black/8 pb-8">
+              <p class="text-4xl font-jakarta font-light tracking-tighter mb-1">8+</p>
+              <p class="text-sm opacity-50 font-geist">Years EA Experience</p>
+            </div>
+            <div class="border-b border-black/8 pb-8">
+              <p class="text-4xl font-jakarta font-light tracking-tighter mb-1">3</p>
+              <p class="text-sm opacity-50 font-geist">Continents Worked</p>
+            </div>
+            <div>
+              <p class="text-4xl font-jakarta font-light tracking-tighter mb-1">1st</p>
+              <p class="text-sm opacity-50 font-geist">Class Honours Degree</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: story text -->
+        <div class="lg:col-span-8">
+          <div class="space-y-6 text-lg font-jakarta font-light opacity-80 leading-relaxed">
+            <p>I built a career supporting people who were doing genuinely important, high-stakes work — and I got very good at making sure that work wasn't lost to operational friction.</p>
+            <p>My background spans government executive support, documentary film production, and the creative industries. During New Zealand's Covid-19 response, I worked as Executive Assistant to senior government officials — where the stakes were real, the pace was relentless, and the margin for error was zero. It taught me what operational precision actually looks like under pressure.</p>
+            <p>After that, I worked in production support on a David Attenborough documentary series — an experience that reinforced everything I believe about what makes complex, multi-stakeholder projects succeed. It's rarely the ideas that fail. It's the execution infrastructure around them.</p>
+            <p>I have a first-class Honours degree in Anthropology — which might seem an unusual foundation for an operations career, but it shapes how I think. Understanding how people work, what creates friction in systems, and how organisations behave under stress has made me a better operational partner than any process certification ever could.</p>
+            <p>I created Verdant Virtual because I kept watching talented founders spend their energy managing operational load that didn't need to be theirs. The name comes from something I believe: growth requires the right conditions. You can't force it. But you can tend it.</p>
+          </div>
+          <div class="mt-12 p-8 border-l-2 border-[#2D6A4F]">
+            <p class="text-2xl font-jakarta font-light italic opacity-70 leading-relaxed">"Growth doesn't happen in chaos. It happens when things are well tended."</p>
+          </div>
+          <a href="services.html" class="inline-flex items-center gap-2 mt-6 text-sm font-geist opacity-50 hover:opacity-100 transition-opacity">
+            Explore how I work
+            <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lifestyle Split -->
+  <section class="grid grid-cols-1 md:grid-cols-2 h-[70vh] w-full">
+    <div class="relative overflow-hidden group">
+      <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1600&auto=format&fit=crop" alt="Hannah working" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+      <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
+    </div>
+    <div class="relative overflow-hidden bg-[#1C2B1E] flex items-center justify-center p-12 md:p-16">
+      <div class="max-w-sm">
+        <p class="text-xs uppercase tracking-widest opacity-40 mb-6 font-geist text-[#F2EFEA]">What I believe</p>
+        <p class="text-2xl md:text-3xl font-jakarta font-light italic text-[#F2EFEA] leading-relaxed opacity-80">
+          "A founder's most valuable resource isn't time. It's focused attention. My job is to protect both."
+        </p>
+      </div>
+      <div class="absolute bottom-8 right-8 text-[#2D6A4F]/60 pointer-events-none">
+        <iconify-icon icon="solar:leaf-bold-duotone" class="text-4xl"></iconify-icon>
+      </div>
+    </div>
+  </section>
+
+  <!-- What it's like working with me -->
+  <section class="py-32 section-container">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
+        <h2 class="text-6xl md:text-7xl tracking-tighter font-jakarta font-light">What it's like<br>working with me</h2>
+        <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium flex-shrink-0">
+          <span class="font-geist">Let's talk</span>
+          <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card-flashlight p-7 group cursor-pointer">
+          <div class="card-content">
+            <div class="w-8 h-8 rounded-full bg-[#2D6A4F]/10 flex items-center justify-center mb-5">
+              <iconify-icon icon="solar:eye-linear" class="text-[#2D6A4F] text-lg"></iconify-icon>
+            </div>
+            <h3 class="font-medium tracking-tight mb-3 font-geist">Transparent, always</h3>
+            <p class="text-sm opacity-60 leading-relaxed font-geist">You always know exactly what's been done, what's in progress, and what's coming next. No vague updates, no missing context, no surprises.</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-7 group cursor-pointer">
+          <div class="card-content">
+            <div class="w-8 h-8 rounded-full bg-[#2D6A4F]/10 flex items-center justify-center mb-5">
+              <iconify-icon icon="solar:shield-linear" class="text-[#2D6A4F] text-lg"></iconify-icon>
+            </div>
+            <h3 class="font-medium tracking-tight mb-3 font-geist">Precision under pressure</h3>
+            <p class="text-sm opacity-60 leading-relaxed font-geist">My government background means I'm used to working where mistakes have real consequences. I bring that same level of care to every client I work with.</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-7 group cursor-pointer">
+          <div class="card-content">
+            <div class="w-8 h-8 rounded-full bg-[#2D6A4F]/10 flex items-center justify-center mb-5">
+              <iconify-icon icon="solar:heart-linear" class="text-[#2D6A4F] text-lg"></iconify-icon>
+            </div>
+            <h3 class="font-medium tracking-tight mb-3 font-geist">Genuinely invested</h3>
+            <p class="text-sm opacity-60 leading-relaxed font-geist">I work with a small number of clients so I can go deep rather than wide. When I take something on, I treat it as if it's my own business on the line.</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-7 group cursor-pointer">
+          <div class="card-content">
+            <div class="w-8 h-8 rounded-full bg-[#2D6A4F]/10 flex items-center justify-center mb-5">
+              <iconify-icon icon="solar:settings-minimalistic-linear" class="text-[#2D6A4F] text-lg"></iconify-icon>
+            </div>
+            <h3 class="font-medium tracking-tight mb-3 font-geist">Thinks in systems</h3>
+            <p class="text-sm opacity-60 leading-relaxed font-geist">I don't just complete tasks — I look at the process around the task. Why is it taking this long? What breaks down when it fails? How do we prevent that?</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-7 group cursor-pointer">
+          <div class="card-content">
+            <div class="w-8 h-8 rounded-full bg-[#2D6A4F]/10 flex items-center justify-center mb-5">
+              <iconify-icon icon="solar:chat-round-linear" class="text-[#2D6A4F] text-lg"></iconify-icon>
+            </div>
+            <h3 class="font-medium tracking-tight mb-3 font-geist">Communicates clearly</h3>
+            <p class="text-sm opacity-60 leading-relaxed font-geist">No jargon, no over-explaining, no unnecessary back-and-forth. I ask what I need to ask, give you what you need to know, and get on with it.</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-7 group cursor-pointer">
+          <div class="card-content">
+            <div class="w-8 h-8 rounded-full bg-[#2D6A4F]/10 flex items-center justify-center mb-5">
+              <iconify-icon icon="solar:refresh-linear" class="text-[#2D6A4F] text-lg"></iconify-icon>
+            </div>
+            <h3 class="font-medium tracking-tight mb-3 font-geist">Adaptable by nature</h3>
+            <p class="text-sm opacity-60 leading-relaxed font-geist">Government, film, creative industries — I've moved between very different environments and adjusted quickly each time. Your business is unique; I adapt to it, not the other way around.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <section class="bg-[#1A1714] text-[#F2EFEA] py-8 overflow-hidden marquee-mask">
+    <div class="animate-marquee flex items-center gap-8 text-5xl md:text-7xl font-medium tracking-tighter whitespace-nowrap opacity-20">
+      <span class="font-jakarta font-light">LEAD GENERATION</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">SYSTEMS &amp; OPERATIONS</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">EXECUTIVE SUPPORT</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">GROWTH PARTNERSHIPS</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">LEAD GENERATION</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">SYSTEMS &amp; OPERATIONS</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">EXECUTIVE SUPPORT</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">GROWTH PARTNERSHIPS</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+    </div>
+  </section>
+
+  <!-- Background & Experience (Dark) -->
+  <section class="bg-[#26221E] text-[#F2EFEA] py-32 section-container dark-section">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
+      <div class="flex justify-between items-end mb-20 border-b border-white/10 pb-8">
+        <h2 class="text-6xl md:text-7xl tracking-tighter font-jakarta font-light">Background &amp;<br>Experience</h2>
+        <p class="text-xl tracking-tight opacity-30 font-jakarta font-light">Timeline</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="card-flashlight p-8 group cursor-pointer">
+          <div class="card-content">
+            <span class="text-xs font-geist opacity-40 uppercase tracking-widest mb-4 block">Government</span>
+            <h3 class="text-xl font-jakarta font-light mb-4">NZ Government EA</h3>
+            <p class="text-sm opacity-60 leading-relaxed font-geist">Senior EA support to government officials during the Covid-19 response — managing critical communications, briefings, and logistics during one of New Zealand's most high-stakes periods. Absolute discretion, precision, and reliability under relentless pressure.</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-8 group cursor-pointer">
+          <div class="card-content">
+            <span class="text-xs font-geist opacity-40 uppercase tracking-widest mb-4 block">Film &amp; Media</span>
+            <h3 class="text-xl font-jakarta font-light mb-4">David Attenborough Documentary</h3>
+            <p class="text-sm opacity-60 leading-relaxed font-geist">Operational and administrative support on a flagship Attenborough nature documentary — coordinating across production teams, managing schedules, and ensuring the logistical infrastructure supported the creative work at every stage.</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-8 group cursor-pointer">
+          <div class="card-content">
+            <span class="text-xs font-geist opacity-40 uppercase tracking-widest mb-4 block">Education</span>
+            <h3 class="text-xl font-jakarta font-light mb-4">First-Class Honours — Anthropology</h3>
+            <p class="text-sm opacity-60 leading-relaxed font-geist">A first-class degree with a research focus that developed strong analytical thinking, systems awareness, and an understanding of how people and organisations behave. The intellectual foundation behind everything I do operationally.</p>
+          </div>
+        </div>
+        <div class="card-flashlight p-8 group cursor-pointer">
+          <div class="card-content">
+            <span class="text-xs font-geist text-[#2D6A4F] uppercase tracking-widest mb-4 block font-medium">Now</span>
+            <h3 class="text-xl font-jakarta font-light mb-4">Verdant Virtual — Founder</h3>
+            <p class="text-sm opacity-60 leading-relaxed font-geist">Bringing everything I've built — the EA precision, the systems thinking, the cross-sector experience — to founders who need genuine operational partnership rather than task completion. Based in the UK, working remotely with clients globally.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-32 section-container bg-white/20">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 text-center">
+      <p class="text-xs uppercase tracking-widest opacity-40 mb-6 font-geist">Ready to start?</p>
+      <h2 class="text-6xl md:text-7xl tracking-tighter font-jakarta font-light mb-6">Let's build something<br>that actually runs.</h2>
+      <p class="text-lg opacity-60 font-geist max-w-xl mx-auto leading-relaxed mb-10">
+        A 30-minute conversation to understand your business and figure out whether we're the right fit. No pitch, no pressure — just an honest discussion.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium font-geist">
+          Book Discovery Call
+          <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+        </a>
+        <a href="services.html" class="btn-beam inline-flex items-center gap-2 border border-[#2C2824]/20 text-[#2C2824] px-6 py-3 rounded-full text-sm font-medium hover:bg-black/5 transition-colors font-geist">
+          View Services
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative overflow-hidden text-[#F2EFEA] section-container dark-section" style="background:#1a2218;border-top:1px solid rgba(255,255,255,0.08);">
+    <svg class="absolute w-0 h-0" aria-hidden="true"><filter id="footer-watercolor"><feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="12"/><feGaussianBlur stdDeviation="0.5"/></filter></svg>
+    <canvas id="footer-botanical" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;filter:url(#footer-watercolor);opacity:0.55;"></canvas>
+
+    <!-- Footer Content -->
+    <div class="relative z-10 pt-10 pb-8">
+      <!-- Aether-style Giant Brand Text -->
+      <div aria-hidden="true" class="text-center w-full px-2 select-none pointer-events-none" style="mask-image:linear-gradient(180deg,black 0%,black 60%,transparent 100%);-webkit-mask-image:linear-gradient(180deg,black 0%,black 60%,transparent 100%);">
+        <div class="font-jakarta font-bold" style="font-size:clamp(3.5rem,14.5vw,20rem);line-height:0.78;letter-spacing:-0.04em;color:#2A3E26;mix-blend-mode:screen;transform:scaleY(1.08);">VERDANT<br>VIRTUAL</div>
+      </div>
+      <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
+        <div class="md:col-span-5">
+          <p class="text-2xl font-jakarta font-light tracking-tight mb-4 opacity-90">Verdant Virtual</p>
+          <p class="text-sm opacity-50 font-geist leading-relaxed mb-3 max-w-xs">Growth &amp; Operations Partner for founders who need more than just an extra pair of hands. 8+ years executive experience across government, film, and creative industries.</p>
+          <p class="text-xs opacity-30 font-geist italic">Open to growth partnerships and affiliate collaborations.</p>
+        </div>
+        <div class="md:col-span-3">
+          <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-5">Pages</p>
+          <div class="flex flex-col gap-3 text-sm font-geist font-medium opacity-60">
+            <a href="services.html" class="hover:opacity-100 transition-opacity">Services</a>
+            <a href="about.html" class="hover:opacity-100 transition-opacity">About</a>
+            <a href="contact.html" class="hover:opacity-100 transition-opacity">Contact</a>
+            <a href="privacy.html" class="hover:opacity-100 transition-opacity">Privacy</a>
+          </div>
+        </div>
+        <div class="md:col-span-4">
+          <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-5">Connect</p>
+          <div class="flex flex-col gap-3 text-sm font-geist font-medium opacity-60">
+            <a href="#" class="hover:opacity-100 transition-opacity flex items-center gap-2"><iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon> Instagram</a>
+            <a href="#" class="hover:opacity-100 transition-opacity flex items-center gap-2"><iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon> LinkedIn</a>
+            <a href="mailto:hello@verdantvirtual.co.uk" class="hover:opacity-100 transition-opacity text-xs opacity-40 normal-case mt-1">hello@verdantvirtual.co.uk</a>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-[88rem] mx-auto px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-white/10 pt-6 text-xs font-geist opacity-40">
+        <span>© 2026 Verdant Virtual</span>
+        <a href="https://lynck.studio" target="_blank" class="hover:opacity-70 transition-opacity">Built by Lynck Studio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.card-flashlight');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+          card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+      });
+    });
+
+    // Botanical Footer Canvas
+    (function() {
+      const canvas = document.getElementById('footer-botanical');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w, h, stems = [], flowers = [], animId;
+      const petalColors = [{h:155,s:55,l:40},{h:140,s:40,l:52},{h:85,s:30,l:58},{h:45,s:35,l:62},{h:160,s:45,l:35}];
+      const stemColors = [{h:155,s:45,l:22},{h:140,s:35,l:28},{h:120,s:28,l:32}];
+      function resize() { const r = canvas.parentElement.getBoundingClientRect(); w = canvas.width = r.width; h = canvas.height = r.height; }
+      class Stem {
+        constructor(x) { this.x=x;this.y=h+5;this.curr=0;this.len=h*(0.25+Math.random()*0.45);this.color=stemColors[Math.floor(Math.random()*stemColors.length)];this.done=false;this.flowerType=Math.floor(Math.random()*4);this.segs=[];let cx=x,cy=h+5,ca=-Math.PI/2+(Math.random()-0.5)*0.35;for(let i=0;i<this.len/5;i++){ca+=(Math.random()-0.5)*0.12;cx+=Math.cos(ca)*5;cy+=Math.sin(ca)*5;this.segs.push({x:cx,y:cy});} }
+        draw() { if(this.curr<this.segs.length-1){const a=this.segs[Math.floor(this.curr)],b=this.segs[Math.floor(this.curr)+1];ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`hsla(${this.color.h},${this.color.s}%,${this.color.l}%,0.25)`;ctx.lineWidth=2*(1-this.curr/this.segs.length)+0.8;ctx.stroke();this.curr+=1.4;}else if(!this.done){this.done=true;flowers.push(new Flower(this.segs[this.segs.length-1],this.flowerType));} }
+      }
+      class Flower {
+        constructor(pos,type){this.x=pos.x;this.y=pos.y;this.type=type;this.age=0;this.max=90+Math.random()*50;this.clr=petalColors[Math.floor(Math.random()*petalColors.length)];this.petals=Array.from({length:type===0?12:6},(_,i)=>({a:(i/(type===0?12:6))*Math.PI*2,s:0.8+Math.random()*0.5}));}
+        draw(){if(this.age<this.max){this.age++;const grow=Math.min(1,this.age/65);this.petals.forEach(p=>{if(Math.random()>0.55)return;const r=(this.type===0?14:22)*grow;ctx.beginPath();ctx.ellipse(this.x+Math.cos(p.a)*r*0.5,this.y+Math.sin(p.a)*r*0.5,r*p.s,r*0.55,p.a,0,Math.PI*2);ctx.fillStyle=`hsla(${this.clr.h},${this.clr.s}%,${this.clr.l}%,0.07)`;ctx.fill();});if(this.age>35&&Math.random()>0.82){ctx.beginPath();ctx.arc(this.x,this.y,2.5*grow,0,Math.PI*2);ctx.fillStyle='rgba(212,168,83,0.2)';ctx.fill();}}}
+      }
+      function init(){resize();stems=Array.from({length:Math.floor(w/35)},()=>new Stem(Math.random()*w));flowers=[];ctx.clearRect(0,0,w,h);if(animId)cancelAnimationFrame(animId);loop();}
+      function loop(){let a=false;stems.forEach(s=>{s.draw();if(!s.done)a=true;});flowers.forEach(f=>{f.draw();if(f.age<f.max)a=true;});if(a)animId=requestAnimationFrame(loop);}
+      new ResizeObserver(init).observe(canvas.parentElement); init();
+    })();
+  </script>
+</body>
+</html>

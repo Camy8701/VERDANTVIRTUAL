@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Verdant Virtual — UK-based Virtual Assistant specialising in growth operations, systems, and executive support for founders. 8+ years experience. Book a discovery call.">
+<title>Verdant Virtual — Virtual Assistant UK | Growth & Operations Partner for Founders</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+body { font-family: 'Inter', sans-serif; }
+:root { --mouse-x: 0px; --mouse-y: 0px; }
+@keyframes slideDownLetter {
+  0% { transform: translateY(-120%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.clip-text-container { display: inline-flex; overflow: hidden; vertical-align: bottom; }
+.animate-letter {
+  display: inline-block; transform: translateY(-120%); opacity: 0;
+  animation: slideDownLetter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes beam {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.btn-beam { position: relative; z-index: 1; }
+.btn-beam::before {
+  content: ''; position: absolute; inset: -1px; border-radius: inherit;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  background-size: 200% 100%; animation: beam 2s linear infinite;
+  opacity: 0; transition: opacity 0.3s ease; z-index: -1;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; padding: 1px;
+}
+.dark-btn.btn-beam::before {
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.3), transparent);
+}
+.btn-beam:hover::before { opacity: 1; }
+@keyframes sonar {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+.sonar-ring {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1px solid currentColor;
+  animation: sonar 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+.animate-marquee { display: flex; width: max-content; animation: marquee 25s linear infinite; }
+.card-flashlight {
+  position: relative; border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.05); overflow: hidden; transition: transform 0.3s ease;
+}
+.dark-section .card-flashlight {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.card-flashlight::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.8), transparent 40%);
+  z-index: 0; opacity: 0; transition: opacity 0.4s ease; pointer-events: none;
+}
+.dark-section .card-flashlight::before {
+  background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.08), transparent 40%);
+}
+.card-flashlight::after {
+  content: ""; position: absolute; inset: 0; padding: 1px; border-radius: inherit;
+  background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(0,0,0,0.15), transparent 40%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  z-index: 1; opacity: 0; transition: opacity 0.4s ease; pointer-events: none;
+}
+.dark-section .card-flashlight::after {
+  background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.4), transparent 40%);
+}
+.card-flashlight:hover::before, .card-flashlight:hover::after { opacity: 1; }
+.card-content { position: relative; z-index: 2; }
+.section-container { position: relative; }
+.gradient-border-btn { position: relative; isolation: isolate; padding: 3px; border-radius: 10px; overflow: hidden; background-color: transparent; }
+.gradient-border-btn .cp-border { position: absolute; top: 0; left: 0; height: 100%; width: 400%; background: linear-gradient(115deg, rgb(45,106,79), rgb(212,168,83), rgb(74,160,120), rgb(45,106,79), rgb(212,168,83)) 0% 0% / 25% 100%; transform: translateX(-5%); z-index: 0; transition: transform .25s ease-out; }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+<style>.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
+<style>.font-geist { font-family: 'Geist', sans-serif !important; }</style>
+</head>
+<body class="bg-[#F2EFEA] text-[#2C2824] antialiased selection:bg-[#2C2824] selection:text-[#F2EFEA]">
+
+  <!-- ASCII Dither Background (same as original) -->
+  <div data-ascii-dither-bg="" class="hidden md:flex" aria-hidden="true" style="position:absolute;top:0;left:0;right:0;bottom:auto;height:100vh;z-index:0;pointer-events:none;overflow:hidden;opacity:0.5;"></div>
+  <script src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/exports/ascii-dither-background(3).js"></script>
+
+  <!-- Vertical Container Lines -->
+  <div class="fixed inset-0 pointer-events-none z-50 flex justify-center w-full mix-blend-multiply opacity-[0.04]">
+    <div class="w-full max-w-[88rem] h-full flex justify-between px-6 lg:px-12">
+      <div class="w-px h-full bg-current"></div>
+      <div class="w-px h-full bg-current hidden md:block"></div>
+      <div class="w-px h-full bg-current hidden lg:block"></div>
+      <div class="w-px h-full bg-current"></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <!-- Navigation -->
+  <div class="fixed top-0 left-0 right-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="mt-4 rounded-2xl border border-black/10 bg-[#F2EFEA]/85 backdrop-blur-md shadow-sm">
+        <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
+          <a href="index.html" class="flex items-center gap-2 group">
+            <iconify-icon icon="solar:leaf-bold-duotone" class="text-2xl text-[#2D6A4F] transition-transform group-hover:scale-110"></iconify-icon>
+            <span class="text-lg tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
+            <a href="services.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Services</a>
+            <a href="about.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">About</a>
+            <a href="contact.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Contact</a>
+          </nav>
+          <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn" onmouseenter="this.dataset.h='1'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .75s linear'; let dir=0; (function loop(){ if (this.dataset.h!=='1') return; dir = dir===0 ? -25 : 0; g.style.transform='translateX('+dir+'%)'; setTimeout(loop.bind(this),750); }).call(this);" onmouseleave="this.dataset.h='0'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .25s ease-out'; g.style.transform='translateX(-5%)';">
+            <div class="cp-border" aria-hidden="true"></div>
+            <span style="position:relative;display:block;padding:0.5rem 0.85rem;font-size:0.875rem;background:#2D6A4F;border-radius:8px;height:100%;z-index:1;" class="font-geist">Book a Discovery Call</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative pt-36 pb-16 min-h-screen flex flex-col justify-between overflow-hidden section-container">
+
+    <!-- DNA helix canvas animation (adapted from SGL Systems) -->
+    <canvas id="hero-dna-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.48;"></canvas>
+
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full relative z-10 flex-grow flex flex-col justify-center">
+
+      <!-- Eyebrow pill -->
+      <div class="inline-flex items-center gap-2 bg-[#2D6A4F]/10 border border-[#2D6A4F]/20 text-[#2D6A4F] px-4 py-2 rounded-full text-xs font-medium tracking-wide mb-10 font-geist self-start">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#2D6A4F]"></span>
+        Growth &amp; Operations Partner for Founders
+      </div>
+
+      <!-- Main headline — VERDANT / VIRTUAL -->
+      <div class="font-jakarta font-light leading-none tracking-tighter mb-8" style="font-size:clamp(4.5rem,12.5vw,14rem);line-height:0.86;letter-spacing:-0.04em;">
+        <div style="color:#2D6A4F;">VERDANT</div>
+        <div style="color:#2C2824;opacity:0.85;">VIRTUAL</div>
+      </div>
+
+      <!-- Sub-headline with left border — SGL style -->
+      <div class="max-w-2xl border-l-2 border-[#2D6A4F]/50 pl-6 ml-1 mb-14">
+        <p class="font-geist text-lg md:text-xl uppercase tracking-wide leading-snug" style="color:#2C2824;opacity:0.65;">
+          The operational backbone your business is missing.
+        </p>
+      </div>
+
+      <!-- Body text + CTAs — clean 2-column -->
+      <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
+        <p class="text-base opacity-65 font-normal leading-relaxed font-geist max-w-sm">
+          Systems, lead generation and execution support — so you can stop holding everything together alone.
+        </p>
+        <div class="flex flex-col items-start md:items-end gap-5">
+          <p class="text-base opacity-65 font-normal leading-relaxed font-geist max-w-sm text-left md:text-right">
+            Growth doesn't happen in chaos. It happens when things are well tended.
+          </p>
+          <div class="flex flex-row gap-3">
+            <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium font-geist transition-transform hover:scale-105">
+              Book a Discovery Call
+              <iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon>
+            </a>
+            <a href="services.html" class="btn-beam inline-flex items-center gap-2 border border-[#2C2824]/25 text-[#2C2824] bg-white/50 px-6 py-3 rounded-full text-sm font-medium font-geist hover:bg-white/70 transition-all">
+              See How I Work
+              <iconify-icon icon="solar:arrow-right-linear" class="text-base"></iconify-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom strip -->
+    <div class="w-full border-t border-black/10 mt-16 pt-8">
+      <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm tracking-tight font-medium opacity-60">
+        <div class="flex items-center gap-3 font-geist"><span class="opacity-50">01</span> LEAD GENERATION</div>
+        <div class="flex items-center gap-3 md:justify-center font-geist"><span class="opacity-50">02</span> SYSTEMS &amp; OPERATIONS</div>
+        <div class="flex items-center gap-3 md:justify-end font-geist"><span class="opacity-50">03</span> EXECUTIVE SUPPORT</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials Strip -->
+  <section class="py-14 border-b border-black/5 bg-white/30 backdrop-blur-md">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 text-center">
+      <p class="text-xs uppercase tracking-widest opacity-40 mb-8 font-geist">8+ Years of Experience Across</p>
+      <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3">
+        <span class="font-geist text-sm font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">NZ Government EA</span>
+        <span class="opacity-20 text-lg hidden sm:inline">·</span>
+        <span class="font-geist text-sm font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">David Attenborough Productions</span>
+        <span class="opacity-20 text-lg hidden sm:inline">·</span>
+        <span class="font-geist text-sm font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">First-Class Honours, Anthropology</span>
+        <span class="opacity-20 text-lg hidden sm:inline">·</span>
+        <span class="font-geist text-sm font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">Remote Ready</span>
+        <span class="opacity-20 text-lg hidden sm:inline">·</span>
+        <span class="font-geist text-sm font-medium opacity-50 hover:opacity-90 transition-opacity cursor-default">UK Based</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- VA Positioning Section -->
+  <section class="py-28 section-container">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div class="lg:col-span-7">
+          <p class="text-xs uppercase tracking-widest opacity-40 mb-6 font-geist">Yes, I'm a Virtual Assistant</p>
+          <h2 class="text-6xl md:text-7xl lg:text-8xl tracking-tighter font-jakarta font-light mb-8 leading-tight">
+            The kind that actually changes how your business runs.
+          </h2>
+          <p class="text-xl opacity-70 font-geist leading-relaxed mb-4 max-w-xl">
+            Virtual Assistant is the category. What I do is the substance behind it — lead generation, operations, systems, and execution support that founders actually feel. Not admin for admin's sake. Work that moves things forward.
+          </p>
+          <p class="text-sm opacity-40 font-geist leading-relaxed mb-10 max-w-lg italic">
+            If you've been searching for a VA and wondering why they all look the same — this is why Verdant Virtual exists.
+          </p>
+          <a href="services.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium">
+            <span class="font-geist">See What I Actually Do</span>
+            <iconify-icon icon="solar:arrow-right-linear" class="text-lg"></iconify-icon>
+          </a>
+        </div>
+        <div class="lg:col-span-5 flex flex-col gap-5">
+          <div class="card-flashlight p-7">
+            <div class="card-content">
+              <div class="flex items-center gap-2 mb-5">
+                <span class="w-2 h-2 rounded-full bg-[#2D6A4F]"></span>
+                <span class="text-xs font-geist uppercase tracking-widest opacity-40">What this actually means</span>
+              </div>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-75">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-base text-[#2D6A4F] mt-0.5 flex-shrink-0"></iconify-icon>
+                  Anticipates what needs to happen — not just responds to what you ask
+                </li>
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-75">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-base text-[#2D6A4F] mt-0.5 flex-shrink-0"></iconify-icon>
+                  Builds institutional knowledge of your business over time
+                </li>
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-75">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-base text-[#2D6A4F] mt-0.5 flex-shrink-0"></iconify-icon>
+                  Executes in the real world — emails sent, leads tracked, CRM updated
+                </li>
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-75">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-base text-[#2D6A4F] mt-0.5 flex-shrink-0"></iconify-icon>
+                  UK-based, accountable, available — not a tool you have to manage
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Width Feature Image -->
+  <section class="relative h-[80vh] w-full overflow-hidden flex items-center justify-center section-container group">
+    <div class="absolute inset-0 bg-black/30 z-10 transition-colors group-hover:bg-black/20"></div>
+    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=3840&auto=format&fit=crop" alt="Growth & operations workspace" class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out">
+    <div class="relative z-20 text-center text-white max-w-3xl px-6">
+      <h2 class="text-5xl md:text-6xl tracking-tight mb-6 leading-tight drop-shadow-lg font-jakarta font-light">
+        "Growth doesn't happen in chaos. It happens when things are well tended."
+      </h2>
+      <div class="flex items-center justify-center gap-3 text-lg opacity-90 drop-shadow-md">
+        <div class="w-8 h-[1px] bg-white/60"></div>
+        <p class="font-geist">Hannah — Verdant Virtual</p>
+        <div class="w-8 h-[1px] bg-white/60"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem Section -->
+  <section class="py-32 section-container">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
+
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
+        <h2 class="text-6xl md:text-7xl tracking-tighter font-jakarta font-light">You didn't start your business<br>to manage everything alone.</h2>
+        <a href="services.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium flex-shrink-0">
+          <span class="font-geist">Explore How I Help</span>
+          <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+
+        <div class="lg:col-span-4 max-w-sm">
+          <p class="text-sm font-medium tracking-tight opacity-50 mb-4 uppercase font-geist">( The Problem )</p>
+          <p class="text-xl leading-relaxed opacity-90 mb-8 font-jakarta font-light">
+            You started your business to build something meaningful — not to spend your days chasing emails, losing track of leads, and managing tasks that need a system, not more of your attention.
+          </p>
+          <p class="text-base leading-relaxed opacity-70 font-geist mb-8">
+            Every hour you spend holding the operational layer together is an hour not spent on vision, growth, or the work only you can do.
+          </p>
+          <div class="relative inline-flex text-[#2D6A4F] mt-4">
+            <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+            <div class="sonar-ring" style="animation-delay: 1s"></div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-end">
+
+          <!-- Card 1: Sound familiar? -->
+          <div class="card-flashlight p-8 pb-10 flex flex-col group cursor-pointer">
+            <div class="card-content">
+              <div class="flex items-center gap-2 mb-6">
+                <span class="w-2 h-2 rounded-full border border-black/30"></span>
+                <span class="opacity-50 text-xs font-geist uppercase tracking-widest">Sound familiar?</span>
+              </div>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-80">
+                  <iconify-icon icon="solar:close-circle-linear" class="text-base opacity-40 mt-0.5 flex-shrink-0"></iconify-icon>
+                  Emails piling up, responses slipping through
+                </li>
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-80">
+                  <iconify-icon icon="solar:close-circle-linear" class="text-base opacity-40 mt-0.5 flex-shrink-0"></iconify-icon>
+                  Leads falling through the cracks after great calls
+                </li>
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-80">
+                  <iconify-icon icon="solar:close-circle-linear" class="text-base opacity-40 mt-0.5 flex-shrink-0"></iconify-icon>
+                  No system — everything lives in your head
+                </li>
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-80">
+                  <iconify-icon icon="solar:close-circle-linear" class="text-base opacity-40 mt-0.5 flex-shrink-0"></iconify-icon>
+                  Launches feel chaotic, deadlines slip
+                </li>
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-80">
+                  <iconify-icon icon="solar:close-circle-linear" class="text-base opacity-40 mt-0.5 flex-shrink-0"></iconify-icon>
+                  Work creeping into every part of your life
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 2: What changes -->
+          <div class="card-flashlight p-8 pb-10 flex flex-col group cursor-pointer lg:-mt-24">
+            <div class="card-content">
+              <div class="flex items-center gap-2 mb-6">
+                <span class="w-2 h-2 rounded-full bg-[#2D6A4F]"></span>
+                <span class="opacity-50 text-xs font-geist uppercase tracking-widest">What changes</span>
+              </div>
+              <ul class="space-y-4">
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-80">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-base text-[#2D6A4F] mt-0.5 flex-shrink-0"></iconify-icon>
+                  Inbox managed and monitored, nothing missed
+                </li>
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-80">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-base text-[#2D6A4F] mt-0.5 flex-shrink-0"></iconify-icon>
+                  Every opportunity tracked and followed up
+                </li>
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-80">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-base text-[#2D6A4F] mt-0.5 flex-shrink-0"></iconify-icon>
+                  Workflows, SOPs, and CRM all documented
+                </li>
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-80">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-base text-[#2D6A4F] mt-0.5 flex-shrink-0"></iconify-icon>
+                  Deadlines met, launches smooth, energy protected
+                </li>
+                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-80">
+                  <iconify-icon icon="solar:check-circle-linear" class="text-base text-[#2D6A4F] mt-0.5 flex-shrink-0"></iconify-icon>
+                  Confidence that every detail is covered
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lifestyle Split -->
+  <section class="grid grid-cols-1 md:grid-cols-2 h-[70vh] w-full">
+    <div class="relative overflow-hidden group">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop" alt="Structure and systems workspace" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+      <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+      <div class="absolute bottom-8 left-8 text-white/90 pointer-events-none">
+        <p class="font-geist text-sm font-medium tracking-widest uppercase opacity-80">Structure &amp; Systems</p>
+      </div>
+    </div>
+    <div class="relative overflow-hidden group">
+      <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop" alt="Growth and momentum" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+      <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
+      <div class="absolute bottom-8 left-8 text-white/90 pointer-events-none">
+        <p class="font-geist text-sm font-medium tracking-widest uppercase opacity-80">Growth &amp; Momentum</p>
+      </div>
+      <div class="absolute bottom-8 right-8 text-white/60 pointer-events-none">
+        <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Pillars (Dark Section) -->
+  <section class="bg-[#26221E] text-[#F2EFEA] py-32 section-container dark-section relative overflow-hidden">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 relative z-10">
+
+      <div class="flex justify-between items-end mb-20 border-b border-white/10 pb-8">
+        <h2 class="text-6xl md:text-7xl tracking-tighter font-jakarta font-light">Three Pillars<br>of Support</h2>
+        <a href="services.html" class="text-sm font-geist opacity-50 hover:opacity-100 transition-opacity flex items-center gap-1">
+          Full service detail
+          <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 items-center">
+
+        <!-- Left List -->
+        <div class="space-y-6 text-sm font-medium tracking-tight">
+          <p class="opacity-40 text-xs uppercase mb-8 font-geist">Service Areas</p>
+          <div class="flex items-center gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
+            <span class="opacity-40 text-xs w-6 font-geist">01</span>
+            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Growth Operations</span>
+          </div>
+          <div class="flex items-center gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
+            <span class="opacity-40 text-xs w-6 font-geist">02</span>
+            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Systems &amp; Operations</span>
+          </div>
+          <div class="flex items-center gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
+            <span class="opacity-40 text-xs w-6 font-geist">03</span>
+            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Execution &amp; Support</span>
+          </div>
+          <div class="flex items-center gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
+            <span class="opacity-40 text-xs w-6 font-geist">04</span>
+            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Lead Research</span>
+          </div>
+          <div class="flex items-center gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
+            <span class="opacity-40 text-xs w-6 font-geist">05</span>
+            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">CRM Management</span>
+          </div>
+        </div>
+
+        <!-- Center Image -->
+        <div class="card-flashlight p-2 rounded-2xl h-[500px]">
+          <div class="card-content w-full h-full rounded-xl overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" alt="Verdant Virtual — Hannah" class="absolute inset-0 w-full h-full object-cover">
+          </div>
+        </div>
+
+        <!-- Right List -->
+        <div class="space-y-6 text-sm font-medium tracking-tight text-right">
+          <p class="opacity-40 text-xs uppercase mb-8 font-geist">What I Deliver</p>
+          <div class="flex items-center justify-end gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
+            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Prospect Research</span>
+            <iconify-icon icon="solar:arrow-right-up-linear" class="opacity-0 group-hover:opacity-100 transition-opacity"></iconify-icon>
+          </div>
+          <div class="flex items-center justify-end gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
+            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Workflow Design &amp; SOPs</span>
+          </div>
+          <div class="flex items-center justify-end gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
+            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Automation Setup</span>
+          </div>
+          <div class="flex items-center justify-end gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
+            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Email Campaigns</span>
+          </div>
+          <div class="flex items-center justify-end gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
+            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Launch Support</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <section class="bg-[#1A1714] text-[#F2EFEA] py-8 overflow-hidden marquee-mask">
+    <div class="animate-marquee flex items-center gap-8 text-5xl md:text-7xl font-medium tracking-tighter whitespace-nowrap opacity-20">
+      <span class="font-jakarta font-light">LEAD GENERATION</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">SYSTEMS &amp; OPERATIONS</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">EXECUTIVE SUPPORT</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">GROWTH PARTNERSHIPS</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">LEAD GENERATION</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">SYSTEMS &amp; OPERATIONS</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">EXECUTIVE SUPPORT</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+      <span class="font-jakarta font-light">GROWTH PARTNERSHIPS</span>
+      <iconify-icon icon="solar:asterisk-bold-duotone" class="text-3xl"></iconify-icon>
+    </div>
+  </section>
+
+  <!-- Working Together -->
+  <section class="py-32 section-container">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+      <div class="max-w-md">
+        <h2 class="text-5xl md:text-6xl tracking-tighter mb-6 font-jakarta font-light">Working<br>Together</h2>
+        <p class="text-lg opacity-80 font-normal leading-relaxed mb-12 border-b border-black/10 pb-12 font-geist">
+          A clear process built around understanding your business first — so that every action taken adds genuine value, not just visible activity.
+        </p>
+
+        <div class="mb-12">
+          <p class="font-medium tracking-tight mb-6 text-sm uppercase opacity-50 font-geist">The Process</p>
+          <div class="space-y-0">
+            <div class="flex gap-5 items-start border-b border-black/8 pb-5 mb-5">
+              <span class="text-xs opacity-40 font-geist pt-1 w-6 flex-shrink-0">01</span>
+              <div>
+                <p class="font-medium tracking-tight mb-1 font-geist text-sm">Discovery Call</p>
+                <p class="text-sm opacity-60 leading-relaxed font-geist">30 minutes to understand your business, your biggest friction points, and where I can add the most immediate value.</p>
+              </div>
+            </div>
+            <div class="flex gap-5 items-start border-b border-black/8 pb-5 mb-5">
+              <span class="text-xs opacity-40 font-geist pt-1 w-6 flex-shrink-0">02</span>
+              <div>
+                <p class="font-medium tracking-tight mb-1 font-geist text-sm">Scope &amp; Structure</p>
+                <p class="text-sm opacity-60 leading-relaxed font-geist">A clear proposal outlining exactly what I'll own, how we'll communicate, and what success looks like for your business.</p>
+              </div>
+            </div>
+            <div class="flex gap-5 items-start border-b border-black/8 pb-5 mb-5">
+              <span class="text-xs opacity-40 font-geist pt-1 w-6 flex-shrink-0">03</span>
+              <div>
+                <p class="font-medium tracking-tight mb-1 font-geist text-sm">Monthly Partnership</p>
+                <p class="text-sm opacity-60 leading-relaxed font-geist">Flexible retainer or project engagement, with regular check-ins and full transparency on what's been done and what's coming next.</p>
+              </div>
+            </div>
+            <div class="flex gap-5 items-start pb-5">
+              <span class="text-xs opacity-40 font-geist pt-1 w-6 flex-shrink-0">04</span>
+              <div>
+                <p class="font-medium tracking-tight mb-1 font-geist text-sm">Ongoing Reporting</p>
+                <p class="text-sm opacity-60 leading-relaxed font-geist">You always know what's been delivered, what's in progress, and what's next — nothing hidden, nothing vague.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 mb-8 p-4 rounded-xl bg-white/40 backdrop-blur-sm border border-black/5">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop" alt="Hannah — Verdant Virtual" class="w-14 h-14 rounded-full object-cover flex-shrink-0">
+          <div>
+            <p class="text-sm font-medium tracking-tight font-geist">"I'm not here to add to your task list. I'm here to take ownership of the list itself."</p>
+            <p class="text-xs opacity-50 mt-1 uppercase tracking-wider font-geist">Hannah — Verdant Virtual</p>
+          </div>
+        </div>
+
+        <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium">
+          <span class="font-geist">Book Your Discovery Call</span>
+          <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon>
+        </a>
+      </div>
+
+      <div class="h-full min-h-[500px] relative rounded-2xl overflow-hidden card-flashlight">
+        <div class="card-content w-full h-full absolute inset-0">
+          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1600&auto=format&fit=crop" alt="Working together" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/30"></div>
+          <div class="absolute bottom-8 left-8 text-white">
+            <p class="text-xl font-jakarta font-light italic mb-1">"More than an extra pair of hands."</p>
+            <p class="text-xs font-geist opacity-60 uppercase tracking-widest">Verdant Virtual</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative overflow-hidden text-[#F2EFEA] section-container dark-section" style="background:#1a2218;border-top:1px solid rgba(255,255,255,0.08);">
+
+    <!-- SVG watercolor filter -->
+    <svg class="absolute w-0 h-0" aria-hidden="true">
+      <filter id="footer-watercolor">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="12"/>
+        <feGaussianBlur stdDeviation="0.5"/>
+      </filter>
+    </svg>
+
+    <!-- Botanical Canvas -->
+    <canvas id="footer-botanical" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;filter:url(#footer-watercolor);opacity:0.55;"></canvas>
+
+    <!-- Footer Content -->
+    <div class="relative z-10 pt-10 pb-8">
+      <!-- Aether-style Giant Brand Text -->
+      <div aria-hidden="true" class="text-center w-full px-2 select-none pointer-events-none" style="mask-image:linear-gradient(180deg,black 0%,black 60%,transparent 100%);-webkit-mask-image:linear-gradient(180deg,black 0%,black 60%,transparent 100%);">
+        <div class="font-jakarta font-bold" style="font-size:clamp(3.5rem,14.5vw,20rem);line-height:0.78;letter-spacing:-0.04em;color:#2A3E26;mix-blend-mode:screen;transform:scaleY(1.08);">VERDANT<br>VIRTUAL</div>
+      </div>
+      <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
+        <div class="md:col-span-5">
+          <p class="text-2xl font-jakarta font-light tracking-tight mb-4 opacity-90">Verdant Virtual</p>
+          <p class="text-sm opacity-50 font-geist leading-relaxed mb-3 max-w-xs">Growth &amp; Operations Partner for founders who need more than just an extra pair of hands. 8+ years executive experience across government, film, and creative industries.</p>
+          <p class="text-xs opacity-30 font-geist italic">Open to growth partnerships and affiliate collaborations.</p>
+        </div>
+        <div class="md:col-span-3">
+          <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-5">Pages</p>
+          <div class="flex flex-col gap-3 text-sm font-geist font-medium opacity-60">
+            <a href="services.html" class="hover:opacity-100 transition-opacity">Services</a>
+            <a href="about.html" class="hover:opacity-100 transition-opacity">About</a>
+            <a href="contact.html" class="hover:opacity-100 transition-opacity">Contact</a>
+            <a href="privacy.html" class="hover:opacity-100 transition-opacity">Privacy</a>
+          </div>
+        </div>
+        <div class="md:col-span-4">
+          <p class="text-xs font-geist opacity-30 uppercase tracking-widest mb-5">Connect</p>
+          <div class="flex flex-col gap-3 text-sm font-geist font-medium opacity-60">
+            <a href="#" class="hover:opacity-100 transition-opacity flex items-center gap-2"><iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon> Instagram</a>
+            <a href="#" class="hover:opacity-100 transition-opacity flex items-center gap-2"><iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon> LinkedIn</a>
+            <a href="mailto:hello@verdantvirtual.co.uk" class="hover:opacity-100 transition-opacity text-xs opacity-40 normal-case mt-1">hello@verdantvirtual.co.uk</a>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-[88rem] mx-auto px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-white/10 pt-6 text-xs font-geist opacity-40">
+        <span>© 2026 Verdant Virtual</span>
+        <a href="https://lynck.studio" target="_blank" class="hover:opacity-70 transition-opacity">Built by Lynck Studio</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.card-flashlight');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+          card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+      });
+    });
+
+    (function() {
+      const vsSource = `attribute vec2 aPosition; varying vec2 vUv; void main() { vUv = aPosition * 0.5 + 0.5; gl_Position = vec4(aPosition, 0.0, 1.0); }`;
+      const fsSource = `precision highp float; varying vec2 vUv; uniform sampler2D uImage; uniform float uProgress; void main() { float cols = 4.0; float colIndex = floor(vUv.x * cols); float stagger = 0.15; float delay = colIndex * stagger; float localProgress = clamp((uProgress * (1.0 + 3.0 * stagger) - delay), 0.0, 1.0); float f = localProgress - 1.0; float ease = f * f * f + 1.0; if (vUv.y < 1.0 - ease) { discard; } gl_FragColor = texture2D(uImage, vUv); }`;
+      function initWebGLImage(originalImg) {
+        if (originalImg.dataset.webglInit) return;
+        originalImg.dataset.webglInit = "true";
+        const img = new Image(); img.crossOrigin = "anonymous";
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
+          canvas.className = originalImg.className; canvas.style.cssText = originalImg.style.cssText;
+          originalImg.parentNode.insertBefore(canvas, originalImg); originalImg.style.display = 'none';
+          const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: false }); if (!gl) return;
+          const compileShader = (type, source) => { const s = gl.createShader(type); gl.shaderSource(s, source); gl.compileShader(s); return s; };
+          const program = gl.createProgram();
+          gl.attachShader(program, compileShader(gl.VERTEX_SHADER, vsSource));
+          gl.attachShader(program, compileShader(gl.FRAGMENT_SHADER, fsSource));
+          gl.linkProgram(program); gl.useProgram(program);
+          const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+          gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+          const pos = gl.getAttribLocation(program, "aPosition"); gl.enableVertexAttribArray(pos); gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+          const tex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, tex); gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+          gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+          const uProg = gl.getUniformLocation(program, "uProgress");
+          let startTime = null, animating = false;
+          const render = (time) => {
+            if (!startTime) startTime = time;
+            let p = Math.min((time - startTime) / 1200, 1.0);
+            gl.viewport(0, 0, canvas.width, canvas.height); gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.uniform1f(uProg, p); gl.drawArrays(gl.TRIANGLES, 0, 6);
+            if (p < 1.0) requestAnimationFrame(render); else animating = false;
+          };
+          gl.viewport(0,0,canvas.width,canvas.height); gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT);
+          new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting && !animating) { animating = true; startTime = null; requestAnimationFrame(render); } });
+          }, { threshold: 0.1 }).observe(canvas);
+        };
+        img.src = originalImg.src;
+      }
+      document.querySelectorAll('img').forEach(initWebGLImage);
+    })();
+
+    // Botanical Footer Canvas
+    (function() {
+      const canvas = document.getElementById('footer-botanical');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w, h, stems = [], flowers = [], animId;
+      const petalColors = [{h:155,s:55,l:40},{h:140,s:40,l:52},{h:85,s:30,l:58},{h:45,s:35,l:62},{h:160,s:45,l:35}];
+      const stemColors = [{h:155,s:45,l:22},{h:140,s:35,l:28},{h:120,s:28,l:32}];
+
+      function resize() {
+        const r = canvas.parentElement.getBoundingClientRect();
+        w = canvas.width = r.width; h = canvas.height = r.height;
+      }
+
+      class Stem {
+        constructor(x) {
+          this.x = x; this.y = h + 5; this.curr = 0;
+          this.len = h * (0.25 + Math.random() * 0.45);
+          this.angle = -Math.PI/2 + (Math.random()-0.5)*0.35;
+          this.color = stemColors[Math.floor(Math.random()*stemColors.length)];
+          this.done = false; this.flowerType = Math.floor(Math.random()*4);
+          this.segs = [];
+          let cx = x, cy = h + 5, ca = this.angle;
+          for (let i = 0; i < this.len/5; i++) {
+            ca += (Math.random()-0.5)*0.12; cx += Math.cos(ca)*5; cy += Math.sin(ca)*5;
+            this.segs.push({x:cx, y:cy});
+          }
+        }
+        draw() {
+          if (this.curr < this.segs.length - 1) {
+            const a = this.segs[Math.floor(this.curr)], b = this.segs[Math.floor(this.curr)+1];
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `hsla(${this.color.h},${this.color.s}%,${this.color.l}%,0.25)`;
+            ctx.lineWidth = 2*(1-this.curr/this.segs.length)+0.8; ctx.stroke();
+            this.curr += 1.4;
+          } else if (!this.done) { this.done = true; flowers.push(new Flower(this.segs[this.segs.length-1], this.flowerType)); }
+        }
+      }
+
+      class Flower {
+        constructor(pos, type) {
+          this.x = pos.x; this.y = pos.y; this.type = type; this.age = 0;
+          this.max = 90 + Math.random()*50;
+          this.clr = petalColors[Math.floor(Math.random()*petalColors.length)];
+          this.petals = Array.from({length: type===0?12:6}, (_,i) => ({
+            a: (i/(type===0?12:6))*Math.PI*2, s: 0.8+Math.random()*0.5
+          }));
+        }
+        draw() {
+          if (this.age < this.max) {
+            this.age++;
+            const grow = Math.min(1, this.age/65);
+            this.petals.forEach(p => {
+              if (Math.random()>0.55) return;
+              const r = (this.type===0?14:22)*grow;
+              ctx.beginPath();
+              ctx.ellipse(this.x+Math.cos(p.a)*r*0.5, this.y+Math.sin(p.a)*r*0.5, r*p.s, r*0.55, p.a, 0, Math.PI*2);
+              ctx.fillStyle = `hsla(${this.clr.h},${this.clr.s}%,${this.clr.l}%,0.07)`;
+              ctx.fill();
+            });
+            if (this.age>35 && Math.random()>0.82) {
+              ctx.beginPath(); ctx.arc(this.x, this.y, 2.5*grow, 0, Math.PI*2);
+              ctx.fillStyle = `rgba(212,168,83,0.2)`; ctx.fill();
+            }
+          }
+        }
+      }
+
+      function init() {
+        resize(); stems = Array.from({length:Math.floor(w/35)}, ()=>new Stem(Math.random()*w));
+        flowers = []; ctx.clearRect(0,0,w,h); if (animId) cancelAnimationFrame(animId); loop();
+      }
+      function loop() {
+        let active = false;
+        stems.forEach(s=>{ s.draw(); if(!s.done) active=true; });
+        flowers.forEach(f=>{ f.draw(); if(f.age<f.max) active=true; });
+        if (active) animId = requestAnimationFrame(loop);
+      }
+      new ResizeObserver(init).observe(canvas.parentElement);
+      init();
+    })();
+  </script>
+
+  <!-- Hero DNA helix animation (adapted from SGL Systems) -->
+  <script>
+  (function() {
+    const canvas = document.getElementById('hero-dna-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const verdant = ['V','E','R','D','A','N','T'];
+    const virtual_ = ['V','I','R','T','U','A','L'];
+    let w, h, t = 0, particles = [], animId;
+
+    function resize() {
+      const r = canvas.parentElement.getBoundingClientRect();
+      w = canvas.width = r.width || window.innerWidth;
+      h = canvas.height = r.height || window.innerHeight;
+      initParticles();
+    }
+
+    function initParticles() {
+      particles = [];
+      const spacing = 42;
+      const count = Math.floor(w / spacing) + 4;
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          index: i,
+          char1: verdant[i % verdant.length],
+          char2: virtual_[i % virtual_.length],
+        });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.font = 'bold 22px monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const waveH = h * 0.16;
+      const spacing = 42;
+      const totalW = particles.length * spacing;
+      const startX = (w - totalW) / 2;
+      const centerY = h * 0.54;
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        const angle = (p.index * 0.26) - t;
+        const x = startX + p.index * spacing;
+        const y1 = centerY + Math.sin(angle) * waveH;
+        const y2 = centerY + Math.sin(angle + Math.PI) * waveH;
+        const a1 = (Math.cos(angle) + 1) / 2 * 0.82 + 0.22;
+        const a2 = (Math.cos(angle + Math.PI) + 1) / 2 * 0.82 + 0.22;
+
+        // Connecting bridge
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(45,106,79,${Math.min(a1,a2) * 0.18})`;
+        ctx.lineWidth = 0.8;
+        ctx.moveTo(x, y1);
+        ctx.lineTo(x, y2);
+        ctx.stroke();
+
+        // VERDANT strand — forest green
+        ctx.fillStyle = `rgba(45,106,79,${a1})`;
+        ctx.fillText(p.char1, x, y1);
+
+        // VIRTUAL strand — warm gold
+        ctx.fillStyle = `rgba(196,140,86,${a2})`;
+        ctx.fillText(p.char2, x, y2);
+      }
+
+      t += 0.016;
+      animId = requestAnimationFrame(draw);
+    }
+
+    new ResizeObserver(resize).observe(canvas.parentElement);
+    resize();
+    draw();
+  })();
+  </script>
+</body>
+</html>
