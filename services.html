@@ -56,6 +56,11 @@ body { font-family: 'Inter', sans-serif; }
 .gradient-border-btn .cp-border { position: absolute; top: 0; left: 0; height: 100%; width: 400%; background: linear-gradient(115deg, rgb(45,106,79), rgb(212,168,83), rgb(74,160,120), rgb(45,106,79), rgb(212,168,83)) 0% 0% / 25% 100%; transform: translateX(-5%); z-index: 0; transition: transform .25s ease-out; }
 .faq-answer { display: none; }
 .faq-answer.open { display: block; }
+/* Sub-headline animated underline */
+.sub-hl { display: inline-block; position: relative; }
+.sub-hl::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px; background: #2D6A4F; animation: vv-underline 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; animation-play-state: paused; }
+.sub-hl.is-visible::after { animation-play-state: running; }
+@keyframes vv-underline { from { width: 0; } to { width: 100%; } }
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
 <style>.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style>
@@ -81,7 +86,7 @@ body { font-family: 'Inter', sans-serif; }
       <div class="mt-4 rounded-2xl border border-black/10 bg-[#F2EFEA]/85 backdrop-blur-md shadow-sm">
         <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
           <a href="index.html" class="flex items-center gap-2 group">
-            <iconify-icon icon="solar:leaf-bold-duotone" class="text-2xl text-[#2D6A4F] transition-transform group-hover:scale-110"></iconify-icon>
+            <div style="height:44px;width:44px;flex-shrink:0;border-radius:8px;background:url(images/logo.png) center/180% no-repeat #0a0a0a;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
             <span class="text-lg tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
           </a>
           <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
@@ -104,7 +109,7 @@ body { font-family: 'Inter', sans-serif; }
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
       <p class="text-xs uppercase tracking-widest opacity-40 mb-6 font-geist">Services</p>
       <h1 class="text-6xl md:text-7xl lg:text-8xl tracking-tighter font-jakarta font-light mb-6">What I do<br>for you</h1>
-      <p class="text-xl opacity-70 font-geist max-w-2xl leading-relaxed">
+      <p class="sub-hl text-xl opacity-70 font-geist max-w-2xl leading-relaxed">
         Three interconnected areas of support, designed to remove friction and create the conditions for real growth. Not task completion — genuine operational leverage.
       </p>
     </div>
@@ -643,6 +648,14 @@ body { font-family: 'Inter', sans-serif; }
       function loop(){let a=false;stems.forEach(s=>{s.draw();if(!s.done)a=true;});flowers.forEach(f=>{f.draw();if(f.age<f.max)a=true;});if(a)animId=requestAnimationFrame(loop);}
       new ResizeObserver(init).observe(canvas.parentElement); init();
     })();
+  </script>
+  <script>
+  (function(){
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.sub-hl').forEach(el => obs.observe(el));
+  })();
   </script>
 </body>
 </html>

@@ -41,6 +41,11 @@ body { font-family: 'Inter', sans-serif; }
 .form-input:focus { border-color: #2D6A4F; background: rgba(255,255,255,0.8); }
 .form-input::placeholder { color: #2C2824; opacity: 0.35; }
 select.form-input { cursor: pointer; }
+/* Sub-headline animated underline */
+.sub-hl { display: inline-block; position: relative; }
+.sub-hl::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px; background: #2D6A4F; animation: vv-underline 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; animation-play-state: paused; }
+.sub-hl.is-visible::after { animation-play-state: running; }
+@keyframes vv-underline { from { width: 0; } to { width: 100%; } }
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
 <style>.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style>
@@ -66,7 +71,7 @@ select.form-input { cursor: pointer; }
       <div class="mt-4 rounded-2xl border border-black/10 bg-[#F2EFEA]/85 backdrop-blur-md shadow-sm">
         <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
           <a href="index.html" class="flex items-center gap-2 group">
-            <iconify-icon icon="solar:leaf-bold-duotone" class="text-2xl text-[#2D6A4F] transition-transform group-hover:scale-110"></iconify-icon>
+            <div style="height:44px;width:44px;flex-shrink:0;border-radius:8px;background:url(images/logo.png) center/180% no-repeat #0a0a0a;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
             <span class="text-lg tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
           </a>
           <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
@@ -90,7 +95,7 @@ select.form-input { cursor: pointer; }
       <div>
         <p class="text-xs uppercase tracking-widest opacity-40 mb-6 font-geist">Get in touch</p>
         <h1 class="text-5xl md:text-6xl lg:text-7xl tracking-tighter font-jakarta font-light mb-6">Let's talk about<br>what you need.</h1>
-        <p class="text-lg opacity-70 font-geist leading-relaxed max-w-md">
+        <p class="sub-hl text-lg opacity-70 font-geist leading-relaxed max-w-md">
           A 30-minute discovery call. No obligation, no sales deck. Just an honest conversation to understand your business and whether I can genuinely help.
         </p>
       </div>
@@ -440,6 +445,14 @@ select.form-input { cursor: pointer; }
     }
     new ResizeObserver(init).observe(canvas.parentElement);
     init();
+  })();
+  </script>
+  <script>
+  (function(){
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.sub-hl').forEach(el => obs.observe(el));
   })();
   </script>
 </body>

@@ -92,6 +92,11 @@ body { font-family: 'Inter', sans-serif; }
 .section-h2::before { content: ''; display: block; width: 28px; height: 2px; background: #2D6A4F; margin-bottom: 14px; opacity: 0.65; border-radius: 999px; }
 .gradient-border-btn { position: relative; isolation: isolate; padding: 3px; border-radius: 10px; overflow: hidden; background-color: transparent; }
 .gradient-border-btn .cp-border { position: absolute; top: 0; left: 0; height: 100%; width: 400%; background: linear-gradient(115deg, rgb(45,106,79), rgb(212,168,83), rgb(74,160,120), rgb(45,106,79), rgb(212,168,83)) 0% 0% / 25% 100%; transform: translateX(-5%); z-index: 0; transition: transform .25s ease-out; }
+/* Sub-headline animated underline */
+.sub-hl { display: inline-block; position: relative; }
+.sub-hl::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px; background: #2D6A4F; animation: vv-underline 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; animation-play-state: paused; }
+.sub-hl.is-visible::after { animation-play-state: running; }
+@keyframes vv-underline { from { width: 0; } to { width: 100%; } }
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
 <style>.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style>
@@ -121,7 +126,7 @@ body { font-family: 'Inter', sans-serif; }
       <div class="mt-4 rounded-2xl border border-black/10 bg-[#F2EFEA]/85 backdrop-blur-md shadow-sm">
         <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
           <a href="index.html" class="flex items-center gap-2 group">
-            <iconify-icon icon="solar:leaf-bold-duotone" class="text-2xl text-[#2D6A4F] transition-transform group-hover:scale-110"></iconify-icon>
+            <div style="height:44px;width:44px;flex-shrink:0;border-radius:8px;background:url(images/logo.png) center/180% no-repeat #0a0a0a;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
             <span class="text-lg tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
           </a>
           <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
@@ -148,39 +153,40 @@ body { font-family: 'Inter', sans-serif; }
     <!-- DNA helix canvas animation (adapted from SGL Systems) -->
     <canvas id="hero-dna-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:0.35;"></canvas>
 
-    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full relative z-10 flex-grow flex flex-col justify-center">
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full relative z-10 flex-grow flex flex-col justify-between">
 
-      <!-- Main headline — VERDANT / VIRTUAL -->
-      <div class="font-jakarta font-light leading-none tracking-tighter mb-8" style="font-size:clamp(4.5rem,12.5vw,14rem);line-height:0.86;letter-spacing:-0.04em;">
+      <!-- Main headline — VERDANT / VIRTUAL (anchored to top) -->
+      <div class="font-jakarta font-light leading-none tracking-tighter pt-4" style="font-size:clamp(4.5rem,12.5vw,14rem);line-height:0.86;letter-spacing:-0.04em;">
         <div style="color:#2D6A4F;">VERDANT</div>
         <div style="color:#2C2824;opacity:0.85;">VIRTUAL</div>
       </div>
 
-      <!-- Sub-headline with left border — SGL style -->
-      <div class="max-w-2xl border-l-2 border-[#2D6A4F]/50 pl-6 ml-1 mb-14">
-        <p class="font-geist text-lg md:text-xl uppercase tracking-wide leading-snug" style="color:#2C2824;opacity:0.65;">
+      <!-- Bottom block: sub-headline + body text + CTAs (anchored above the strip) -->
+      <div class="pb-10">
+        <!-- Sub-headline — no border, bigger/bolder, animated underline -->
+        <p class="sub-hl font-geist text-xl md:text-2xl uppercase tracking-wide leading-snug font-semibold mb-[10vh]" style="color:#2C2824;opacity:0.9;">
           The operational backbone your business is missing.
         </p>
-      </div>
 
-      <!-- Body text + CTAs — clean 2-column -->
-      <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
-        <p class="text-base opacity-65 font-normal leading-relaxed font-geist max-w-sm">
-          Systems, lead generation and execution support — so you can stop holding everything together alone.
-        </p>
-        <div class="flex flex-col items-start md:items-end gap-5">
-          <p class="text-base opacity-65 font-normal leading-relaxed font-geist max-w-sm text-left md:text-right">
-            Growth doesn't happen in chaos. It happens when things are well tended.
+        <!-- Body text + CTAs — clean 2-column -->
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
+          <p class="text-base opacity-65 font-normal leading-relaxed font-geist max-w-sm">
+            Systems, lead generation and execution support — so you can stop holding everything together alone.
           </p>
-          <div class="flex flex-row gap-3">
-            <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium font-geist transition-transform hover:scale-105">
-              Book a Discovery Call
-              <iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon>
-            </a>
-            <a href="services.html" class="btn-beam inline-flex items-center gap-2 border border-[#2C2824]/25 text-[#2C2824] bg-white/50 px-6 py-3 rounded-full text-sm font-medium font-geist hover:bg-white/70 transition-all">
-              See How I Work
-              <iconify-icon icon="solar:arrow-right-linear" class="text-base"></iconify-icon>
-            </a>
+          <div class="flex flex-col items-start md:items-end gap-5">
+            <p class="text-base opacity-65 font-normal leading-relaxed font-geist max-w-sm text-left md:text-right">
+              Growth doesn't happen in chaos. It happens when things are well tended.
+            </p>
+            <div class="flex flex-row gap-3">
+              <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium font-geist transition-transform hover:scale-105">
+                Book a Discovery Call
+                <iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon>
+              </a>
+              <a href="services.html" class="btn-beam inline-flex items-center gap-2 border border-[#2C2824]/25 text-[#2C2824] bg-white/50 px-6 py-3 rounded-full text-sm font-medium font-geist hover:bg-white/70 transition-all">
+                See How I Work
+                <iconify-icon icon="solar:arrow-right-linear" class="text-base"></iconify-icon>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -865,6 +871,16 @@ body { font-family: 'Inter', sans-serif; }
     new ResizeObserver(resize).observe(canvas.parentElement);
     resize();
     draw();
+  })();
+  </script>
+
+  <!-- Sub-headline animated underline observer -->
+  <script>
+  (function(){
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.sub-hl').forEach(el => obs.observe(el));
   })();
   </script>
 </body>
