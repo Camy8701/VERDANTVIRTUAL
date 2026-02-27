@@ -29,6 +29,7 @@ body { font-family: 'Inter', sans-serif; }
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
 <style>.font-geist { font-family: 'Geist', sans-serif !important; }</style>
 <link rel="stylesheet" href="assets/shared-ui.css">
+<script>window.VV_USE_SHARED_FOOTER=true;</script>
 <script src="assets/shared-ui.js" defer></script>
 </head>
 <body class="bg-[#F2EFEA] text-[#2C2824] antialiased selection:bg-[#2C2824] selection:text-[#F2EFEA]">
@@ -50,7 +51,7 @@ body { font-family: 'Inter', sans-serif; }
       <div class="mt-4 rounded-2xl border border-black/10 bg-[#F2EFEA]/85 backdrop-blur-md shadow-sm">
         <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
           <a href="index.html" class="flex items-center gap-2 group">
-            <div style="height:57px;width:57px;flex-shrink:0;background:url(images/logo-opt.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
+            <div style="height:66px;width:66px;flex-shrink:0;background:url(images/logo-opt.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
             <span class="text-lg tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
           </a>
           <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
@@ -288,7 +289,7 @@ body { font-family: 'Inter', sans-serif; }
       </div>
       <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
         <div class="md:col-span-5">
-          <div class="flex items-center gap-3 mb-4"><img src="images/logo-opt.png" width="256" height="256" loading="lazy" decoding="async" alt="Verdant Virtual logo" class="h-9 w-9 object-contain"><p class="text-[1.8rem] font-jakarta font-semibold tracking-tight">Verdant Virtual</p></div>
+          <div class="flex items-center gap-3 mb-4"><img src="images/logo-opt.png" width="256" height="256" loading="lazy" decoding="async" alt="Verdant Virtual logo" class="h-[41px] w-[41px] object-contain"><p class="text-[1.8rem] font-jakarta font-semibold tracking-tight">Verdant Virtual</p></div>
           <p class="text-base opacity-65 font-geist leading-relaxed mb-3 max-w-xs">Growth &amp; Operations Partner for founders who need more than just an extra pair of hands. 8+ years executive experience across government, film, and creative industries.</p>
           <p class="text-sm opacity-40 font-geist italic font-medium">Open to growth partnerships and affiliate collaborations.</p>
         </div>
@@ -324,6 +325,7 @@ body { font-family: 'Inter', sans-serif; }
   </footer>
   <script>
   (function(){
+    if (window.VV_USE_SHARED_FOOTER) return;
     const canvas=document.getElementById('footer-botanical');
     if(!canvas)return;
     const ctx=canvas.getContext('2d');
