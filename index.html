@@ -6,8 +6,7 @@
 <meta name="description" content="Verdant Virtual — UK-based Virtual Assistant specialising in growth operations, systems, and executive support for founders. 8+ years experience. Book a discovery call.">
 <title>Verdant Virtual — Virtual Assistant UK | Growth & Operations Partner for Founders</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
 <script src="https://app.contactbutton.com/script/a2ab7b2e507a3034ec3eb460220c008b" async="async"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
@@ -102,6 +101,18 @@ body { font-family: 'Inter', sans-serif; }
 .hero-shift { transform: translateY(12%); }
 @media (max-width: 1024px) { .hero-shift { transform: translateY(8%); } }
 @media (max-width: 768px) { .hero-shift { transform: translateY(4%); } }
+.hero-brand-hover {
+  transition: transform .34s ease, color .34s ease, text-shadow .34s ease, filter .34s ease;
+  transform-origin: center center;
+}
+.hero-brand-hover:hover {
+  transform: scale(1.2) !important;
+  background-image: linear-gradient(110deg, #2D6A4F 0%, #2C2824 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  text-shadow: none !important;
+}
 
 /* Readability + hover motion across sections */
 section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span) {
@@ -175,8 +186,8 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
 /* Service sorting card */
 #vv-sorting-card {
   background:
-    linear-gradient(180deg, rgba(240,235,225,0.78) 0%, rgba(223,212,193,0.74) 100%),
-    url('images/creative-home-office-with-illustrated-idea-wall-4k.webp') center/cover no-repeat;
+    linear-gradient(180deg, rgba(240,235,225,0.48) 0%, rgba(223,212,193,0.42) 100%),
+    url('images/creative-home-office-with-illustrated-idea-wall-4k.webp') center top / cover no-repeat;
   border: 1px solid #CFC2AD;
   box-shadow: inset 0 1px 1px rgba(255,255,255,0.7), inset 0 -1px 2px rgba(98,79,55,0.12), 0 20px 38px -20px rgba(44,40,36,0.32);
 }
@@ -192,14 +203,15 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
   width: 100%;
   height: 58%;
   pointer-events: none;
-  background: linear-gradient(to top, rgba(45,106,79,0.42) 0%, rgba(45,106,79,0.18) 36%, rgba(45,106,79,0) 100%);
+  background: linear-gradient(to top, rgba(45,106,79,0.28) 0%, rgba(45,106,79,0.1) 36%, rgba(45,106,79,0) 100%);
 }
 #vv-physics-container {
   position: relative;
   overflow: hidden;
   touch-action: none;
-  background: linear-gradient(180deg, rgba(249,245,235,0.85) 0%, rgba(233,223,205,0.75) 100%);
+  background: linear-gradient(180deg, rgba(249,245,235,0.35) 0%, rgba(233,223,205,0.24) 100%);
   border: 1px solid rgba(136,112,82,0.2);
+  backdrop-filter: blur(1px);
 }
 .vv-physics-tag {
   position: absolute;
@@ -269,6 +281,32 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
 #va-positioning .meta-label:hover::after {
   width: 52% !important;
 }
+.pillar-nav-item {
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.01);
+  transition: border-color .25s ease, background-color .25s ease, transform .25s ease, opacity .25s ease;
+}
+.pillar-nav-item:hover {
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.04);
+}
+.pillar-nav-item.is-active {
+  border-color: rgba(45,106,79,0.9);
+  background: rgba(45,106,79,0.18);
+  transform: translateX(4px);
+}
+.pillar-tag-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.04);
+  border-radius: 999px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  font-family: 'Geist', sans-serif;
+  opacity: 0.9;
+}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap">
 <style>.font-jakarta { font-family: 'Archivo', sans-serif !important; }</style>
@@ -276,12 +314,14 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
 <style>.font-consent { font-family: 'Bodoni Moda', serif !important; }</style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
 <style>.font-geist { font-family: 'Geist', sans-serif !important; }</style>
+<link rel="stylesheet" href="assets/shared-ui.css">
+<script src="assets/shared-ui.js" defer></script>
 </head>
 <body class="bg-[#F2EFEA] text-[#2C2824] antialiased selection:bg-[#2C2824] selection:text-[#F2EFEA]">
 
   <!-- ASCII Dither Background (same as original) -->
   <div data-ascii-dither-bg="" class="hidden md:flex" aria-hidden="true" style="position:absolute;top:0;left:0;right:0;bottom:auto;height:100vh;z-index:0;pointer-events:none;overflow:hidden;opacity:0.5;"></div>
-  <script src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/exports/ascii-dither-background(3).js"></script>
+  <script src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/exports/ascii-dither-background(3).js" defer></script>
 
   <!-- Vertical Container Lines -->
   <div class="fixed inset-0 pointer-events-none z-50 flex justify-center w-full mix-blend-multiply opacity-[0.04]">
@@ -300,7 +340,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
       <div class="mt-4 rounded-2xl border border-black/10 bg-[#F2EFEA]/85 backdrop-blur-md shadow-sm">
         <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
           <a href="index.html" class="flex items-center gap-2 group">
-            <div style="height:57px;width:57px;flex-shrink:0;background:url(images/logo.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
+            <div style="height:57px;width:57px;flex-shrink:0;background:url(images/logo-opt.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
             <span class="text-lg tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
           </a>
           <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
@@ -309,7 +349,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
             <a href="contact.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Contact</a>
             <a href="blog.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Blog &amp; Freebies</a>
           </nav>
-          <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn" onmouseenter="this.dataset.h='1'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .75s linear'; let dir=0; (function loop(){ if (this.dataset.h!=='1') return; dir = dir===0 ? -25 : 0; g.style.transform='translateX('+dir+'%)'; setTimeout(loop.bind(this),750); }).call(this);" onmouseleave="this.dataset.h='0'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .25s ease-out'; g.style.transform='translateX(-5%)';">
+          <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn">
             <div class="cp-border" aria-hidden="true"></div>
             <span style="position:relative;display:block;padding:0.5rem 0.85rem;font-size:0.875rem;background:#2D6A4F;border-radius:8px;height:100%;z-index:1;" class="font-geist">Book a Discovery Call</span>
           </a>
@@ -332,18 +372,17 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full relative z-10 min-h-[calc(100vh-8rem)] flex flex-col">
       <div class="relative flex-1 flex items-center justify-center">
         <div class="pointer-events-none absolute inset-0">
-          <span class="absolute left-[9%] top-[12%] text-[#2C2824]/55 text-[2.4rem] leading-none font-geist">×</span>
           <span class="absolute right-[12%] top-[10%] text-[#2C2824]/45 text-xs tracking-[0.35em] uppercase font-geist text-right">Unique<br>Character</span>
           <span class="absolute right-[13%] bottom-[16%] text-[#2C2824]/55 text-[2.3rem] leading-none font-geist">○</span>
-          <span class="absolute left-[12%] bottom-[14%] text-[#2C2824]/45 text-xs tracking-[0.3em] uppercase font-geist">Verdant<br>Virtual</span>
+          <span class="absolute left-[12%] bottom-[14%] text-[#2C2824]/45 text-xs tracking-[0.3em] uppercase font-geist">Not Just A<br>Virtual Assistant</span>
         </div>
 
-        <div class="absolute w-[min(52vw,36rem)] aspect-square rounded-full overflow-hidden shadow-[0_18px_60px_rgba(44,40,36,0.22)]">
-          <img src="images/hero-generated.jpg" alt="Verdant Virtual hero visual" class="w-full h-full object-cover">
+        <div class="absolute w-[min(68vw,47rem)] aspect-square rounded-full overflow-hidden shadow-[0_18px_60px_rgba(44,40,36,0.22)]">
+          <img src="images/hero-generated-opt.jpg" alt="Verdant Virtual hero visual" class="w-full h-full object-cover" data-webgl-reveal="true" fetchpriority="high" loading="eager" decoding="async" width="2200" height="1228">
           <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_45%,rgba(44,40,36,0.14)_100%)]"></div>
         </div>
 
-        <h1 class="font-consent uppercase text-[#F7F6F1] text-center leading-[0.86] tracking-[-0.045em] text-[clamp(4.2rem,14vw,13.2rem)] drop-shadow-[0_8px_22px_rgba(44,40,36,0.16)] px-2">
+        <h1 class="hero-brand-hover font-consent uppercase text-[#F7F6F1] text-center leading-[0.86] tracking-[-0.045em] text-[clamp(4.2rem,14vw,13.2rem)] drop-shadow-[0_8px_22px_rgba(44,40,36,0.16)] px-2">
           VERDANT<br class="md:hidden"> VIRTUAL
         </h1>
       </div>
@@ -453,7 +492,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
   <!-- Full Width Feature Image -->
   <section class="relative h-[80vh] w-full overflow-hidden flex items-center justify-center section-container group">
     <div class="absolute inset-0 bg-black/30 z-10 transition-colors group-hover:bg-black/20"></div>
-    <img src="images/well-tended-feature.jpg" alt="Growth & operations workspace" class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out">
+    <img src="images/well-tended-feature-opt.jpg" width="2200" height="1228" loading="lazy" decoding="async" alt="Growth & operations workspace" class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out">
     <div class="relative z-20 text-center text-white max-w-3xl px-6">
       <h2 class="text-5xl md:text-6xl tracking-tight mb-6 leading-tight drop-shadow-lg font-jakarta font-light">
         "Growth doesn't happen in chaos. It happens when things are well tended."
@@ -500,7 +539,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
           <div class="card-flashlight p-8 pb-10 flex flex-col group cursor-pointer">
             <div class="card-content">
               <div class="relative aspect-[4/3] w-full overflow-hidden rounded-xl mb-6 bg-black/5">
-                <img src="images/problem-portrait.webp" alt="Focused support partner" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="images/problem-portrait.webp" alt="Focused support partner" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" width="2464" height="1856" loading="lazy" decoding="async">
               </div>
               <div class="flex items-center gap-2 mb-6">
                 <span class="w-2 h-2 rounded-full border border-black/30"></span>
@@ -535,7 +574,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
           <div class="card-flashlight p-8 pb-10 flex flex-col group cursor-pointer lg:-mt-24">
             <div class="card-content">
               <div class="relative aspect-[4/3] w-full overflow-hidden rounded-xl mb-6 bg-black/5">
-                <img src="images/problem-workspace.webp" alt="Minimal workspace with warm lighting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <img src="images/problem-workspace.webp" alt="Minimal workspace with warm lighting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" width="2752" height="1536" loading="lazy" decoding="async">
               </div>
               <div class="flex items-center gap-2 mb-6">
                 <span class="w-2 h-2 rounded-full bg-[#2D6A4F]"></span>
@@ -574,14 +613,14 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
   <!-- Lifestyle Split -->
   <section class="grid grid-cols-1 md:grid-cols-2 h-[70vh] w-full">
     <div class="relative overflow-hidden group">
-      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop" alt="Structure and systems workspace" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop" alt="Structure and systems workspace" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" decoding="async">
       <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
       <div class="absolute bottom-8 left-8 text-white/90 pointer-events-none">
         <p class="font-geist text-sm font-medium tracking-widest uppercase opacity-80">Structure &amp; Systems</p>
       </div>
     </div>
     <div class="relative overflow-hidden group">
-      <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop" alt="Growth and momentum" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+      <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop" alt="Growth and momentum" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" decoding="async">
       <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
       <div class="absolute bottom-8 left-8 text-white/90 pointer-events-none">
         <p class="font-geist text-sm font-medium tracking-widest uppercase opacity-80">Growth &amp; Momentum</p>
@@ -595,7 +634,6 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
   <!-- Three Pillars (Dark Section) -->
   <section class="bg-[#26221E] text-[#F2EFEA] py-32 section-container dark-section relative overflow-hidden">
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12 relative z-10">
-
       <div class="flex justify-between items-end mb-20 border-b border-white/10 pb-8">
         <h2 class="section-h2 text-6xl md:text-7xl tracking-tighter font-jakarta font-light">Three <span class="hl">Pillars</span><br>of Support</h2>
         <a href="services.html" class="text-sm font-geist opacity-50 hover:opacity-100 transition-opacity flex items-center gap-1">
@@ -604,61 +642,40 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
         </a>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 items-center">
-
-        <!-- Left List -->
-        <div class="space-y-6 text-sm font-medium tracking-tight">
-          <p class="opacity-40 text-xs uppercase mb-8 font-geist">Service Areas</p>
-          <div class="flex items-center gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
-            <span class="opacity-40 text-xs w-6 font-geist">01</span>
-            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Growth Operations</span>
-          </div>
-          <div class="flex items-center gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
-            <span class="opacity-40 text-xs w-6 font-geist">02</span>
-            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Systems &amp; Operations</span>
-          </div>
-          <div class="flex items-center gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
-            <span class="opacity-40 text-xs w-6 font-geist">03</span>
-            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Execution &amp; Support</span>
-          </div>
-          <div class="flex items-center gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
-            <span class="opacity-40 text-xs w-6 font-geist">04</span>
-            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Lead Research</span>
-          </div>
-          <div class="flex items-center gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
-            <span class="opacity-40 text-xs w-6 font-geist">05</span>
-            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">CRM Management</span>
-          </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 items-stretch">
+        <div class="space-y-4" id="pillars-nav" role="tablist" aria-label="Three service pillars">
+          <p class="opacity-40 text-xs uppercase mb-4 font-geist tracking-widest">Service Areas</p>
+          <button type="button" class="pillar-nav-item is-active w-full text-left rounded-xl p-4" data-pillar-key="growth" role="tab" aria-selected="true">
+            <p class="font-geist text-xs opacity-50 mb-1">01</p>
+            <p class="font-geist text-lg tracking-tight">Growth Operations</p>
+          </button>
+          <button type="button" class="pillar-nav-item w-full text-left rounded-xl p-4" data-pillar-key="systems" role="tab" aria-selected="false">
+            <p class="font-geist text-xs opacity-50 mb-1">02</p>
+            <p class="font-geist text-lg tracking-tight">Systems &amp; Operations</p>
+          </button>
+          <button type="button" class="pillar-nav-item w-full text-left rounded-xl p-4" data-pillar-key="execution" role="tab" aria-selected="false">
+            <p class="font-geist text-xs opacity-50 mb-1">03</p>
+            <p class="font-geist text-lg tracking-tight">Execution &amp; Support</p>
+          </button>
         </div>
 
-        <!-- Center Image -->
         <div class="card-flashlight p-2 rounded-2xl h-[500px]">
           <div class="card-content w-full h-full rounded-xl overflow-hidden relative">
-            <img src="images/desk-workspace.jpg" alt="Verdant Virtual workspace" class="absolute inset-0 w-full h-full object-cover" style="object-position: center center;">
+            <img src="images/desk-workspace-opt.jpg" width="896" height="1600" loading="lazy" decoding="async" alt="Verdant Virtual workspace" class="absolute inset-0 w-full h-full object-cover" style="object-position: center center;">
           </div>
         </div>
 
-        <!-- Right List -->
-        <div class="space-y-6 text-sm font-medium tracking-tight text-right">
-          <p class="opacity-40 text-xs uppercase mb-8 font-geist">What I Deliver</p>
-          <div class="flex items-center justify-end gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
-            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Prospect Research</span>
-            <iconify-icon icon="solar:arrow-right-up-linear" class="opacity-0 group-hover:opacity-100 transition-opacity"></iconify-icon>
+        <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-7 flex flex-col justify-between">
+          <div>
+            <p class="opacity-40 text-xs uppercase tracking-widest mb-5 font-geist">Pillar Detail</p>
+            <h3 id="pillar-detail-heading" class="text-3xl md:text-4xl font-jakarta font-light tracking-tight mb-6">Pillar 01 — Growth Operations</h3>
+            <p id="pillar-detail-label" class="text-base font-jakarta font-light mb-3"><span class="italic opacity-70">Label:</span> 01</p>
+            <p id="pillar-detail-title" class="text-base font-jakarta font-light mb-3"><span class="italic opacity-70">Title:</span> Growth Operations</p>
+            <p id="pillar-detail-body" class="text-lg leading-relaxed font-jakarta font-light opacity-85 mb-6"><span class="italic opacity-70">Body:</span> Prospect research, Instagram outreach, CRM setup and management, pipeline tracking, follow-up sequences, and inbound enquiry handling. Every opportunity captured and moved forward.</p>
+            <p id="pillar-detail-tags-line" class="text-base font-jakarta font-light opacity-90 mb-4"><span class="italic opacity-70">Tags:</span> Lead Research · CRM Management · Outreach · Pipeline Tracking</p>
           </div>
-          <div class="flex items-center justify-end gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
-            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Workflow Design &amp; SOPs</span>
-          </div>
-          <div class="flex items-center justify-end gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
-            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Automation Setup</span>
-          </div>
-          <div class="flex items-center justify-end gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
-            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Email Campaigns</span>
-          </div>
-          <div class="flex items-center justify-end gap-4 group cursor-pointer border-b border-white/5 pb-4 hover:border-white/30 transition-colors">
-            <span class="opacity-70 group-hover:opacity-100 transition-opacity font-geist">Launch Support</span>
-          </div>
+          <div id="pillar-tags" class="flex flex-wrap gap-2"></div>
         </div>
-
       </div>
     </div>
   </section>
@@ -730,7 +747,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
         </div>
 
         <div class="flex items-center gap-6 mb-8 p-4 rounded-xl bg-white/40 backdrop-blur-sm border border-black/5">
-          <img src="images/hannah-portrait.jpg" alt="Hannah — Verdant Virtual" class="w-14 h-14 rounded-full object-cover flex-shrink-0" style="object-position: center top;">
+          <img src="images/hannah-portrait-opt.jpg" width="662" height="515" loading="lazy" decoding="async" alt="Hannah — Verdant Virtual" class="w-14 h-14 rounded-full object-cover flex-shrink-0" style="object-position: center top;">
           <div>
             <p class="text-sm font-medium tracking-tight font-geist">"I'm not here to add to your task list. I'm here to take ownership of the list itself."</p>
             <p class="text-xs opacity-50 mt-1 uppercase tracking-wider font-geist">Hannah — Verdant Virtual</p>
@@ -745,7 +762,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
 
       <div class="h-full min-h-[500px] relative rounded-2xl overflow-hidden card-flashlight">
         <div class="card-content w-full h-full absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1600&auto=format&fit=crop" alt="Working together" class="w-full h-full object-cover">
+          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1600&auto=format&fit=crop" alt="Working together" class="w-full h-full object-cover" loading="lazy" decoding="async">
           <div class="absolute inset-0 bg-black/30"></div>
           <div class="absolute bottom-8 left-8 text-white">
             <p class="text-xl font-jakarta font-light italic mb-1">"More than an extra pair of hands."</p>
@@ -780,7 +797,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
       </div>
       <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
         <div class="md:col-span-5">
-          <div class="flex items-center gap-3 mb-4"><img src="images/logo.png" alt="Verdant Virtual logo" class="h-9 w-9 object-contain"><p class="text-[1.8rem] font-jakarta font-semibold tracking-tight">Verdant Virtual</p></div>
+          <div class="flex items-center gap-3 mb-4"><img src="images/logo-opt.png" width="256" height="256" loading="lazy" decoding="async" alt="Verdant Virtual logo" class="h-9 w-9 object-contain"><p class="text-[1.8rem] font-jakarta font-semibold tracking-tight">Verdant Virtual</p></div>
           <p class="text-base opacity-65 font-geist leading-relaxed mb-3 max-w-xs">Growth &amp; Operations Partner for founders who need more than just an extra pair of hands. 8+ years executive experience across government, film, and creative industries.</p>
           <p class="text-sm opacity-40 font-geist italic font-medium">Open to growth partnerships and affiliate collaborations.</p>
         </div>
@@ -808,7 +825,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
         <div class="flex items-center gap-2">
           <a href="https://www.lynckstudio.pro" target="_blank" rel="noopener noreferrer" class="hover:opacity-70 transition-opacity" style="font-size:130%;">Built by Lynck Studio</a>
           <a href="https://www.lynckstudio.pro" target="_blank" rel="noopener noreferrer" class="inline-flex items-center hover:opacity-85 transition-opacity" aria-label="Visit Lynck Studio">
-            <img src="images/lynck-logo.png" alt="Lynck Studio logo" class="h-8 w-8 rounded-full object-cover border border-white/20">
+            <img src="images/lynck-logo-opt.png" width="256" height="256" loading="lazy" decoding="async" alt="Lynck Studio logo" class="h-8 w-8 rounded-full object-cover border border-white/20">
           </a>
         </div>
       </div>
@@ -817,14 +834,22 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const cards = document.querySelectorAll('.card-flashlight');
-      cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-          card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      const MATTER_SCRIPT_SRC = 'https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js';
+      let matterLoadPromise = null;
+
+      const loadMatter = () => {
+        if (window.Matter) return Promise.resolve(window.Matter);
+        if (matterLoadPromise) return matterLoadPromise;
+        matterLoadPromise = new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = MATTER_SCRIPT_SRC;
+          script.async = true;
+          script.onload = () => resolve(window.Matter);
+          script.onerror = reject;
+          document.head.appendChild(script);
         });
-      });
+        return matterLoadPromise;
+      };
 
       const initServiceSortingCard = () => {
         const container = document.getElementById('vv-physics-container');
@@ -832,8 +857,6 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
         const tagEls = Array.from(container.querySelectorAll('.vv-physics-tag'));
         if (!tagEls.length) return;
         container.classList.add('vv-static-fallback');
-
-        if (!window.Matter) return;
 
         const startPhysics = () => {
           const rect = container.getBoundingClientRect();
@@ -928,12 +951,36 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
           }
         };
 
-        if (!startPhysics()) {
-          requestAnimationFrame(() => {
-            if (!startPhysics()) {
-              setTimeout(startPhysics, 250);
-            }
-          });
+        let initialized = false;
+        const bootPhysics = () => {
+          if (initialized || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          initialized = true;
+          loadMatter()
+            .then(() => {
+              if (!startPhysics()) {
+                requestAnimationFrame(() => {
+                  if (!startPhysics()) {
+                    setTimeout(startPhysics, 250);
+                  }
+                });
+              }
+            })
+            .catch(() => {
+              container.classList.add('vv-static-fallback');
+            });
+        };
+
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              observer.disconnect();
+              bootPhysics();
+            });
+          }, { rootMargin: '220px 0px', threshold: 0.1 });
+          observer.observe(container);
+        } else {
+          bootPhysics();
         }
       };
 
@@ -941,6 +988,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
     });
 
     (function() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 1024) return;
       const vsSource = `attribute vec2 aPosition; varying vec2 vUv; void main() { vUv = aPosition * 0.5 + 0.5; gl_Position = vec4(aPosition, 0.0, 1.0); }`;
       const fsSource = `precision highp float; varying vec2 vUv; uniform sampler2D uImage; uniform float uProgress; void main() { float cols = 4.0; float colIndex = floor(vUv.x * cols); float stagger = 0.15; float delay = colIndex * stagger; float localProgress = clamp((uProgress * (1.0 + 3.0 * stagger) - delay), 0.0, 1.0); float f = localProgress - 1.0; float ease = f * f * f + 1.0; if (vUv.y < 1.0 - ease) { discard; } gl_FragColor = texture2D(uImage, vUv); }`;
       function initWebGLImage(originalImg) {
@@ -981,7 +1029,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
         };
         img.src = originalImg.src;
       }
-      document.querySelectorAll('img').forEach(initWebGLImage);
+      document.querySelectorAll('img[data-webgl-reveal="true"]').forEach(initWebGLImage);
     })();
 
     // Credentials number scramble: 0 → 8
@@ -1114,8 +1162,12 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
     const rightCtx = rightCanvas.getContext('2d');
     const verdant = ['V','E','R','D','A','N','T'];
     const virtual_ = ['V','I','R','T','U','A','L'];
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (reduceMotion.matches) return;
+
     let t = 0;
     let rafId;
+    let running = false;
     let particles = [];
 
     function sizeCanvas(canvas, cssWidth, cssHeight) {
@@ -1133,7 +1185,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
       rails.style.top = `${startY}px`;
       rails.style.height = `${totalHeight}px`;
       particles = [];
-      const count = Math.floor(totalHeight / 15) + 12;
+      const count = Math.floor(totalHeight / 20) + 10;
       for (let i = 0; i < count; i++) {
         particles.push({
           index: i,
@@ -1155,7 +1207,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
-      const spacing = 20;
+      const spacing = 24;
       const centerX = w / 2;
       const waveHeight = w * 0.34;
       const spin = mirror ? -t : t;
@@ -1190,26 +1242,114 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
 
     let dims = layoutRails();
     function tick() {
+      if (!running) return;
       drawRail(leftCtx, dims.left, false);
       drawRail(rightCtx, dims.right, true);
-      t += 0.02;
+      t += 0.016;
       rafId = requestAnimationFrame(tick);
     }
 
+    function startTick() {
+      if (running) return;
+      running = true;
+      tick();
+    }
+
+    function stopTick() {
+      running = false;
+      if (rafId) cancelAnimationFrame(rafId);
+    }
+
     const onResize = () => { dims = layoutRails(); };
-    window.addEventListener('resize', onResize);
+    window.addEventListener('resize', onResize, { passive: true });
     new ResizeObserver(onResize).observe(document.body);
-    tick();
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        const active = entries.some((entry) => entry.isIntersecting);
+        if (active && !document.hidden) startTick();
+        if (!active || document.hidden) stopTick();
+      }, { rootMargin: '180px 0px', threshold: 0 });
+      observer.observe(rails);
+    } else {
+      startTick();
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopTick();
+      } else {
+        startTick();
+      }
+    });
   })();
   </script>
 
-  <!-- Sub-headline animated underline observer -->
   <script>
   (function(){
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.sub-hl').forEach(el => obs.observe(el));
+    const nav = document.getElementById('pillars-nav');
+    const tagsWrap = document.getElementById('pillar-tags');
+    const heading = document.getElementById('pillar-detail-heading');
+    const label = document.getElementById('pillar-detail-label');
+    const title = document.getElementById('pillar-detail-title');
+    const body = document.getElementById('pillar-detail-body');
+    const tagsLine = document.getElementById('pillar-detail-tags-line');
+    if (!nav || !tagsWrap || !heading || !label || !title || !body || !tagsLine) return;
+
+    const data = {
+      growth: {
+        heading: 'Pillar 01 — Growth Operations',
+        label: '01',
+        title: 'Growth Operations',
+        body: 'Prospect research, Instagram outreach, CRM setup and management, pipeline tracking, follow-up sequences, and inbound enquiry handling. Every opportunity captured and moved forward.',
+        tags: ['Lead Research', 'CRM Management', 'Outreach', 'Pipeline Tracking']
+      },
+      systems: {
+        heading: 'Pillar 02 — Systems & Operations',
+        label: '02',
+        title: 'Systems & Operations',
+        body: 'Workflow optimisation, SOP creation, tool setup, automation design, and process documentation. The structure that lets your business run without you carrying it all.',
+        tags: ['Workflow Design', 'SOPs', 'Automation', 'Notion / Asana']
+      },
+      execution: {
+        heading: 'Pillar 03 — Execution & Support',
+        label: '03',
+        title: 'Execution & Support',
+        body: 'Social media management, email marketing campaigns, executive admin, inbox and calendar management, project coordination, and launch support. Reliable execution on everything that keeps slipping.',
+        tags: ['Social Media', 'Email Campaigns', 'Admin Support', 'Launches']
+      }
+    };
+
+    function render(key){
+      const item = data[key];
+      if (!item) return;
+      heading.textContent = item.heading;
+      label.innerHTML = '<span class="italic opacity-70">Label:</span> ' + item.label;
+      title.innerHTML = '<span class="italic opacity-70">Title:</span> ' + item.title;
+      body.innerHTML = '<span class="italic opacity-70">Body:</span> ' + item.body;
+      tagsLine.innerHTML = '<span class="italic opacity-70">Tags:</span> ' + item.tags.join(' · ');
+      tagsWrap.innerHTML = '';
+      item.tags.forEach((tag) => {
+        const chip = document.createElement('span');
+        chip.className = 'pillar-tag-chip';
+        chip.textContent = tag;
+        tagsWrap.appendChild(chip);
+      });
+    }
+
+    nav.querySelectorAll('.pillar-nav-item').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        nav.querySelectorAll('.pillar-nav-item').forEach((b) => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+        render(btn.dataset.pillarKey);
+      });
+    });
+
+    render('growth');
   })();
   </script>
 

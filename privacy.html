@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — Verdant Virtual</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 body { font-family: 'Inter', sans-serif; }
@@ -28,6 +28,8 @@ body { font-family: 'Inter', sans-serif; }
 <style>.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
 <style>.font-geist { font-family: 'Geist', sans-serif !important; }</style>
+<link rel="stylesheet" href="assets/shared-ui.css">
+<script src="assets/shared-ui.js" defer></script>
 </head>
 <body class="bg-[#F2EFEA] text-[#2C2824] antialiased selection:bg-[#2C2824] selection:text-[#F2EFEA]">
 
@@ -48,7 +50,7 @@ body { font-family: 'Inter', sans-serif; }
       <div class="mt-4 rounded-2xl border border-black/10 bg-[#F2EFEA]/85 backdrop-blur-md shadow-sm">
         <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
           <a href="index.html" class="flex items-center gap-2 group">
-            <div style="height:57px;width:57px;flex-shrink:0;background:url(images/logo.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
+            <div style="height:57px;width:57px;flex-shrink:0;background:url(images/logo-opt.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
             <span class="text-lg tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
           </a>
           <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
@@ -56,7 +58,7 @@ body { font-family: 'Inter', sans-serif; }
             <a href="about.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">About</a>
             <a href="contact.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Contact</a>
           </nav>
-          <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn" onmouseenter="this.dataset.h='1'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .75s linear'; let dir=0; (function loop(){ if (this.dataset.h!=='1') return; dir = dir===0 ? -25 : 0; g.style.transform='translateX('+dir+'%)'; setTimeout(loop.bind(this),750); }).call(this);" onmouseleave="this.dataset.h='0'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .25s ease-out'; g.style.transform='translateX(-5%)';">
+          <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn">
             <div class="cp-border" aria-hidden="true"></div>
             <span style="position:relative;display:block;padding:0.5rem 0.85rem;font-size:0.875rem;background:#2D6A4F;border-radius:8px;height:100%;z-index:1;" class="font-geist">Book a Discovery Call</span>
           </a>
@@ -286,7 +288,7 @@ body { font-family: 'Inter', sans-serif; }
       </div>
       <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
         <div class="md:col-span-5">
-          <div class="flex items-center gap-3 mb-4"><img src="images/logo.png" alt="Verdant Virtual logo" class="h-9 w-9 object-contain"><p class="text-[1.8rem] font-jakarta font-semibold tracking-tight">Verdant Virtual</p></div>
+          <div class="flex items-center gap-3 mb-4"><img src="images/logo-opt.png" width="256" height="256" loading="lazy" decoding="async" alt="Verdant Virtual logo" class="h-9 w-9 object-contain"><p class="text-[1.8rem] font-jakarta font-semibold tracking-tight">Verdant Virtual</p></div>
           <p class="text-base opacity-65 font-geist leading-relaxed mb-3 max-w-xs">Growth &amp; Operations Partner for founders who need more than just an extra pair of hands. 8+ years executive experience across government, film, and creative industries.</p>
           <p class="text-sm opacity-40 font-geist italic font-medium">Open to growth partnerships and affiliate collaborations.</p>
         </div>
@@ -314,7 +316,7 @@ body { font-family: 'Inter', sans-serif; }
         <div class="flex items-center gap-2">
           <a href="https://www.lynckstudio.pro" target="_blank" rel="noopener noreferrer" class="hover:opacity-70 transition-opacity" style="font-size:130%;">Built by Lynck Studio</a>
           <a href="https://www.lynckstudio.pro" target="_blank" rel="noopener noreferrer" class="inline-flex items-center hover:opacity-85 transition-opacity" aria-label="Visit Lynck Studio">
-            <img src="images/lynck-logo.png" alt="Lynck Studio logo" class="h-8 w-8 rounded-full object-cover border border-white/20">
+            <img src="images/lynck-logo-opt.png" width="256" height="256" loading="lazy" decoding="async" alt="Lynck Studio logo" class="h-8 w-8 rounded-full object-cover border border-white/20">
           </a>
         </div>
       </div>
@@ -425,14 +427,6 @@ body { font-family: 'Inter', sans-serif; }
     }
     new ResizeObserver(init).observe(canvas.parentElement);
     init();
-  })();
-  </script>
-  <script>
-  (function(){
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.sub-hl').forEach(el => obs.observe(el));
   })();
   </script>
 </body>

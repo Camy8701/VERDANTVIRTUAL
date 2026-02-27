@@ -6,14 +6,14 @@
 <meta name="description" content="Verdant Journal: practical articles and free resources on hiring support, delegation, operations, and lead generation for founders and virtual assistants.">
 <link rel="canonical" href="https://verdantvirtual.co.uk/blog.html">
 <title>Verdant Journal | Blog & Free Resources</title>
-<link rel="icon" href="images/logo.png" type="image/png">
+<link rel="icon" href="images/logo-opt.png" type="image/png">
 <meta property="og:title" content="Verdant Journal | Blog & Free Resources">
 <meta property="og:description" content="Clarity for founders. Structure for operators. Practical insight from 8+ years of executive support.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://verdantvirtual.co.uk/blog.html">
 <meta property="og:image" content="https://verdantvirtual.co.uk/images/blog-hero.jpg">
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -922,6 +922,8 @@ body::before {
   .join-section { padding: 4.3rem 0; }
 }
 </style>
+<link rel="stylesheet" href="assets/shared-ui.css">
+<script src="assets/shared-ui.js" defer></script>
 </head>
 <body data-email-endpoint="https://hooks.zapier.com/hooks/catch/REPLACE_ME/verdant-journal/">
 
@@ -939,7 +941,7 @@ body::before {
     <div class="mt-4 nav-pill rounded-2xl">
       <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
         <a href="index.html" class="flex items-center gap-3 group">
-          <div style="height:57px;width:57px;flex-shrink:0;background:url(images/logo.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
+          <div style="height:57px;width:57px;flex-shrink:0;background:url(images/logo-opt.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
           <span class="text-base tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
         </a>
         <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
@@ -948,7 +950,7 @@ body::before {
           <a href="contact.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Contact</a>
           <a href="blog.html" class="font-medium text-[#2D6A4F] font-geist">Blog &amp; Freebies</a>
         </nav>
-        <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn" onmouseenter="this.dataset.h='1'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .75s linear'; let dir=0; (function loop(){ if (this.dataset.h!=='1') return; dir = dir===0 ? -25 : 0; g.style.transform='translateX('+dir+'%)'; setTimeout(loop.bind(this),750); }).call(this);" onmouseleave="this.dataset.h='0'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .25s ease-out'; g.style.transform='translateX(-5%)';">
+        <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn">
           <div class="cp-border" aria-hidden="true"></div>
           <span style="position:relative;display:block;padding:0.5rem 0.85rem;font-size:0.875rem;background:#2D6A4F;border-radius:8px;height:100%;z-index:1;" class="font-geist">Book a Discovery Call</span>
         </a>
@@ -1006,7 +1008,7 @@ body::before {
   <article class="featured-grid reveal">
     <div class="featured-image">
       <a href="blog/what-is-a-virtual-assistant.html" class="featured-image-link" aria-label="Read What Is a Virtual Assistant?">
-        <img src="images/hannah-portrait.jpg" alt="Hannah from Verdant Virtual">
+        <img src="images/hannah-portrait-opt.jpg" width="662" height="515" loading="lazy" decoding="async" alt="Hannah from Verdant Virtual">
       </a>
     </div>
     <div class="featured-content">
@@ -1031,7 +1033,7 @@ body::before {
 
   <div class="resource-grid">
     <article class="resource-card reveal" data-resource-key="hiring-checklist">
-      <img src="images/brand-cards.jpg" alt="Hiring checklist cover" class="resource-cover">
+      <img src="images/brand-cards-opt.jpg" width="1900" height="1060" loading="lazy" decoding="async" alt="Hiring checklist cover" class="resource-cover">
       <div class="resource-body">
         <h3 class="resource-title">Founder Hiring Readiness Checklist</h3>
         <p class="resource-desc">A focused checklist to assess whether your workflows, tools, and handover assets are ready for VA onboarding.</p>
@@ -1043,7 +1045,7 @@ body::before {
     </article>
 
     <article class="resource-card reveal reveal-delay-1" data-resource-key="delegation-audit">
-      <img src="images/desk-workspace.jpg" alt="Delegation audit worksheet" class="resource-cover">
+      <img src="images/desk-workspace-opt.jpg" width="896" height="1600" loading="lazy" decoding="async" alt="Delegation audit worksheet" class="resource-cover">
       <div class="resource-body">
         <h3 class="resource-title">Delegation Audit Worksheet</h3>
         <p class="resource-desc">A practical worksheet for mapping owner-only tasks, transferable tasks, and weekly delegation priorities.</p>
@@ -1228,7 +1230,7 @@ body::before {
     </div>
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
       <div class="md:col-span-5">
-        <div class="flex items-center gap-3 mb-4"><img src="images/logo.png" alt="Verdant Virtual logo" class="h-9 w-9 object-contain"><p class="text-[1.8rem] font-jakarta font-semibold tracking-tight">Verdant Virtual</p></div>
+        <div class="flex items-center gap-3 mb-4"><img src="images/logo-opt.png" width="256" height="256" loading="lazy" decoding="async" alt="Verdant Virtual logo" class="h-9 w-9 object-contain"><p class="text-[1.8rem] font-jakarta font-semibold tracking-tight">Verdant Virtual</p></div>
         <p class="text-base opacity-65 font-geist leading-relaxed mb-3 max-w-xs">Growth &amp; Operations Partner for founders who need more than just an extra pair of hands. 8+ years executive experience across government, film, and creative industries.</p>
         <p class="text-sm opacity-40 font-geist italic font-medium">Open to growth partnerships and affiliate collaborations.</p>
       </div>
@@ -1256,7 +1258,7 @@ body::before {
       <div class="flex items-center gap-2">
         <a href="https://www.lynckstudio.pro" target="_blank" rel="noopener noreferrer" class="hover:opacity-70 transition-opacity" style="font-size:130%;">Built by Lynck Studio</a>
         <a href="https://www.lynckstudio.pro" target="_blank" rel="noopener noreferrer" class="inline-flex items-center hover:opacity-85 transition-opacity" aria-label="Visit Lynck Studio">
-          <img src="images/lynck-logo.png" alt="Lynck Studio logo" class="h-8 w-8 rounded-full object-cover border border-white/20">
+          <img src="images/lynck-logo-opt.png" width="256" height="256" loading="lazy" decoding="async" alt="Lynck Studio logo" class="h-8 w-8 rounded-full object-cover border border-white/20">
         </a>
       </div>
     </div>

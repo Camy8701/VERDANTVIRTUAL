@@ -1,0 +1,15 @@
+@keyframes vv-border-slide {
+  0% { transform: translateX(-5%); }
+  50% { transform: translateX(-25%); }
+  100% { transform: translateX(-5%); }
+}
+
+.gradient-border-btn:hover .cp-border {
+  animation: vv-border-slide 1.5s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-border-btn:hover .cp-border {
+    animation: none;
+  }
+}
