@@ -7,6 +7,7 @@
 <title>Verdant Virtual — Virtual Assistant UK | Growth & Operations Partner for Founders</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 <script src="https://app.contactbutton.com/script/a2ab7b2e507a3034ec3eb460220c008b" async="async"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
@@ -103,16 +104,16 @@ body { font-family: 'Inter', sans-serif; }
 @media (max-width: 768px) { .hero-shift { transform: translateY(4%); } }
 
 /* Readability + hover motion across sections */
-section :is(h1,h2,h3,h4,p,li,span) {
+section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span) {
   transition: color .26s ease, transform .26s ease, letter-spacing .26s ease, opacity .26s ease;
 }
-section :is(h1,h2,h3,h4,p,li,span):hover {
+section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
   transform: translateY(-1px);
   letter-spacing: 0.01em;
   color: #2D6A4F;
   opacity: 1 !important;
 }
-.dark-section :is(h1,h2,h3,h4,p,li,span):hover {
+.dark-section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
   color: #9EF0A0;
 }
 
@@ -170,9 +171,107 @@ section :is(h1,h2,h3,h4,p,li,span):hover {
   50% { opacity: 1; }
   100% { opacity: 0.75; }
 }
+
+/* Service sorting card */
+#vv-sorting-card {
+  background: linear-gradient(180deg, #F0EBE1 0%, #DFD4C1 100%);
+  border: 1px solid #CFC2AD;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.7), inset 0 -1px 2px rgba(98,79,55,0.12), 0 20px 38px -20px rgba(44,40,36,0.32);
+}
+.vv-sort-pill {
+  background: linear-gradient(180deg, #E4DAC7 0%, #D5C6AF 100%);
+  border: 1px solid #BFAF96;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.65), inset 0 -1px 1px rgba(92,74,52,0.14), 0 8px 14px rgba(44,40,36,0.16);
+}
+#vv-sorting-card .vv-bottom-glow {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 58%;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(45,106,79,0.42) 0%, rgba(45,106,79,0.18) 36%, rgba(45,106,79,0) 100%);
+}
+#vv-physics-container {
+  position: relative;
+  overflow: hidden;
+  touch-action: none;
+  background: linear-gradient(180deg, rgba(249,245,235,0.85) 0%, rgba(233,223,205,0.75) 100%);
+  border: 1px solid rgba(136,112,82,0.2);
+}
+.vv-physics-tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #F2EFEA;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border-radius: 999px;
+  padding: 0.52rem 0.8rem;
+  border: 1px solid rgba(242,239,234,0.14);
+  background: linear-gradient(180deg, #332E29 0%, #231F1B 100%);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.08), inset 0 -1px 1px rgba(0,0,0,0.35), 0 8px 14px rgba(44,40,36,0.26);
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+  z-index: 2;
+  will-change: transform;
+}
+.vv-physics-tag:active {
+  cursor: grabbing;
+}
+#vv-physics-container.vv-static-fallback {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  overflow: auto;
+}
+#vv-physics-container.vv-static-fallback .vv-physics-tag {
+  position: static;
+  transform: none !important;
+  cursor: default;
+}
+
+/* VA section: hard-disable text hover/reflow animation */
+#va-positioning :is(h1,h2,h3,h4,p,li,span,strong,em) {
+  transition: none !important;
+  animation: none !important;
+  text-shadow: none !important;
+}
+#va-positioning :is(h1,h2,h3,h4,p,li,span,strong,em):hover {
+  transform: none !important;
+  letter-spacing: inherit !important;
+  font-stretch: 100% !important;
+  text-shadow: none !important;
+}
+#va-positioning h2.section-h2,
+#va-positioning h2.section-h2 span {
+  font-stretch: 100% !important;
+  letter-spacing: inherit !important;
+}
+#va-positioning .hl,
+#va-positioning .hl:hover {
+  color: #2D6A4F !important;
+}
+#va-positioning .meta-label::after {
+  animation: none !important;
+  transition: none !important;
+  width: 52% !important;
+}
+#va-positioning .meta-label:hover::after {
+  width: 52% !important;
+}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap">
 <style>.font-jakarta { font-family: 'Archivo', sans-serif !important; }</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,700&display=swap">
+<style>.font-consent { font-family: 'Bodoni Moda', serif !important; }</style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
 <style>.font-geist { font-family: 'Geist', sans-serif !important; }</style>
 </head>
@@ -199,14 +298,14 @@ section :is(h1,h2,h3,h4,p,li,span):hover {
       <div class="mt-4 rounded-2xl border border-black/10 bg-[#F2EFEA]/85 backdrop-blur-md shadow-sm">
         <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
           <a href="index.html" class="flex items-center gap-2 group">
-            <div style="height:44px;width:44px;flex-shrink:0;background:url(images/logo.png) center/220% no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
+            <div style="height:44px;width:44px;flex-shrink:0;background:url(images/logo.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
             <span class="text-lg tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
           </a>
           <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
             <a href="services.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Services</a>
             <a href="about.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">About</a>
             <a href="contact.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Contact</a>
-            <a href="blog.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Blog</a>
+            <a href="blog.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Blog &amp; Freebies</a>
           </nav>
           <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn" onmouseenter="this.dataset.h='1'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .75s linear'; let dir=0; (function loop(){ if (this.dataset.h!=='1') return; dir = dir===0 ? -25 : 0; g.style.transform='translateX('+dir+'%)'; setTimeout(loop.bind(this),750); }).call(this);" onmouseleave="this.dataset.h='0'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .25s ease-out'; g.style.transform='translateX(-5%)';">
             <div class="cp-border" aria-hidden="true"></div>
@@ -224,61 +323,58 @@ section :is(h1,h2,h3,h4,p,li,span):hover {
   </div>
 
   <!-- Hero Section -->
-  <section id="hero-main" class="relative pt-36 pb-16 min-h-screen flex flex-col justify-between overflow-hidden section-container">
-    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-[#F2EFEA]/65 z-[2]"></div>
+  <section id="hero-main" class="relative pt-32 pb-16 min-h-screen overflow-hidden section-container">
+    <div class="absolute inset-0 bg-[#E9E6DE]"></div>
+    <div class="pointer-events-none absolute inset-0 opacity-55" style="background:radial-gradient(circle at 50% 48%, rgba(255,255,255,0.56) 0%, rgba(233,230,222,0.72) 36%, rgba(233,230,222,0.96) 74%);"></div>
 
-    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full relative z-10 flex-grow flex items-center">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center w-full hero-shift">
-
-        <div class="lg:col-span-4 text-left relative z-20">
-          <h1 class="font-jakarta font-black uppercase text-[clamp(4.7rem,12.2vw,11.3rem)] leading-[0.9] tracking-[-0.05em] mb-7 -translate-y-[30%] transform-gpu will-change-transform">
-            <span class="block text-[#2D6A4F]">VERDANT</span>
-            <span class="block text-[#2C2824]">VIRTUAL</span>
-          </h1>
-
-          <p class="sub-hl font-geist text-xl md:text-2xl uppercase tracking-wide leading-snug font-semibold mb-6" style="color:#2C2824;opacity:0.9;">
-            The operational backbone your business is missing.
-          </p>
-
-          <p class="text-base md:text-lg opacity-70 font-normal leading-relaxed font-geist max-w-md mb-4">
-            Systems, lead generation and execution support — so you can stop holding everything together alone.
-          </p>
-          <p class="text-base md:text-lg opacity-65 font-normal leading-relaxed font-geist max-w-md mb-8">
-            Growth doesn't happen in chaos. It happens when things are well tended.
-          </p>
+    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full relative z-10 min-h-[calc(100vh-8rem)] flex flex-col">
+      <div class="relative flex-1 flex items-center justify-center">
+        <div class="pointer-events-none absolute inset-0">
+          <span class="absolute left-[9%] top-[12%] text-[#2C2824]/55 text-[2.4rem] leading-none font-geist">×</span>
+          <span class="absolute right-[12%] top-[10%] text-[#2C2824]/45 text-xs tracking-[0.35em] uppercase font-geist text-right">Unique<br>Character</span>
+          <span class="absolute right-[13%] bottom-[16%] text-[#2C2824]/55 text-[2.3rem] leading-none font-geist">○</span>
+          <span class="absolute left-[12%] bottom-[14%] text-[#2C2824]/45 text-xs tracking-[0.3em] uppercase font-geist">Verdant<br>Virtual</span>
         </div>
 
-        <div class="lg:col-span-8 relative z-10 lg:-ml-20">
-          <a href="services.html" class="group relative block rounded-[2rem] border border-white/70 bg-white/35 p-3 md:p-4 shadow-[0_24px_80px_rgba(44,40,36,0.16)] backdrop-blur-sm h-[56vh] md:h-[62vh] lg:h-[76vh] lg:-translate-y-[14%] transform-gpu will-change-transform">
-            <div class="relative overflow-hidden rounded-[1.5rem] h-full">
-              <img src="images/hero-generated.jpg" alt="Verdant Virtual growth operations setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-              <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(90deg, rgba(242,239,234,0.96) 0%, rgba(242,239,234,0.82) 18%, rgba(242,239,234,0.58) 36%, rgba(242,239,234,0.26) 54%, rgba(242,239,234,0.08) 70%, rgba(242,239,234,0) 82%);"></div>
-              <div class="absolute inset-0 bg-gradient-to-t from-[#1A1714]/30 via-transparent to-transparent"></div>
-            </div>
-            <div class="pointer-events-none absolute inset-x-5 bottom-5 h-24 bg-gradient-to-t from-[#F2EFEA]/80 via-[#F2EFEA]/45 to-transparent rounded-b-[1.2rem]"></div>
-          </a>
+        <div class="absolute w-[min(52vw,36rem)] aspect-square rounded-full overflow-hidden shadow-[0_18px_60px_rgba(44,40,36,0.22)]">
+          <img src="images/hero-generated.jpg" alt="Verdant Virtual hero visual" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_45%,rgba(44,40,36,0.14)_100%)]"></div>
+        </div>
+
+        <h1 class="font-consent uppercase text-[#F7F6F1] text-center leading-[0.86] tracking-[-0.045em] text-[clamp(4.2rem,14vw,13.2rem)] drop-shadow-[0_8px_22px_rgba(44,40,36,0.16)] px-2">
+          VERDANT<br class="md:hidden"> VIRTUAL
+        </h1>
+      </div>
+
+      <div class="relative z-20 mt-2">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
+          <div>
+            <p class="sub-hl font-geist text-xl md:text-2xl uppercase tracking-wide leading-snug font-semibold mb-4 text-[#2C2824]/90">
+              The operational backbone your business is missing.
+            </p>
+            <p class="text-base md:text-lg font-medium leading-relaxed font-geist text-[#2C2824]/72 max-w-2xl">
+              Systems, lead generation and execution support — so you can stop holding everything together alone.
+            </p>
+          </div>
+          <div class="flex flex-wrap lg:justify-end gap-3">
+            <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium font-geist transition-all duration-300 hover:scale-105 hover:bg-[#2D6A4F]">
+              Book a Discovery Call
+              <iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon>
+            </a>
+            <a href="services.html" class="btn-beam inline-flex items-center gap-2 border border-[#2C2824]/30 text-[#2C2824] bg-white/55 px-6 py-3 rounded-full text-sm font-medium font-geist transition-all duration-300 hover:scale-105 hover:bg-[#2D6A4F] hover:text-white hover:border-[#2D6A4F]">
+              See How I Work
+              <iconify-icon icon="solar:arrow-right-linear" class="text-base"></iconify-icon>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full relative z-10 mb-4">
-      <div class="flex flex-wrap gap-3">
-        <a href="contact.html" class="btn-beam dark-btn inline-flex items-center gap-2 bg-[#2C2824] text-[#F2EFEA] px-6 py-3 rounded-full text-sm font-medium font-geist transition-all duration-300 hover:scale-105 hover:bg-[#2D6A4F]">
-          Book a Discovery Call
-          <iconify-icon icon="solar:arrow-right-up-linear" class="text-base"></iconify-icon>
-        </a>
-        <a href="services.html" class="btn-beam inline-flex items-center gap-2 border border-[#2C2824]/25 text-[#2C2824] bg-white/55 px-6 py-3 rounded-full text-sm font-medium font-geist transition-all duration-300 hover:scale-105 hover:bg-[#2D6A4F] hover:text-white hover:border-[#2D6A4F]">
-          See How I Work
-          <iconify-icon icon="solar:arrow-right-linear" class="text-base"></iconify-icon>
-        </a>
-      </div>
-    </div>
-
-    <div class="w-full border-t border-black/10 mt-16 pt-8">
-      <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm tracking-tight font-bold text-[#1f1d1a]">
-        <div class="flex items-center gap-3 font-geist strip-label"><span class="opacity-95">01</span> LEAD GENERATION</div>
-        <div class="flex items-center gap-3 md:justify-center font-geist strip-label"><span class="opacity-95">02</span> SYSTEMS &amp; OPERATIONS</div>
-        <div class="flex items-center gap-3 md:justify-end font-geist strip-label"><span class="opacity-95">03</span> EXECUTIVE SUPPORT</div>
+      <div class="w-full border-t border-black/10 mt-12 pt-8">
+        <div class="max-w-[88rem] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-sm tracking-tight font-bold text-[#1f1d1a]">
+          <div class="flex items-center gap-3 font-geist strip-label"><span class="opacity-95">01</span> LEAD GENERATION</div>
+          <div class="flex items-center gap-3 md:justify-center font-geist strip-label"><span class="opacity-95">02</span> SYSTEMS &amp; OPERATIONS</div>
+          <div class="flex items-center gap-3 md:justify-end font-geist strip-label"><span class="opacity-95">03</span> EXECUTIVE SUPPORT</div>
+        </div>
       </div>
     </div>
   </section>
@@ -304,8 +400,8 @@ section :is(h1,h2,h3,h4,p,li,span):hover {
   <!-- VA Positioning Section -->
   <section id="va-positioning" class="py-28 section-container">
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-        <div class="lg:col-span-7">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start lg:items-end">
+        <div class="lg:col-span-6">
           <p class="text-xs uppercase tracking-widest opacity-75 mb-6 font-geist meta-label">Yes, I'm a Virtual Assistant</p>
           <h2 class="section-h2 text-6xl md:text-7xl lg:text-8xl tracking-tighter font-jakarta font-light mb-8 leading-tight">
             The kind that actually <span class="hl">changes how your<br>business runs.</span>
@@ -321,31 +417,30 @@ section :is(h1,h2,h3,h4,p,li,span):hover {
             <iconify-icon icon="solar:arrow-right-linear" class="text-lg"></iconify-icon>
           </a>
         </div>
-        <div class="lg:col-span-5 flex flex-col gap-5">
-          <div class="card-flashlight p-7">
-            <div class="card-content">
-              <div class="flex items-center gap-2 mb-5">
-                <span class="w-2 h-2 rounded-full bg-[#2D6A4F]"></span>
-                <span class="text-xs font-geist uppercase tracking-widest opacity-40">What this actually means</span>
-              </div>
-              <ul class="space-y-4">
-                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-75">
-                  <iconify-icon icon="solar:check-circle-linear" class="text-base text-[#2D6A4F] mt-0.5 flex-shrink-0"></iconify-icon>
-                  Anticipates what needs to happen — not just responds to what you ask
-                </li>
-                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-75">
-                  <iconify-icon icon="solar:check-circle-linear" class="text-base text-[#2D6A4F] mt-0.5 flex-shrink-0"></iconify-icon>
-                  Builds institutional knowledge of your business over time
-                </li>
-                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-75">
-                  <iconify-icon icon="solar:check-circle-linear" class="text-base text-[#2D6A4F] mt-0.5 flex-shrink-0"></iconify-icon>
-                  Executes in the real world — emails sent, leads tracked, CRM updated
-                </li>
-                <li class="flex items-start gap-3 font-geist text-sm leading-relaxed opacity-75">
-                  <iconify-icon icon="solar:check-circle-linear" class="text-base text-[#2D6A4F] mt-0.5 flex-shrink-0"></iconify-icon>
-                  UK-based, accountable, available — not a tool you have to manage
-                </li>
-              </ul>
+        <div class="lg:col-span-6 flex flex-col gap-5 lg:pt-2">
+          <div id="vv-sorting-card" class="relative rounded-[1.35rem] overflow-hidden p-5 md:p-6 min-h-[36rem] md:min-h-[40rem]">
+            <div class="vv-bottom-glow"></div>
+            <div class="relative z-20 flex items-center gap-2 px-3 py-1.5 rounded-full text-xs text-[#2C2824]/90 mb-4 w-fit vv-sort-pill">
+              <iconify-icon icon="solar:layers-linear" width="15" height="15"></iconify-icon>
+              <span class="font-geist uppercase tracking-wide">Sort</span>
+            </div>
+            <h3 class="relative z-20 text-2xl md:text-[2rem] tracking-tight text-[#2C2824] font-jakarta font-medium mb-2">Let's sort it out!</h3>
+            <p class="relative z-20 text-sm font-geist text-[#2C2824]/70 mb-5 max-w-md">Drag, group, and prioritise the moving blocks to mirror how support actually gets structured in your business.</p>
+
+            <div id="vv-physics-container" class="relative z-20 h-[28rem] md:h-[30rem] rounded-[1rem] border border-white/10 bg-black/20 vv-static-fallback">
+              <div class="vv-physics-tag"><iconify-icon icon="solar:magnifer-linear"></iconify-icon>Prospect Research</div>
+              <div class="vv-physics-tag"><iconify-icon icon="solar:smartphone-linear"></iconify-icon>Instagram Outreach</div>
+              <div class="vv-physics-tag"><iconify-icon icon="solar:database-linear"></iconify-icon>CRM Management</div>
+              <div class="vv-physics-tag"><iconify-icon icon="solar:chart-line-up-linear"></iconify-icon>Pipeline Tracking</div>
+              <div class="vv-physics-tag"><iconify-icon icon="solar:letter-opened-linear"></iconify-icon>Follow-Up Sequences</div>
+              <div class="vv-physics-tag"><iconify-icon icon="solar:settings-minimalistic-linear"></iconify-icon>Workflow Optimisation</div>
+              <div class="vv-physics-tag"><iconify-icon icon="solar:file-text-linear"></iconify-icon>SOP Creation</div>
+              <div class="vv-physics-tag"><iconify-icon icon="solar:lightning-linear"></iconify-icon>Automation Setup</div>
+              <div class="vv-physics-tag"><iconify-icon icon="solar:rocket-linear"></iconify-icon>Launch Support</div>
+              <div class="vv-physics-tag"><iconify-icon icon="solar:clipboard-linear"></iconify-icon>Executive Admin</div>
+              <div class="vv-physics-tag"><iconify-icon icon="solar:letter-linear"></iconify-icon>Email Marketing</div>
+              <div class="vv-physics-tag"><iconify-icon icon="solar:calendar-linear"></iconify-icon>Inbox &amp; Calendar</div>
+              <div class="vv-physics-tag"><iconify-icon icon="solar:users-group-rounded-linear"></iconify-icon>Project Coordination</div>
             </div>
           </div>
         </div>
@@ -683,7 +778,7 @@ section :is(h1,h2,h3,h4,p,li,span):hover {
       </div>
       <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
         <div class="md:col-span-5">
-          <p class="text-[1.8rem] font-jakarta font-semibold tracking-tight mb-4">Verdant Virtual</p>
+          <div class="flex items-center gap-3 mb-4"><img src="images/logo.png" alt="Verdant Virtual logo" class="h-9 w-9 object-contain"><p class="text-[1.8rem] font-jakarta font-semibold tracking-tight">Verdant Virtual</p></div>
           <p class="text-base opacity-65 font-geist leading-relaxed mb-3 max-w-xs">Growth &amp; Operations Partner for founders who need more than just an extra pair of hands. 8+ years executive experience across government, film, and creative industries.</p>
           <p class="text-sm opacity-40 font-geist italic font-medium">Open to growth partnerships and affiliate collaborations.</p>
         </div>
@@ -693,7 +788,7 @@ section :is(h1,h2,h3,h4,p,li,span):hover {
             <a href="services.html" class="hover:opacity-100 transition-opacity">Services</a>
             <a href="about.html" class="hover:opacity-100 transition-opacity">About</a>
             <a href="contact.html" class="hover:opacity-100 transition-opacity">Contact</a>
-            <a href="blog.html" class="hover:opacity-100 transition-opacity">Blog</a>
+            <a href="blog.html" class="hover:opacity-100 transition-opacity">Blog &amp; Freebies</a>
             <a href="privacy.html" class="hover:opacity-100 transition-opacity">Privacy</a>
           </div>
         </div>
@@ -708,7 +803,12 @@ section :is(h1,h2,h3,h4,p,li,span):hover {
       </div>
       <div class="max-w-[88rem] mx-auto px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-white/10 pt-6 text-sm font-geist font-medium opacity-55">
         <span>© 2026 Verdant Virtual</span>
-        <a href="https://lynck.studio" target="_blank" class="hover:opacity-70 transition-opacity">Built by Lynck Studio</a>
+        <div class="flex items-center gap-2">
+          <a href="https://www.lynckstudio.pro" target="_blank" rel="noopener noreferrer" class="hover:opacity-70 transition-opacity" style="font-size:130%;">Built by Lynck Studio</a>
+          <a href="https://www.lynckstudio.pro" target="_blank" rel="noopener noreferrer" class="inline-flex items-center hover:opacity-85 transition-opacity" aria-label="Visit Lynck Studio">
+            <img src="images/lynck-logo.png" alt="Lynck Studio logo" class="h-8 w-8 rounded-full object-cover border border-white/20">
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -723,6 +823,119 @@ section :is(h1,h2,h3,h4,p,li,span):hover {
           card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
         });
       });
+
+      const initServiceSortingCard = () => {
+        const container = document.getElementById('vv-physics-container');
+        if (!container) return;
+        const tagEls = Array.from(container.querySelectorAll('.vv-physics-tag'));
+        if (!tagEls.length) return;
+        container.classList.add('vv-static-fallback');
+
+        if (!window.Matter) return;
+
+        const startPhysics = () => {
+          const rect = container.getBoundingClientRect();
+          let width = Math.round(rect.width);
+          let height = Math.round(rect.height);
+          if (width < 120 || height < 120) return false;
+
+          try {
+            const { Engine, Runner, Bodies, Composite, Mouse, MouseConstraint, Body } = Matter;
+            const engine = Engine.create({ enableSleeping: true });
+            engine.gravity.y = 0.9;
+            const runner = Runner.create();
+            let walls = [];
+            const blocks = [];
+
+            container.classList.remove('vv-static-fallback');
+
+            const makeBoundaries = () => {
+              walls.forEach(wall => Composite.remove(engine.world, wall));
+              const t = 72;
+              walls = [
+                Bodies.rectangle(width / 2, height + t / 2, width + t * 2, t, { isStatic: true }),
+                Bodies.rectangle(width / 2, -t / 2, width + t * 2, t, { isStatic: true }),
+                Bodies.rectangle(-t / 2, height / 2, t, height + t * 2, { isStatic: true }),
+                Bodies.rectangle(width + t / 2, height / 2, t, height + t * 2, { isStatic: true })
+              ];
+              Composite.add(engine.world, walls);
+            };
+
+            makeBoundaries();
+
+            tagEls.forEach((tag, i) => {
+              const w = Math.max(tag.offsetWidth, 118);
+              const h = Math.max(tag.offsetHeight, 36);
+              const lane = i % 3;
+              const x = ((lane + 0.5) / 3) * width + (Math.random() - 0.5) * 36;
+              const y = -120 - (i * 46);
+              const body = Bodies.rectangle(x, y, w, h, {
+                restitution: 0.24,
+                friction: 0.018,
+                frictionStatic: 0.24,
+                frictionAir: 0.03,
+                density: 0.0011,
+                chamfer: { radius: 18 }
+              });
+              blocks.push({ tag, body, w, h });
+              Composite.add(engine.world, body);
+            });
+
+            const mouse = Mouse.create(container);
+            mouse.pixelRatio = window.devicePixelRatio || 1;
+            const mouseConstraint = MouseConstraint.create(engine, {
+              mouse,
+              constraint: { stiffness: 0.22, damping: 0.2, render: { visible: false } }
+            });
+            Composite.add(engine.world, mouseConstraint);
+
+            Runner.run(runner, engine);
+
+            const render = () => {
+              blocks.forEach(({ tag, body, w, h }) => {
+                tag.style.transform = `translate(${body.position.x - (w / 2)}px, ${body.position.y - (h / 2)}px) rotate(${body.angle}rad)`;
+              });
+              requestAnimationFrame(render);
+            };
+            render();
+
+            const syncBounds = () => {
+              const r = container.getBoundingClientRect();
+              width = Math.round(r.width);
+              height = Math.round(r.height);
+              if (width < 120 || height < 120) return;
+              makeBoundaries();
+              blocks.forEach(({ body, w, h }) => {
+                const x = Math.min(Math.max(body.position.x, (w / 2) + 8), width - (w / 2) - 8);
+                const y = Math.min(Math.max(body.position.y, (h / 2) + 8), height - (h / 2) - 8);
+                Body.setPosition(body, { x, y });
+                Body.setVelocity(body, { x: 0, y: 0 });
+              });
+            };
+
+            if (window.ResizeObserver) {
+              const resizeObserver = new ResizeObserver(syncBounds);
+              resizeObserver.observe(container);
+            } else {
+              window.addEventListener('resize', syncBounds);
+            }
+            return true;
+          } catch (err) {
+            container.classList.add('vv-static-fallback');
+            return false;
+          }
+        };
+
+        if (!startPhysics()) {
+          requestAnimationFrame(() => {
+            if (!startPhysics()) {
+              setTimeout(startPhysics, 250);
+            }
+          });
+        }
+      };
+
+      initServiceSortingCard();
     });
 
     (function() {

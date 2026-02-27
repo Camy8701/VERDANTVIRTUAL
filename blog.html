@@ -387,14 +387,14 @@ body::before {
     <div class="mt-4 nav-pill rounded-2xl">
       <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
         <a href="index.html" class="flex items-center gap-3 group">
-          <div style="height:44px;width:44px;flex-shrink:0;background:url(images/logo.png) center/220% no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
+          <div style="height:44px;width:44px;flex-shrink:0;background:url(images/logo.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
           <span class="text-base tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
         </a>
         <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
           <a href="services.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Services</a>
           <a href="about.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">About</a>
           <a href="contact.html" class="font-medium hover:text-[#2D6A4F] transition-colors font-geist">Contact</a>
-          <a href="blog.html" class="font-medium text-[#2D6A4F] font-geist">Blog</a>
+          <a href="blog.html" class="font-medium text-[#2D6A4F] font-geist">Blog &amp; Freebies</a>
         </nav>
         <a href="contact.html" class="inline-flex items-center transition-colors text-sm font-medium text-white rounded-[10px] gradient-border-btn" onmouseenter="this.dataset.h='1'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .75s linear'; let dir=0; (function loop(){ if (this.dataset.h!=='1') return; dir = dir===0 ? -25 : 0; g.style.transform='translateX('+dir+'%)'; setTimeout(loop.bind(this),750); }).call(this);" onmouseleave="this.dataset.h='0'; const g=this.querySelector('.cp-border'); if(!g) return; g.style.transition='transform .25s ease-out'; g.style.transform='translateX(-5%)';">
           <div class="cp-border" aria-hidden="true"></div>
@@ -528,7 +528,7 @@ body::before {
     </div>
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
       <div class="md:col-span-5">
-        <p class="text-[1.8rem] font-jakarta font-semibold tracking-tight mb-4">Verdant Virtual</p>
+        <div class="flex items-center gap-3 mb-4"><img src="images/logo.png" alt="Verdant Virtual logo" class="h-9 w-9 object-contain"><p class="text-[1.8rem] font-jakarta font-semibold tracking-tight">Verdant Virtual</p></div>
         <p class="text-base opacity-65 font-geist leading-relaxed mb-3 max-w-xs">Growth &amp; Operations Partner for founders who need more than just an extra pair of hands. 8+ years executive experience across government, film, and creative industries.</p>
         <p class="text-sm opacity-40 font-geist italic font-medium">Open to growth partnerships and affiliate collaborations.</p>
       </div>
@@ -538,7 +538,7 @@ body::before {
           <a href="services.html" class="hover:opacity-100 transition-opacity">Services</a>
           <a href="about.html" class="hover:opacity-100 transition-opacity">About</a>
           <a href="contact.html" class="hover:opacity-100 transition-opacity">Contact</a>
-          <a href="blog.html" class="hover:opacity-100 transition-opacity">Blog</a>
+          <a href="blog.html" class="hover:opacity-100 transition-opacity">Blog &amp; Freebies</a>
           <a href="privacy.html" class="hover:opacity-100 transition-opacity">Privacy</a>
         </div>
       </div>
@@ -553,7 +553,12 @@ body::before {
     </div>
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-white/10 pt-6 text-sm font-geist font-medium opacity-55">
       <span>© 2026 Verdant Virtual</span>
-      <a href="https://lynck.studio" target="_blank" class="hover:opacity-70 transition-opacity">Built by Lynck Studio</a>
+      <div class="flex items-center gap-2">
+        <a href="https://www.lynckstudio.pro" target="_blank" rel="noopener noreferrer" class="hover:opacity-70 transition-opacity" style="font-size:130%;">Built by Lynck Studio</a>
+        <a href="https://www.lynckstudio.pro" target="_blank" rel="noopener noreferrer" class="inline-flex items-center hover:opacity-85 transition-opacity" aria-label="Visit Lynck Studio">
+          <img src="images/lynck-logo.png" alt="Lynck Studio logo" class="h-8 w-8 rounded-full object-cover border border-white/20">
+        </a>
+      </div>
     </div>
   </div>
 </footer>
