@@ -3,33 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Insights on growth, operations, and executive support from Hannah at Verdant Virtual — a UK-based VA for founders.">
-<title>Journal | Verdant Virtual</title>
+<meta name="description" content="Verdant Journal: practical articles and free resources on hiring support, delegation, operations, and lead generation for founders and virtual assistants.">
+<link rel="canonical" href="https://verdantvirtual.co.uk/blog.html">
+<title>Verdant Journal | Blog & Free Resources</title>
+<link rel="icon" href="images/logo.png" type="image/png">
+<meta property="og:title" content="Verdant Journal | Blog & Free Resources">
+<meta property="og:description" content="Clarity for founders. Structure for operators. Practical insight from 8+ years of executive support.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://verdantvirtual.co.uk/blog.html">
+<meta property="og:image" content="https://verdantvirtual.co.uk/images/blog-hero.jpg">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Blog",
+      "@id": "https://verdantvirtual.co.uk/blog.html#blog",
+      "name": "Verdant Journal",
+      "url": "https://verdantvirtual.co.uk/blog.html",
+      "description": "Structured insights on growth, operations, hiring, and delegation for founders.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Verdant Virtual",
+        "url": "https://verdantvirtual.co.uk"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "What Is a Virtual Assistant? (And Why the Right One Changes Everything)",
+      "url": "https://verdantvirtual.co.uk/blog/what-is-a-virtual-assistant",
+      "mainEntityOfPage": "https://verdantvirtual.co.uk/blog/what-is-a-virtual-assistant",
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-02-26",
+      "author": {"@type": "Person", "name": "Hannah"},
+      "publisher": {"@type": "Organization", "name": "Verdant Virtual"},
+      "description": "A practical guide to what virtual assistants do, where they create value, and what to look for when hiring."
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Founder Delegation Audit: A Weekly Framework",
+      "url": "https://verdantvirtual.co.uk/blog/founder-delegation-audit-framework",
+      "mainEntityOfPage": "https://verdantvirtual.co.uk/blog/founder-delegation-audit-framework",
+      "datePublished": "2026-02-07",
+      "author": {"@type": "Person", "name": "Hannah"},
+      "publisher": {"@type": "Organization", "name": "Verdant Virtual"},
+      "description": "A weekly delegation framework for founders who want cleaner handovers and fewer repeat clarifications."
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Lead Follow-Up Without Inbox Chaos",
+      "url": "https://verdantvirtual.co.uk/blog/lead-follow-up-without-inbox-chaos",
+      "mainEntityOfPage": "https://verdantvirtual.co.uk/blog/lead-follow-up-without-inbox-chaos",
+      "datePublished": "2026-02-18",
+      "author": {"@type": "Person", "name": "Hannah"},
+      "publisher": {"@type": "Organization", "name": "Verdant Virtual"},
+      "description": "A compact lead follow-up system that keeps momentum high without forcing founders into manual inbox management."
+    }
+  ]
+}
+</script>
 <style>
 :root {
   --cream: #F5EFE6;
   --parchment: #EDE5D8;
   --charcoal: #2C2824;
+  --ink: #1C1915;
   --forest: #2D6A4F;
   --sage: #6B9E82;
-  --blush: #C4A8A0;
-  --warm-gold: #B8975A;
+  --sage-soft: #DCE8DE;
+  --gold: #B8975A;
   --dark-forest: #1A2218;
-  --ink: #1C1915;
 }
+
 *, *::before, *::after { box-sizing: border-box; }
 html { background: var(--cream); }
-body { font-family: 'Geist', sans-serif; background: var(--cream); color: var(--charcoal); antialiased; }
+body {
+  font-family: 'Geist', sans-serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
 .font-display { font-family: 'Cormorant Garamond', serif !important; }
 .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }
 .font-geist { font-family: 'Geist', sans-serif !important; }
+
 ::selection { background: var(--charcoal); color: var(--cream); }
 
-/* Grain overlay */
 body::before {
   content: '';
   position: fixed;
@@ -41,7 +107,6 @@ body::before {
   background-size: 128px;
 }
 
-/* Navigation */
 .nav-pill {
   background: rgba(245,239,230,0.88);
   backdrop-filter: blur(16px);
@@ -49,284 +114,763 @@ body::before {
   border: 1px solid rgba(44,40,36,0.09);
   box-shadow: 0 2px 16px rgba(44,40,36,0.06);
 }
-.gradient-border-btn { position: relative; isolation: isolate; padding: 3px; border-radius: 10px; overflow: hidden; background-color: transparent; }
-.gradient-border-btn .cp-border { position: absolute; top: 0; left: 0; height: 100%; width: 400%; background: linear-gradient(115deg, rgb(45,106,79), rgb(184,151,90), rgb(74,160,120), rgb(45,106,79), rgb(184,151,90)) 0% 0% / 25% 100%; transform: translateX(-5%); z-index: 0; transition: transform .25s ease-out; }
 
-/* Vertical grid lines */
-.grid-lines { position: fixed; inset: 0; pointer-events: none; z-index: 50; display: flex; justify-content: center; }
-.grid-lines-inner { width: 100%; max-width: 88rem; height: 100%; display: flex; justify-content: space-between; padding: 0 3rem; mix-blend-mode: multiply; opacity: 0.04; }
-.grid-line { width: 1px; height: 100%; background: currentColor; }
+.gradient-border-btn {
+  position: relative;
+  isolation: isolate;
+  padding: 3px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: transparent;
+}
 
-/* Hero */
+.gradient-border-btn .cp-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 400%;
+  background: linear-gradient(115deg, rgb(45,106,79), rgb(184,151,90), rgb(74,160,120), rgb(45,106,79), rgb(184,151,90)) 0% 0% / 25% 100%;
+  transform: translateX(-5%);
+  z-index: 0;
+  transition: transform .25s ease-out;
+}
+
+.grid-lines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+}
+
+.grid-lines-inner {
+  width: 100%;
+  max-width: 88rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3rem;
+  mix-blend-mode: multiply;
+  opacity: 0.04;
+}
+
+.grid-line {
+  width: 1px;
+  height: 100%;
+  background: currentColor;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border-radius: 999px;
+  font-family: 'Geist', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--forest);
+  color: #fff;
+  border: 1px solid var(--forest);
+  padding: 0.8rem 1.3rem;
+}
+
+.btn-primary:hover {
+  background: #245742;
+  border-color: #245742;
+}
+
+.btn-secondary {
+  border: 1px solid rgba(44,40,36,0.25);
+  color: var(--charcoal);
+  padding: 0.8rem 1.3rem;
+  background: rgba(255,255,255,0.5);
+}
+
+.btn-secondary:hover {
+  border-color: var(--forest);
+  color: var(--forest);
+  background: rgba(45,106,79,0.06);
+}
+
 .journal-hero {
   position: relative;
   overflow: hidden;
-  min-height: 88vh;
-  display: flex;
-  align-items: flex-end;
+  min-height: auto;
+  border-bottom: 1px solid rgba(44,40,36,0.1);
 }
-.botanical-bg {
-  position: absolute;
-  right: -4%;
-  top: -8%;
-  width: 60%;
-  height: 115%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0.45;
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  user-select: none;
-}
-.hero-text-col {
+
+.hero-content {
   position: relative;
   z-index: 2;
-  padding: 8rem 0 5rem;
-  max-width: 54%;
+  width: min(100%, 86rem);
+  margin-inline: auto;
+  padding: 9.2rem 0 3rem;
 }
-.journal-label {
+
+.hero-title {
   font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.05rem;
-  letter-spacing: 0.12em;
-  color: var(--forest);
-  opacity: 0.7;
+  font-weight: 300;
+  font-size: clamp(3.1rem, 7vw, 6.15rem);
+  line-height: 0.93;
+  letter-spacing: -0.032em;
+  color: var(--ink);
+  max-width: 100%;
   margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
 }
-.journal-label::before {
+
+.hero-title .hero-word-forest {
+  color: var(--forest);
+}
+
+.hero-subheading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(0.95rem, 1.35vw, 1.12rem);
+  line-height: 1.74;
+  max-width: 64rem;
+  color: rgba(28,25,21,0.82);
+  margin-bottom: 1.3rem;
+}
+
+.hero-overview,
+.hero-bullets,
+.hero-note {
+  max-width: 64rem;
+}
+
+.hero-overview {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(44,40,36,0.78);
+  margin-bottom: 1rem;
+}
+
+.hero-bullets {
+  list-style: none;
+  margin: 0 0 1.15rem;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.hero-bullets li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-size: 0.91rem;
+  line-height: 1.62;
+  color: rgba(44,40,36,0.8);
+}
+
+.hero-bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: -0.03rem;
+  color: var(--forest);
+  font-size: 0.95rem;
+}
+
+.hero-note {
+  font-size: 0.88rem;
+  line-height: 1.76;
+  color: rgba(44,40,36,0.64);
+  margin-bottom: 1.35rem;
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 1.35rem;
+}
+
+.hero-long-rule {
+  height: 1px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, rgba(44,40,36,0.1), rgba(44,40,36,0.18) 35%, rgba(44,40,36,0.18) 65%, rgba(44,40,36,0.1));
+}
+
+.filter-wrap {
+  margin-top: 1rem;
+  padding-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.filter-btn {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.44rem 0.92rem;
+  border-radius: 999px;
+  border: 1px solid rgba(44,40,36,0.17);
+  color: var(--charcoal);
+  background: rgba(255,255,255,0.4);
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.is-active {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: #fff;
+}
+
+.section-shell {
+  max-width: 88rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.7rem;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--forest);
+  opacity: 0.8;
+}
+
+.section-label::before {
   content: '';
-  display: inline-block;
-  width: 32px;
+  width: 26px;
   height: 1px;
   background: var(--forest);
   opacity: 0.6;
 }
-.hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-size: clamp(3.5rem, 7vw, 7.5rem);
-  line-height: 0.92;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  margin-bottom: 2rem;
-}
-.hero-title em {
-  font-style: italic;
-  color: var(--forest);
-}
-.hero-desc {
-  font-family: 'Geist', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.8;
-  opacity: 0.52;
-  max-width: 24rem;
-  margin-bottom: 3rem;
-}
-.hero-divider {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid rgba(44,40,36,0.12);
-}
-.category-tag {
-  font-family: 'Geist', sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.4rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(44,40,36,0.15);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  color: var(--charcoal);
-}
-.category-tag:hover, .category-tag.active {
-  background: var(--charcoal);
-  color: var(--cream);
-  border-color: var(--charcoal);
-}
-.category-tag.active {
-  background: var(--forest);
-  border-color: var(--forest);
-  color: white;
-}
 
-/* Featured article */
-.featured-frame {
-  position: relative;
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   border: 1px solid rgba(44,40,36,0.1);
   border-radius: 20px;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 560px;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-  text-decoration: none;
-  color: inherit;
+  background: var(--parchment);
+  min-height: 32rem;
 }
-.featured-frame:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 32px 64px rgba(26,34,24,0.12);
-}
-.featured-img-col {
+
+.featured-image {
   position: relative;
   overflow: hidden;
   background: #1a2218;
 }
-.featured-img-col img {
+
+.featured-image-link {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.featured-image img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0.88;
+  transition: transform 0.75s cubic-bezier(0.16,1,0.3,1);
 }
-.featured-frame:hover .featured-img-col img {
+
+.featured-grid:hover .featured-image img {
   transform: scale(1.04);
 }
-.featured-img-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(26,34,24,0.4), transparent 60%, rgba(26,34,24,0.2));
-  z-index: 1;
-}
-.featured-content-col {
-  padding: 3.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: var(--parchment);
-  position: relative;
-}
-.featured-content-col::before {
+
+.featured-image::after {
   content: '';
   position: absolute;
-  top: 2.5rem;
-  left: 0;
-  width: 3px;
-  height: 40px;
-  background: var(--forest);
-  opacity: 0.5;
-  border-radius: 0 2px 2px 0;
+  inset: 0;
+  background: linear-gradient(140deg, rgba(26,34,24,0.42), transparent 58%, rgba(26,34,24,0.3));
 }
-.article-number {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 5rem;
-  line-height: 1;
-  font-weight: 300;
-  color: var(--charcoal);
-  opacity: 0.07;
-  position: absolute;
-  top: 1.5rem;
-  right: 2.5rem;
-  letter-spacing: -0.04em;
-  pointer-events: none;
-  user-select: none;
+
+.featured-content {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.featured-badge {
+
+.featured-guide-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-family: 'Geist', sans-serif;
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
+  gap: 0.45rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--forest);
-  background: rgba(45,106,79,0.1);
   border: 1px solid rgba(45,106,79,0.2);
-  padding: 0.35rem 0.85rem;
+  background: rgba(45,106,79,0.08);
+  color: var(--forest);
   border-radius: 999px;
-  margin-bottom: 1.5rem;
+  padding: 0.36rem 0.82rem;
+  margin-bottom: 1rem;
+  width: fit-content;
 }
+
 .featured-title {
   font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-size: clamp(1.6rem, 2.8vw, 2.6rem);
-  line-height: 1.15;
+  font-size: clamp(1.85rem, 3.1vw, 2.8rem);
+  line-height: 1.12;
   letter-spacing: -0.02em;
   color: var(--ink);
-  margin-bottom: 1.25rem;
-  transition: color 0.2s ease;
+  margin-bottom: 1rem;
 }
-.featured-frame:hover .featured-title {
+
+.featured-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.featured-title-link:hover {
   color: var(--forest);
 }
+
 .featured-excerpt {
-  font-size: 0.88rem;
-  line-height: 1.8;
-  opacity: 0.58;
-  margin-bottom: 2rem;
-  flex-grow: 1;
+  font-size: 0.93rem;
+  line-height: 1.78;
+  color: rgba(44,40,36,0.66);
+  margin-bottom: 1.2rem;
 }
-.author-row {
+
+.meta-row {
   display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(44,40,36,0.1);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.95rem;
 }
-.author-avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid rgba(44,40,36,0.1);
+
+.meta-chip {
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 1px solid rgba(44,40,36,0.14);
+  padding: 0.28rem 0.62rem;
+  color: rgba(44,40,36,0.67);
 }
+
+.slug-line {
+  font-family: 'Geist', sans-serif;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: rgba(44,40,36,0.46);
+  margin-bottom: 1.2rem;
+}
+
 .read-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-family: 'Geist', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  gap: 0.45rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--forest);
-  transition: gap 0.2s ease;
+  text-decoration: none;
+  font-weight: 600;
 }
-.featured-frame:hover .read-link { gap: 0.8rem; }
-.read-link::after {
-  content: '→';
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
-.featured-frame:hover .read-link::after { transform: translateX(3px); }
 
-/* Coming soon section */
-.coming-soon {
-  position: relative;
-  overflow: hidden;
-  background: var(--dark-forest);
-  padding: 8rem 0;
+.read-link:hover {
+  gap: 0.74rem;
 }
-.coming-soon-botanical {
-  position: absolute;
-  left: -5%;
-  top: -20%;
-  width: 55%;
-  height: 140%;
+
+.resources-section {
+  padding: 5.75rem 0 1rem;
+}
+
+.resources-head p {
+  font-size: 0.92rem;
+  color: rgba(44,40,36,0.68);
+  max-width: 44rem;
+  line-height: 1.74;
+}
+
+.resource-grid {
+  margin-top: 1.6rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.resource-card {
+  border: 1px solid rgba(44,40,36,0.1);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.48);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  opacity: 0.12;
-  mix-blend-mode: luminosity;
+  object-position: center;
+}
+
+.resource-body {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.resource-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.48rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.resource-desc {
+  font-size: 0.84rem;
+  line-height: 1.62;
+  color: rgba(44,40,36,0.65);
+  min-height: 2.65rem;
+}
+
+.resource-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.resource-btn {
+  border-radius: 999px;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.8rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.resource-btn.read {
+  background: rgba(255,255,255,0.8);
+  border-color: rgba(44,40,36,0.13);
+  color: var(--charcoal);
+}
+
+.resource-btn.read:hover {
+  border-color: var(--forest);
+  color: var(--forest);
+}
+
+.resource-btn.download {
+  background: var(--forest);
+  color: #fff;
+}
+
+.resource-btn.download:hover {
+  background: #245742;
+}
+
+.funnel-strip {
+  margin-top: 1.15rem;
+  border: 1px solid rgba(45,106,79,0.2);
+  background: rgba(45,106,79,0.06);
+  border-radius: 15px;
+  padding: 1.2rem;
+}
+
+.funnel-strip h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin-bottom: 0.6rem;
+}
+
+.funnel-strip ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.48rem;
+}
+
+.funnel-strip li {
+  font-size: 0.83rem;
+  line-height: 1.52;
+  color: rgba(44,40,36,0.72);
+}
+
+.funnel-strip li span {
+  color: var(--forest);
+  font-weight: 600;
+  margin-right: 0.35rem;
+}
+
+.library-section {
+  padding: 3.2rem 0 5.8rem;
+}
+
+.library-head {
+  margin-bottom: 1.25rem;
+}
+
+.library-head h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.6vw, 3.35rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.library-head p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(44,40,36,0.66);
+  max-width: 38rem;
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.article-card {
+  border: 1px solid rgba(44,40,36,0.11);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.52);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.26s ease, box-shadow 0.26s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 26px rgba(28,25,21,0.09);
+}
+
+.article-card.hidden-by-filter {
+  display: none;
+}
+
+.article-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.42rem;
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-bottom: 0.65rem;
+}
+
+.article-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.article-title-link:hover {
+  color: var(--forest);
+}
+
+.article-desc {
+  font-size: 0.83rem;
+  line-height: 1.67;
+  color: rgba(44,40,36,0.64);
+  margin-bottom: 0.7rem;
+  flex-grow: 1;
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.1rem;
+}
+
+.article-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.71rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--forest);
+  text-decoration: none;
+}
+
+.article-link:hover {
+  gap: 0.72rem;
+}
+
+.article-link.is-disabled {
+  color: rgba(44,40,36,0.34);
   pointer-events: none;
 }
-.coming-soon-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(2.2rem, 4vw, 4rem);
-  line-height: 1.2;
-  color: #F5EFE6;
-  opacity: 0.7;
-  letter-spacing: -0.02em;
+
+.no-results {
+  margin-top: 1rem;
+  font-size: 0.84rem;
+  color: rgba(44,40,36,0.6);
+  display: none;
 }
 
-/* Footer */
+.join-section {
+  background: linear-gradient(180deg, var(--sage-soft) 0%, #d2e2d4 100%);
+  border-top: 1px solid rgba(45,106,79,0.14);
+  border-bottom: 1px solid rgba(45,106,79,0.14);
+  padding: 5.3rem 0;
+}
+
+.join-shell {
+  max-width: 56rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.join-shell h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 0.97;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.join-shell p {
+  font-size: 0.93rem;
+  line-height: 1.8;
+  color: rgba(28,25,21,0.72);
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+.email-form {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.email-input {
+  min-width: min(100%, 20rem);
+  width: 22rem;
+  border: 1px solid rgba(44,40,36,0.25);
+  border-radius: 999px;
+  padding: 0.72rem 1rem;
+  font-size: 0.86rem;
+  color: var(--charcoal);
+  background: rgba(255,255,255,0.88);
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: var(--forest);
+  box-shadow: 0 0 0 3px rgba(45,106,79,0.12);
+}
+
+.small-legal {
+  margin-top: 0.8rem;
+  font-size: 0.74rem;
+  color: rgba(44,40,36,0.57);
+}
+
+.form-feedback {
+  margin-top: 0.65rem;
+  font-size: 0.79rem;
+  min-height: 1.3rem;
+  color: var(--forest);
+}
+
+.modal-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(28,25,21,0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-layer.is-open {
+  display: flex;
+}
+
+.modal-card {
+  width: min(100%, 29rem);
+  border-radius: 16px;
+  border: 1px solid rgba(44,40,36,0.13);
+  background: #F7F2E8;
+  box-shadow: 0 30px 60px rgba(28,25,21,0.25);
+  padding: 1.35rem;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(44,40,36,0.08);
+  color: rgba(44,40,36,0.7);
+  font-size: 1rem;
+}
+
+.modal-close:hover {
+  background: rgba(44,40,36,0.12);
+}
+
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+.modal-copy {
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: rgba(44,40,36,0.68);
+  margin-bottom: 0.8rem;
+}
+
+.modal-resource {
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin-bottom: 0.7rem;
+}
+
 .site-footer {
   background: var(--dark-forest);
   border-top: 1px solid rgba(255,255,255,0.07);
@@ -335,43 +879,52 @@ body::before {
   color: #F5EFE6;
 }
 
-/* Btn hover beam */
-@keyframes beam { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
-.btn-beam { position: relative; z-index: 1; }
-.btn-beam::before {
-  content: ''; position: absolute; inset: -1px; border-radius: inherit;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-  background-size: 200% 100%; animation: beam 2s linear infinite;
-  opacity: 0; transition: opacity 0.3s ease; z-index: -1;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor; mask-composite: exclude; padding: 1px;
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1);
 }
-.btn-beam:hover::before { opacity: 1; }
 
-/* Reveal on scroll */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1); }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.22s; }
-.reveal-delay-3 { transition-delay: 0.36s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
 
-/* Sub-hl */
-.sub-hl { display: inline-block; position: relative; }
-.sub-hl::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px; background: var(--forest); animation: vv-underline 1s cubic-bezier(0.4, 0, 0.2, 1) forwards; animation-play-state: paused; }
-.sub-hl.is-visible::after { animation-play-state: running; }
-@keyframes vv-underline { from { width: 0; } to { width: 100%; } }
+@media (max-width: 1100px) {
+  .featured-grid { grid-template-columns: 1fr; }
+  .featured-image { min-height: 18rem; }
+  .featured-content { padding: 1.4rem; }
+}
+
+@media (max-width: 980px) {
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
 @media (max-width: 768px) {
-  .featured-frame { grid-template-columns: 1fr; }
-  .featured-img-col { height: 260px; }
-  .hero-text-col { max-width: 100%; padding: 7rem 0 3rem; }
-  .botanical-bg { width: 100%; right: 0; top: 0; height: 100%; opacity: 0.2; }
+  .grid-lines-inner { padding: 0 1.2rem; }
+  .hero-content { padding: 8rem 0 2.8rem; }
+  .hero-title { max-width: 100%; }
+  .hero-subheading,
+  .hero-overview,
+  .hero-bullets,
+  .hero-note { max-width: 100%; }
+  .article-grid { grid-template-columns: 1fr; }
+  .join-section { padding: 4.3rem 0; }
 }
 </style>
 </head>
-<body>
+<body data-email-endpoint="https://hooks.zapier.com/hooks/catch/REPLACE_ME/verdant-journal/">
 
-<!-- Grain / grid lines -->
 <div class="grid-lines" aria-hidden="true">
   <div class="grid-lines-inner">
     <div class="grid-line"></div>
@@ -381,13 +934,12 @@ body::before {
   </div>
 </div>
 
-<!-- Navigation -->
 <div class="fixed top-0 left-0 right-0 z-40">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="mt-4 nav-pill rounded-2xl">
       <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
         <a href="index.html" class="flex items-center gap-3 group">
-          <div style="height:44px;width:44px;flex-shrink:0;background:url(images/logo.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
+          <div style="height:57px;width:57px;flex-shrink:0;background:url(images/logo.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
           <span class="text-base tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
         </a>
         <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
@@ -405,114 +957,262 @@ body::before {
   </div>
 </div>
 
-<!-- Journal Hero -->
+<main id="main-content">
 <section class="journal-hero">
-  <img src="images/blog-hero.jpg" alt="" aria-hidden="true" class="botanical-bg">
-  <div class="max-w-[88rem] mx-auto px-6 lg:px-12 w-full">
-    <div class="hero-text-col">
-      <div class="journal-label reveal">Verdant Journal</div>
-      <h1 class="hero-title reveal reveal-delay-1">
-        Thoughts<br>on <em>growth,</em><br>operations<br>&amp; working well.
+  <div class="section-shell w-full">
+    <div class="hero-content">
+      <h1 class="hero-title reveal">
+        Verdant Journal<br>
+        Thoughts on <span class="hero-word-forest">growth,</span> operations &amp; working well.
       </h1>
-      <p class="hero-desc reveal reveal-delay-2">Practical insight from 8+ years of executive support across government, film, and the creative industries.</p>
-      <!-- Category filters -->
-      <div class="hero-divider reveal reveal-delay-3">
-        <button class="category-tag active">All</button>
-        <button class="category-tag">Operations</button>
-        <button class="category-tag">Lead Gen</button>
-        <button class="category-tag hidden sm:inline-flex">Hiring &amp; VAs</button>
-        <button class="category-tag hidden md:inline-flex">Founder Life</button>
+
+      <p class="hero-subheading reveal reveal-delay-1">Clarity for founders. Structure for operators.<br>Practical insight from 8+ years of executive support across government, film, and the creative industries.</p>
+
+      <p class="hero-overview reveal reveal-delay-1">This journal is dedicated to the practical side of growth - hiring well, delegating effectively, building systems, and creating sustainable operations.</p>
+
+      <ul class="hero-bullets reveal reveal-delay-2">
+        <li>Business owners preparing to hire a virtual assistant</li>
+        <li>Founders refining their delegation process</li>
+        <li>Virtual assistants raising their standards and expertise</li>
+      </ul>
+
+      <p class="hero-note reveal reveal-delay-2">Some posts include downloadable guides and structured checklists - designed to help you implement, not just learn.</p>
+
+      <div class="hero-cta-row reveal reveal-delay-3">
+        <a href="#article-library" class="btn-primary" id="browse-articles-cta">Browse Articles <iconify-icon icon="solar:arrow-right-linear"></iconify-icon></a>
+        <a href="#join-journal" class="btn-secondary" id="join-journal-cta">Join the Journal <iconify-icon icon="solar:arrow-down-linear"></iconify-icon></a>
+      </div>
+
+      <div class="hero-long-rule reveal reveal-delay-3" aria-hidden="true"></div>
+
+      <div class="filter-wrap reveal reveal-delay-3" id="category-filters" aria-label="Category filters">
+        <button class="filter-btn is-active" data-filter="all" type="button">All</button>
+        <button class="filter-btn" data-filter="operations" type="button">Operations</button>
+        <button class="filter-btn" data-filter="lead-gen" type="button">Lead Gen</button>
+        <button class="filter-btn" data-filter="hiring-vas" type="button">Hiring &amp; VAs</button>
+        <button class="filter-btn" data-filter="founder-life" type="button">Founder Life</button>
+        <button class="filter-btn" data-filter="free-resources" type="button">Free Resources</button>
       </div>
     </div>
   </div>
-  <!-- Decorative rule at bottom -->
-  <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(44,40,36,0.12) 20%,rgba(44,40,36,0.12) 80%,transparent);"></div>
 </section>
 
-<!-- Featured Article -->
-<section class="py-20 max-w-[88rem] mx-auto px-6 lg:px-12">
-  <div class="flex items-center justify-between mb-12 reveal">
-    <div class="flex items-center gap-4">
-      <div style="width:28px;height:1px;background:#2D6A4F;opacity:0.6;"></div>
-      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:#2D6A4F;opacity:0.7;letter-spacing:0.05em;">Featured</span>
-    </div>
-    <span style="font-family:'Geist',sans-serif;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.3;">Issue No. 01</span>
+<section class="pt-20 section-shell">
+  <div class="section-head reveal">
+    <div class="section-label">Featured</div>
+    <p class="text-[0.72rem] uppercase tracking-[0.14em] opacity-40 font-geist">Issue No. 01</p>
   </div>
 
-  <a href="blog/what-is-a-virtual-assistant.html" class="featured-frame reveal">
-    <!-- Image column -->
-    <div class="featured-img-col">
-      <img src="images/hannah-portrait.jpg" alt="Hannah, Verdant Virtual — Growth & Operations Partner">
-      <div class="featured-img-overlay"></div>
-      <!-- Image overlay badges -->
-      <div style="position:absolute;bottom:1.75rem;left:1.75rem;z-index:2;display:flex;gap:0.6rem;flex-wrap:wrap;">
-        <span style="background:rgba(45,106,79,0.88);color:white;font-family:'Geist',sans-serif;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 0.9rem;border-radius:999px;backdrop-filter:blur(8px);">Hiring &amp; VAs</span>
-        <span style="background:rgba(255,255,255,0.12);color:white;font-family:'Geist',sans-serif;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 0.9rem;border-radius:999px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);">8 min read</span>
-      </div>
-      <!-- Decorative corner marks -->
-      <svg style="position:absolute;top:1.25rem;right:1.25rem;z-index:2;opacity:0.4;" width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M20 0H12V2H18V8H20V0Z" fill="#B8975A"/>
-        <path d="M0 20H8V18H2V12H0V20Z" fill="#B8975A"/>
-      </svg>
+  <article class="featured-grid reveal">
+    <div class="featured-image">
+      <a href="blog/what-is-a-virtual-assistant.html" class="featured-image-link" aria-label="Read What Is a Virtual Assistant?">
+        <img src="images/hannah-portrait.jpg" alt="Hannah from Verdant Virtual">
+      </a>
     </div>
-
-    <!-- Content column -->
-    <div class="featured-content-col">
-      <div class="article-number">01</div>
-      <div>
-        <div class="featured-badge">
-          <iconify-icon icon="solar:pen-new-round-linear" style="font-size:0.75rem;"></iconify-icon>
-          Featured Article
-        </div>
-        <h2 class="featured-title">What Is a Virtual Assistant? (And Why the Right One Changes Everything)</h2>
-        <p class="featured-excerpt">If you've been googling "virtual assistant" lately, you've probably landed on about a hundred different definitions — most of them vague, slightly out of date, or written by someone who has never actually been one. Here's a straightforward answer from someone who is.</p>
-        <div class="read-link mb-6">Read the article</div>
+    <div class="featured-content">
+      <div class="featured-guide-badge"><iconify-icon icon="solar:file-text-linear"></iconify-icon>Featured Guide</div>
+      <h2 class="featured-title"><a href="blog/what-is-a-virtual-assistant.html" class="featured-title-link">What Is a Virtual Assistant? (And Why the Right One Changes Everything)</a></h2>
+      <p class="featured-excerpt">A practical breakdown of what a modern VA actually does, where founders see the strongest return, and how to choose support that improves decision quality as well as delivery speed.</p>
+      <div class="meta-row">
+        <span class="meta-chip">Hiring &amp; VAs</span>
+        <span class="meta-chip">8 min read</span>
       </div>
-      <div class="author-row">
-        <img src="images/hannah-portrait.jpg" alt="Hannah" class="author-avatar">
-        <div>
-          <p style="font-family:'Geist',sans-serif;font-size:0.82rem;font-weight:500;color:#2C2824;">Hannah</p>
-          <p style="font-family:'Geist',sans-serif;font-size:0.72rem;opacity:0.4;">15 January 2026</p>
-        </div>
-        <div style="margin-left:auto;">
-          <span style="font-family:'Cormorant Garamond',serif;font-size:0.78rem;font-style:italic;opacity:0.35;letter-spacing:0.04em;">Verdant Virtual</span>
-        </div>
-      </div>
+      <p class="slug-line">/blog/what-is-a-virtual-assistant</p>
+      <a href="blog/what-is-a-virtual-assistant.html" class="read-link">Read Article <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon></a>
     </div>
-  </a>
+  </article>
 </section>
 
-<!-- Botanical divider -->
-<div class="max-w-[88rem] mx-auto px-6 lg:px-12 py-4">
-  <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(44,40,36,0.1) 20%,rgba(44,40,36,0.1) 80%,transparent);"></div>
+<section class="resources-section section-shell" id="free-resources">
+  <div class="resources-head reveal">
+    <h2 class="font-display text-[clamp(2.1rem,4.4vw,4rem)] leading-[0.95] tracking-[-0.02em] text-[#1C1915] mb-3">Free Guides &amp; Checklists</h2>
+    <p>Structured resources for founders hiring support and VAs building professional systems. Available to read online or download by email.</p>
+  </div>
+
+  <div class="resource-grid">
+    <article class="resource-card reveal" data-resource-key="hiring-checklist">
+      <img src="images/brand-cards.jpg" alt="Hiring checklist cover" class="resource-cover">
+      <div class="resource-body">
+        <h3 class="resource-title">Founder Hiring Readiness Checklist</h3>
+        <p class="resource-desc">A focused checklist to assess whether your workflows, tools, and handover assets are ready for VA onboarding.</p>
+        <div class="resource-actions">
+          <a href="blog/what-is-a-virtual-assistant.html" class="resource-btn read">Read Online</a>
+          <button type="button" class="resource-btn download resource-download" data-resource-title="Founder Hiring Readiness Checklist">Download (Email Required)</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="resource-card reveal reveal-delay-1" data-resource-key="delegation-audit">
+      <img src="images/desk-workspace.jpg" alt="Delegation audit worksheet" class="resource-cover">
+      <div class="resource-body">
+        <h3 class="resource-title">Delegation Audit Worksheet</h3>
+        <p class="resource-desc">A practical worksheet for mapping owner-only tasks, transferable tasks, and weekly delegation priorities.</p>
+        <div class="resource-actions">
+          <a href="#article-library" class="resource-btn read">Read Online</a>
+          <button type="button" class="resource-btn download resource-download" data-resource-title="Delegation Audit Worksheet">Download (Email Required)</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="resource-card reveal" data-resource-key="sop-template">
+      <img src="images/problem-workspace.webp" alt="SOP template pack" class="resource-cover">
+      <div class="resource-body">
+        <h3 class="resource-title">VA Service Delivery SOP Template</h3>
+        <p class="resource-desc">A ready-to-adapt SOP structure covering request intake, execution steps, approvals, and reporting cadence.</p>
+        <div class="resource-actions">
+          <a href="#article-library" class="resource-btn read">Read Online</a>
+          <button type="button" class="resource-btn download resource-download" data-resource-title="VA Service Delivery SOP Template">Download (Email Required)</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="resource-card reveal reveal-delay-1" data-resource-key="follow-up-framework">
+      <img src="images/problem-portrait.webp" alt="Follow-up framework guide" class="resource-cover">
+      <div class="resource-body">
+        <h3 class="resource-title">Lead Follow-Up Framework</h3>
+        <p class="resource-desc">A simple cadence guide that keeps lead conversations moving without relying on ad hoc founder reminders.</p>
+        <div class="resource-actions">
+          <a href="#article-library" class="resource-btn read">Read Online</a>
+          <button type="button" class="resource-btn download resource-download" data-resource-title="Lead Follow-Up Framework">Download (Email Required)</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <aside class="funnel-strip reveal reveal-delay-2" aria-label="Lead magnet funnel structure">
+    <h3>Lead Magnet Flow</h3>
+    <ol>
+      <li><span>1.</span>Visitor lands on article and reads practical guidance with a mid-article "Download the full checklist" CTA.</li>
+      <li><span>2.</span>Email capture modal delivers the selected guide and adds the subscriber to the resource list.</li>
+      <li><span>3.</span>Automated sequence: Email 1 resource delivery, Email 2 practical insight, Email 3 soft service introduction, Email 4 discovery call invitation.</li>
+      <li><span>4.</span>Every guide closes with implementation support: "How I can support you implementing this."</li>
+    </ol>
+  </aside>
+</section>
+
+<section class="library-section section-shell" id="article-library">
+  <div class="library-head reveal">
+    <div class="section-head">
+      <h2>Article Library</h2>
+      <p class="text-[0.76rem] uppercase tracking-[0.12em] opacity-45">Visible now: <span id="article-result-count">6</span></p>
+    </div>
+    <p>Editorial notes and practical frameworks designed to be applied quickly inside growing founder-led businesses.</p>
+  </div>
+
+  <div class="article-grid" id="article-grid">
+    <article class="article-card reveal" data-category="hiring-vas" data-resource="true">
+      <div class="meta-row">
+        <span class="meta-chip">Hiring &amp; VAs</span>
+        <span class="meta-chip">8 min read</span>
+      </div>
+      <h3 class="article-title"><a href="blog/what-is-a-virtual-assistant.html" class="article-title-link">What Is a Virtual Assistant? (And Why the Right One Changes Everything)</a></h3>
+      <p class="article-desc">A practical definition of modern VA support, where the biggest value sits, and how to evaluate fit before hiring.</p>
+      <p class="slug-line">/blog/what-is-a-virtual-assistant</p>
+      <div class="article-footer">
+        <a href="blog/what-is-a-virtual-assistant.html" class="article-link">Read Article <iconify-icon icon="solar:arrow-right-up-linear"></iconify-icon></a>
+      </div>
+    </article>
+
+    <article class="article-card reveal reveal-delay-1" data-category="operations" data-resource="false">
+      <div class="meta-row">
+        <span class="meta-chip">Operations</span>
+        <span class="meta-chip">7 min read</span>
+      </div>
+      <h3 class="article-title">Operations Reset: The Monday System Review</h3>
+      <p class="article-desc">A weekly review method that surfaces blockers early and keeps delivery quality high across client and internal workstreams.</p>
+      <p class="slug-line">/blog/operations-reset-monday-system-review</p>
+      <div class="article-footer">
+        <span class="article-link is-disabled">Publishing Soon</span>
+      </div>
+    </article>
+
+    <article class="article-card reveal reveal-delay-2" data-category="lead-gen" data-resource="false">
+      <div class="meta-row">
+        <span class="meta-chip">Lead Gen</span>
+        <span class="meta-chip">6 min read</span>
+      </div>
+      <h3 class="article-title">Lead Follow-Up Without Inbox Chaos</h3>
+      <p class="article-desc">A no-fluff follow-up structure for founders and operators balancing outreach momentum with consistent client delivery.</p>
+      <p class="slug-line">/blog/lead-follow-up-without-inbox-chaos</p>
+      <div class="article-footer">
+        <span class="article-link is-disabled">Publishing Soon</span>
+      </div>
+    </article>
+
+    <article class="article-card reveal" data-category="hiring-vas" data-resource="true">
+      <div class="meta-row">
+        <span class="meta-chip">Hiring &amp; VAs</span>
+        <span class="meta-chip">10 min read</span>
+      </div>
+      <h3 class="article-title">Hiring &amp; VAs: The 30/60/90 Handover Plan</h3>
+      <p class="article-desc">A staged onboarding plan with meeting cadence, SOP depth, and quality checkpoints for new VA partnerships.</p>
+      <p class="slug-line">/blog/30-60-90-va-handover-plan</p>
+      <div class="article-footer">
+        <span class="article-link is-disabled">Publishing Soon</span>
+      </div>
+    </article>
+
+    <article class="article-card reveal reveal-delay-1" data-category="founder-life" data-resource="true">
+      <div class="meta-row">
+        <span class="meta-chip">Founder Life</span>
+        <span class="meta-chip">9 min read</span>
+      </div>
+      <h3 class="article-title">Founder Delegation Audit: A Weekly Framework</h3>
+      <p class="article-desc">A reflection framework for deciding what should stay founder-owned versus what should move to structured support.</p>
+      <p class="slug-line">/blog/founder-delegation-audit-framework</p>
+      <div class="article-footer">
+        <span class="article-link is-disabled">Publishing Soon</span>
+      </div>
+    </article>
+
+    <article class="article-card reveal reveal-delay-2" data-category="founder-life" data-resource="false">
+      <div class="meta-row">
+        <span class="meta-chip">Founder Life</span>
+        <span class="meta-chip">5 min read</span>
+      </div>
+      <h3 class="article-title">Communication Rhythms That Reduce Rework</h3>
+      <p class="article-desc">A clear meeting and update rhythm that lowers repeat clarifications and keeps execution aligned week to week.</p>
+      <p class="slug-line">/blog/communication-rhythms-to-reduce-rework</p>
+      <div class="article-footer">
+        <span class="article-link is-disabled">Publishing Soon</span>
+      </div>
+    </article>
+  </div>
+
+  <p class="no-results" id="no-results">No articles found for this category yet. Try another filter, or join the journal for release updates.</p>
+</section>
+
+<section class="join-section" id="join-journal">
+  <div class="section-shell">
+    <div class="join-shell reveal">
+      <h2>📩 Join the Journal</h2>
+      <p>Get practical hiring frameworks, delegation strategy, and structured growth insights delivered occasionally - no noise, just clarity.</p>
+      <form class="email-form" id="journal-join-form" novalidate>
+        <input type="email" class="email-input" name="email" placeholder="Email" aria-label="Email" required>
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+      <p class="small-legal">You'll also receive access to new free guides as they're released.</p>
+      <p class="form-feedback" id="join-feedback" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="modal-layer" id="resource-modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="resource-modal-title">
+    <button type="button" class="modal-close" id="resource-modal-close" aria-label="Close">×</button>
+    <p class="modal-resource" id="modal-resource-name">Resource</p>
+    <h2 class="modal-title" id="resource-modal-title">Get the Checklist</h2>
+    <p class="modal-copy">Enter your email to receive access and future practical resources.</p>
+    <form id="resource-download-form" novalidate>
+      <input type="hidden" name="resource_title" id="resource-title-input" value="">
+      <input type="email" class="email-input" name="email" placeholder="Email" aria-label="Email" required>
+      <button type="submit" class="btn-primary mt-3 w-full">Download Now</button>
+    </form>
+    <p class="form-feedback" id="resource-feedback" aria-live="polite"></p>
+  </div>
 </div>
 
-<!-- Coming Soon -->
-<section class="coming-soon">
-  <img src="images/blog-hero.jpg" alt="" aria-hidden="true" class="coming-soon-botanical">
-  <div class="max-w-[88rem] mx-auto px-6 lg:px-12 relative z-10">
-    <div class="max-w-2xl">
-      <div class="flex items-center gap-4 mb-8 reveal">
-        <div style="width:28px;height:1px;background:rgba(245,239,230,0.4);"></div>
-        <span style="font-family:'Geist',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(245,239,230,0.35);">More articles on the way</span>
-      </div>
-      <p class="coming-soon-title sub-hl reveal reveal-delay-1">
-        Practical guides on systems, outreach, and delegation.
-      </p>
-      <p style="font-family:'Geist',sans-serif;font-size:0.875rem;color:rgba(245,239,230,0.38);margin-top:1.25rem;line-height:1.8;" class="reveal reveal-delay-2">
-        New articles published regularly — check back soon, or follow along on Instagram.
-      </p>
-      <div class="mt-10 reveal reveal-delay-3">
-        <a href="contact.html" class="btn-beam inline-flex items-center gap-2 bg-[#2D6A4F] text-white px-6 py-3 rounded-full text-sm font-medium font-geist transition-all hover:bg-[#3a8a65]">
-          Book a Discovery Call
-          <iconify-icon icon="solar:arrow-right-up-linear" style="font-size:1rem;"></iconify-icon>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
 <footer class="site-footer">
   <svg class="absolute w-0 h-0" aria-hidden="true">
     <filter id="footer-watercolor">
@@ -564,43 +1264,244 @@ body::before {
 </footer>
 
 <script>
-// Reveal on scroll
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }});
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+(function() {
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => revealObs.observe(el));
+})();
 
-// Sub-hl observer
-const subObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); subObs.unobserve(e.target); }});
-}, { threshold: 0.3 });
-document.querySelectorAll('.sub-hl').forEach(el => subObs.observe(el));
+(function() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.article-card');
+  const countEl = document.getElementById('article-result-count');
+  const noResultsEl = document.getElementById('no-results');
 
-// Category filter buttons
-document.querySelectorAll('.category-tag').forEach(btn => {
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('.category-tag').forEach(b => b.classList.remove('active'));
-    this.classList.add('active');
+  function applyFilter(key) {
+    let visibleCount = 0;
+    cards.forEach((card) => {
+      const category = card.dataset.category;
+      const hasResource = card.dataset.resource === 'true';
+      const match = key === 'all' || category === key || (key === 'free-resources' && hasResource);
+      card.classList.toggle('hidden-by-filter', !match);
+      if (match) visibleCount += 1;
+    });
+
+    countEl.textContent = String(visibleCount);
+    noResultsEl.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach((btn) => btn.classList.remove('is-active'));
+      button.classList.add('is-active');
+      applyFilter(button.dataset.filter);
+      document.getElementById('article-library').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   });
-});
 
-// Footer botanical canvas
-(function(){
+  applyFilter('all');
+})();
+
+(function() {
+  const modal = document.getElementById('resource-modal');
+  const openButtons = document.querySelectorAll('.resource-download');
+  const closeButton = document.getElementById('resource-modal-close');
+  const resourceName = document.getElementById('modal-resource-name');
+  const resourceInput = document.getElementById('resource-title-input');
+  const resourceForm = document.getElementById('resource-download-form');
+  const joinForm = document.getElementById('journal-join-form');
+  const resourceFeedback = document.getElementById('resource-feedback');
+  const joinFeedback = document.getElementById('join-feedback');
+  const endpoint = document.body.dataset.emailEndpoint || '';
+
+  function openModal(title) {
+    resourceName.textContent = title;
+    resourceInput.value = title;
+    resourceFeedback.textContent = '';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    const input = resourceForm.querySelector('input[type="email"]');
+    if (input) input.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  async function submitToPlatform(payload) {
+    if (!endpoint || endpoint.includes('REPLACE_ME')) {
+      return { ok: false, message: 'Email platform endpoint is not configured yet. Replace REPLACE_ME in blog.html.' };
+    }
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) {
+        throw new Error('Request failed');
+      }
+      return { ok: true };
+    } catch (error) {
+      return { ok: false, message: 'Could not connect automatically. Please email hello@verdantvirtual.co.uk and we will send it manually.' };
+    }
+  }
+
+  openButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const title = button.dataset.resourceTitle || 'Checklist';
+      openModal(title);
+    });
+  });
+
+  closeButton.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+
+  resourceForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = resourceForm.elements.email.value.trim();
+    if (!email) return;
+
+    resourceFeedback.textContent = 'Sending...';
+
+    const result = await submitToPlatform({
+      email,
+      source: 'resource_modal',
+      resource: resourceInput.value,
+      tags: ['free-resource', 'verdant-journal'],
+      sequence: 'verdant_journal_resource_sequence'
+    });
+
+    if (result.ok) {
+      resourceFeedback.textContent = 'Check your inbox. Your guide is on its way.';
+      resourceForm.reset();
+      setTimeout(closeModal, 1100);
+    } else {
+      resourceFeedback.textContent = result.message;
+    }
+  });
+
+  joinForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = joinForm.elements.email.value.trim();
+    if (!email) return;
+
+    joinFeedback.textContent = 'Subscribing...';
+
+    const result = await submitToPlatform({
+      email,
+      source: 'journal_join_section',
+      tags: ['journal-subscribe', 'verdant-journal'],
+      sequence: 'verdant_journal_newsletter_sequence'
+    });
+
+    if (result.ok) {
+      joinFeedback.textContent = 'You are in. Watch your inbox for the next issue and new guides.';
+      joinForm.reset();
+    } else {
+      joinFeedback.textContent = result.message;
+    }
+  });
+})();
+
+(function() {
   const canvas = document.getElementById('footer-botanical');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  let w, h, stems = [], animId;
-  const petalColors = [{h:155,s:55,l:40},{h:140,s:40,l:52},{h:85,s:30,l:58},{h:45,s:35,l:62},{h:160,s:45,l:35}];
-  const stemColors = [{h:155,s:45,l:22},{h:140,s:35,l:28},{h:120,s:28,l:32}];
-  function resize() { const r = canvas.parentElement.getBoundingClientRect(); w = canvas.width = r.width; h = canvas.height = r.height; }
-  class Stem {
-    constructor(x) { this.x=x;this.y=h+5;this.curr=0;this.len=h*(0.25+Math.random()*0.45);this.color=stemColors[Math.floor(Math.random()*stemColors.length)];this.done=false;this.segs=[];let cx=x,cy=h+5,ca=-Math.PI/2+(Math.random()-0.5)*0.35;for(let i=0;i<this.len/5;i++){ca+=(Math.random()-0.5)*0.12;cx+=Math.cos(ca)*5;cy+=Math.sin(ca)*5;this.segs.push({x:cx,y:cy});} }
-    draw() { const d=Math.floor(this.curr);if(d<1){this.curr+=0.6;return;}ctx.beginPath();ctx.strokeStyle=`hsla(${this.color.h},${this.color.s}%,${this.color.l}%,0.18)`;ctx.lineWidth=1.5;ctx.lineCap='round';ctx.moveTo(this.segs[0].x,this.segs[0].y);for(let i=1;i<Math.min(d,this.segs.length);i++)ctx.lineTo(this.segs[i].x,this.segs[i].y);ctx.stroke();if(d>=this.segs.length)this.done=true;else this.curr+=0.6; }
+  let w;
+  let h;
+  let stems = [];
+  let animId;
+  const stemColors = [{h:155,s:45,l:22}, {h:140,s:35,l:28}, {h:120,s:28,l:32}];
+
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    w = canvas.width = rect.width;
+    h = canvas.height = rect.height;
   }
-  function spawnStems(){stems=[];const n=Math.floor(w/80)+3;for(let i=0;i<n;i++)stems.push(new Stem(w*(i+0.5)/n+(Math.random()-0.5)*60));}
-  function draw(){ctx.clearRect(0,0,w,h);let allDone=true;stems.forEach(s=>{s.draw();if(!s.done)allDone=false;});if(!allDone)animId=requestAnimationFrame(draw);}
-  new ResizeObserver(()=>{cancelAnimationFrame(animId);resize();spawnStems();draw();}).observe(canvas.parentElement);
-  resize();spawnStems();draw();
+
+  class Stem {
+    constructor(x) {
+      this.x = x;
+      this.curr = 0;
+      this.len = h * (0.25 + Math.random() * 0.45);
+      this.color = stemColors[Math.floor(Math.random() * stemColors.length)];
+      this.done = false;
+      this.segs = [];
+      let cx = x;
+      let cy = h + 5;
+      let ca = -Math.PI / 2 + (Math.random() - 0.5) * 0.35;
+      for (let i = 0; i < this.len / 5; i++) {
+        ca += (Math.random() - 0.5) * 0.12;
+        cx += Math.cos(ca) * 5;
+        cy += Math.sin(ca) * 5;
+        this.segs.push({x: cx, y: cy});
+      }
+    }
+
+    draw() {
+      const d = Math.floor(this.curr);
+      if (d < 1) {
+        this.curr += 0.6;
+        return;
+      }
+      ctx.beginPath();
+      ctx.strokeStyle = `hsla(${this.color.h},${this.color.s}%,${this.color.l}%,0.18)`;
+      ctx.lineWidth = 1.5;
+      ctx.lineCap = 'round';
+      ctx.moveTo(this.segs[0].x, this.segs[0].y);
+      for (let i = 1; i < Math.min(d, this.segs.length); i++) {
+        ctx.lineTo(this.segs[i].x, this.segs[i].y);
+      }
+      ctx.stroke();
+      if (d >= this.segs.length) this.done = true;
+      else this.curr += 0.6;
+    }
+  }
+
+  function spawnStems() {
+    stems = [];
+    const n = Math.floor(w / 80) + 3;
+    for (let i = 0; i < n; i++) {
+      stems.push(new Stem(w * (i + 0.5) / n + (Math.random() - 0.5) * 60));
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    let allDone = true;
+    stems.forEach((stem) => {
+      stem.draw();
+      if (!stem.done) allDone = false;
+    });
+    if (!allDone) animId = requestAnimationFrame(draw);
+  }
+
+  new ResizeObserver(() => {
+    cancelAnimationFrame(animId);
+    resize();
+    spawnStems();
+    draw();
+  }).observe(canvas.parentElement);
+
+  resize();
+  spawnStems();
+  draw();
 })();
 </script>
 </body>

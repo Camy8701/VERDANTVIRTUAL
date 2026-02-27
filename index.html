@@ -174,7 +174,9 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
 
 /* Service sorting card */
 #vv-sorting-card {
-  background: linear-gradient(180deg, #F0EBE1 0%, #DFD4C1 100%);
+  background:
+    linear-gradient(180deg, rgba(240,235,225,0.78) 0%, rgba(223,212,193,0.74) 100%),
+    url('images/creative-home-office-with-illustrated-idea-wall-4k.webp') center/cover no-repeat;
   border: 1px solid #CFC2AD;
   box-shadow: inset 0 1px 1px rgba(255,255,255,0.7), inset 0 -1px 2px rgba(98,79,55,0.12), 0 20px 38px -20px rgba(44,40,36,0.32);
 }
@@ -298,7 +300,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
       <div class="mt-4 rounded-2xl border border-black/10 bg-[#F2EFEA]/85 backdrop-blur-md shadow-sm">
         <div class="flex pt-3 pr-4 pb-3 pl-4 items-center justify-between">
           <a href="index.html" class="flex items-center gap-2 group">
-            <div style="height:44px;width:44px;flex-shrink:0;background:url(images/logo.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
+            <div style="height:57px;width:57px;flex-shrink:0;background:url(images/logo.png) center/contain no-repeat transparent;transition:transform 0.2s ease;" class="group-hover:scale-110" role="img" aria-label="Verdant Virtual logo"></div>
             <span class="text-lg tracking-tight font-jakarta font-medium text-[#2C2824]">Verdant Virtual</span>
           </a>
           <nav class="hidden md:flex items-center gap-6 text-sm text-[#2C2824]/60">
@@ -400,7 +402,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
   <!-- VA Positioning Section -->
   <section id="va-positioning" class="py-28 section-container">
     <div class="max-w-[88rem] mx-auto px-6 lg:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start lg:items-end">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start lg:items-stretch">
         <div class="lg:col-span-6">
           <p class="text-xs uppercase tracking-widest opacity-75 mb-6 font-geist meta-label">Yes, I'm a Virtual Assistant</p>
           <h2 class="section-h2 text-6xl md:text-7xl lg:text-8xl tracking-tighter font-jakarta font-light mb-8 leading-tight">
@@ -417,8 +419,8 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
             <iconify-icon icon="solar:arrow-right-linear" class="text-lg"></iconify-icon>
           </a>
         </div>
-        <div class="lg:col-span-6 flex flex-col gap-5 lg:pt-2">
-          <div id="vv-sorting-card" class="relative rounded-[1.35rem] overflow-hidden p-5 md:p-6 min-h-[36rem] md:min-h-[40rem]">
+        <div class="lg:col-span-6 flex flex-col h-full">
+          <div id="vv-sorting-card" class="relative flex h-full flex-col rounded-[1.35rem] overflow-hidden p-5 md:p-6 min-h-[36rem] md:min-h-[40rem]">
             <div class="vv-bottom-glow"></div>
             <div class="relative z-20 flex items-center gap-2 px-3 py-1.5 rounded-full text-xs text-[#2C2824]/90 mb-4 w-fit vv-sort-pill">
               <iconify-icon icon="solar:layers-linear" width="15" height="15"></iconify-icon>
@@ -427,7 +429,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
             <h3 class="relative z-20 text-2xl md:text-[2rem] tracking-tight text-[#2C2824] font-jakarta font-medium mb-2">Let's sort it out!</h3>
             <p class="relative z-20 text-sm font-geist text-[#2C2824]/70 mb-5 max-w-md">Drag, group, and prioritise the moving blocks to mirror how support actually gets structured in your business.</p>
 
-            <div id="vv-physics-container" class="relative z-20 h-[28rem] md:h-[30rem] rounded-[1rem] border border-white/10 bg-black/20 vv-static-fallback">
+            <div id="vv-physics-container" class="relative z-20 flex-1 min-h-[22rem] md:min-h-[24rem] rounded-[1rem] border border-white/10 bg-black/20 vv-static-fallback">
               <div class="vv-physics-tag"><iconify-icon icon="solar:magnifer-linear"></iconify-icon>Prospect Research</div>
               <div class="vv-physics-tag"><iconify-icon icon="solar:smartphone-linear"></iconify-icon>Instagram Outreach</div>
               <div class="vv-physics-tag"><iconify-icon icon="solar:database-linear"></iconify-icon>CRM Management</div>
@@ -451,7 +453,7 @@ section:not(#va-positioning) :is(h1,h2,h3,h4,p,li,span):hover {
   <!-- Full Width Feature Image -->
   <section class="relative h-[80vh] w-full overflow-hidden flex items-center justify-center section-container group">
     <div class="absolute inset-0 bg-black/30 z-10 transition-colors group-hover:bg-black/20"></div>
-    <img src="images/vr-growth.jpg" alt="Growth & operations workspace" class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out">
+    <img src="images/well-tended-feature.jpg" alt="Growth & operations workspace" class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out">
     <div class="relative z-20 text-center text-white max-w-3xl px-6">
       <h2 class="text-5xl md:text-6xl tracking-tight mb-6 leading-tight drop-shadow-lg font-jakarta font-light">
         "Growth doesn't happen in chaos. It happens when things are well tended."
