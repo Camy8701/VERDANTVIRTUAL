@@ -315,14 +315,6 @@ body::before {
   margin-bottom: 1.35rem;
 }
 
-.hero-cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.8rem;
-  margin-bottom: 1.35rem;
-}
-
 .hero-long-rule {
   height: 1px;
   width: 100vw;
@@ -333,7 +325,8 @@ body::before {
 }
 
 .filter-wrap {
-  margin-top: 1rem;
+  margin-top: 0;
+  margin-bottom: 1.35rem;
   padding-top: 0;
   display: flex;
   flex-wrap: wrap;
@@ -536,6 +529,93 @@ body::before {
   color: rgba(44,40,36,0.68);
   max-width: 44rem;
   line-height: 1.74;
+}
+
+.section-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-action-btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ebook-preview-section {
+  padding-top: 3.6rem;
+}
+
+.ebook-preview-card {
+  position: relative;
+  border: 1px solid rgba(44,40,36,0.12);
+  border-radius: 22px;
+  padding: clamp(0.8rem, 2vw, 1.3rem);
+  background:
+    linear-gradient(120deg, rgba(245,239,230,0.22) 0%, rgba(245,239,230,0.1) 48%, rgba(245,239,230,0.24) 100%),
+    url('images/ebook-monolith-bg.webp') center / cover no-repeat;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(22, 22, 18, 0.1);
+  isolation: isolate;
+}
+
+.ebook-preview-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(245,239,230,0.3) 0%, rgba(245,239,230,0.08) 34%, rgba(245,239,230,0.4) 100%),
+    radial-gradient(75% 62% at 78% 25%, rgba(255,255,255,0.16), rgba(255,255,255,0) 72%);
+}
+
+.ebook-preview-frame {
+  position: relative;
+  z-index: 1;
+  padding: clamp(0.22rem, 0.55vw, 0.42rem);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.48);
+  box-shadow: 0 8px 28px rgba(18,16,14,0.24);
+  background: url('images/ebook-monolith-bg.webp') center / cover no-repeat;
+}
+
+.ebook-preview-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(112% 92% at 50% 50%, rgba(245,239,230,0.04) 0%, rgba(245,239,230,0.14) 58%, rgba(245,239,230,0.38) 100%);
+}
+
+.ebook-preview-card iframe {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 960px;
+  border: 1px solid rgba(255,255,255,0.66);
+  border-radius: 10px;
+  background: #fff;
+  mix-blend-mode: normal;
+  opacity: 1;
+  filter: none;
+}
+
+@media (max-width: 1100px) {
+  .ebook-preview-card iframe {
+    height: 760px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ebook-preview-card iframe {
+    height: 560px;
+  }
 }
 
 .resource-grid {
@@ -957,6 +1037,10 @@ body::before {
   .hero-overview,
   .hero-bullets,
   .hero-note { max-width: 100%; }
+  .section-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .article-grid { grid-template-columns: 1fr; }
   .join-section { padding: 4.3rem 0; }
 }
@@ -1020,32 +1104,37 @@ body::before {
 
       <p class="hero-note reveal reveal-delay-2">Some posts include downloadable guides and structured checklists - designed to help you implement, not just learn.</p>
 
-      <div class="hero-cta-row reveal reveal-delay-3">
-        <a href="article-library.html" class="btn-primary" id="browse-articles-cta">Browse Articles <iconify-icon icon="solar:arrow-right-linear"></iconify-icon></a>
-        <a href="#join-journal" class="btn-secondary" id="join-journal-cta">Join the Journal <iconify-icon icon="solar:arrow-down-linear"></iconify-icon></a>
-      </div>
-
-      <div class="hero-long-rule reveal reveal-delay-3" aria-hidden="true"></div>
-
       <div class="filter-wrap reveal reveal-delay-3" id="category-filters" aria-label="Category filters">
         <a class="filter-btn is-active" href="article-library.html?filter=all">All</a>
+        <a class="filter-btn" href="#blog-articles">Blog articles</a>
+        <a class="filter-btn" href="#free-resources">Freebies</a>
         <a class="filter-btn" href="article-library.html?filter=operations">Operations</a>
         <a class="filter-btn" href="article-library.html?filter=lead-gen">Lead Gen</a>
         <a class="filter-btn" href="article-library.html?filter=hiring-vas">Hiring &amp; VAs</a>
         <a class="filter-btn" href="article-library.html?filter=founder-life">Founder Life</a>
-        <a class="filter-btn" href="article-library.html?filter=free-resources">Free Resources</a>
+        <a class="filter-btn" href="#join-journal">Join the Journal</a>
       </div>
+
+      <div class="hero-long-rule reveal reveal-delay-3" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<section class="ebook-preview-section section-shell" aria-label="Ebook preview">
+  <div class="ebook-preview-card reveal">
+    <div class="ebook-preview-frame">
+      <iframe src="https://player.flipsnack.com?hash=RTlCOThFQjU2OUIrdWszZWh6NnNlbw==" width="100%" height="960" seamless="seamless" scrolling="no" frameBorder="0" allowFullScreen allow="autoplay; clipboard-read; clipboard-write"></iframe>
     </div>
   </div>
 </section>
 
 <section class="pt-20 section-shell" id="blog-articles">
   <div class="resources-head reveal">
-    <h2 class="font-display text-[clamp(2.1rem,4.4vw,4rem)] leading-[0.95] tracking-[-0.02em] text-[#1C1915] mb-3">Blog Articles</h2>
-    <p>Detailed editorial guidance on hiring, delegation, lead generation, and founder operations with practical frameworks you can apply immediately.</p>
-    <div class="hero-cta-row" style="justify-content:flex-start;margin-top:1rem;margin-bottom:0;">
-      <a href="article-library.html" class="btn-secondary">Browse all articles <iconify-icon icon="solar:arrow-right-linear"></iconify-icon></a>
+    <div class="section-title-row">
+      <h2 class="font-display text-[clamp(2.1rem,4.4vw,4rem)] leading-[0.95] tracking-[-0.02em] text-[#1C1915]">Blog Articles</h2>
+      <a href="article-library.html" class="btn-secondary section-action-btn">Browse all articles <iconify-icon icon="solar:arrow-right-linear"></iconify-icon></a>
     </div>
+    <p>Detailed editorial guidance on hiring, delegation, lead generation, and founder operations with practical frameworks you can apply immediately.</p>
   </div>
 
   <article class="featured-grid reveal">
@@ -1070,11 +1159,11 @@ body::before {
 
 <section class="resources-section section-shell" id="free-resources">
   <div class="resources-head reveal">
-    <h2 class="font-display text-[clamp(2.1rem,4.4vw,4rem)] leading-[0.95] tracking-[-0.02em] text-[#1C1915] mb-3">Free Guides &amp; Checklists</h2>
-    <p>Structured resources for founders hiring support and VAs building professional systems. Available to read online or download by email.</p>
-    <div class="hero-cta-row" style="justify-content:flex-start;margin-top:1rem;margin-bottom:0;">
-      <a href="freebies-library.html" class="btn-secondary">Browse freebies library <iconify-icon icon="solar:arrow-right-linear"></iconify-icon></a>
+    <div class="section-title-row">
+      <h2 class="font-display text-[clamp(2.1rem,4.4vw,4rem)] leading-[0.95] tracking-[-0.02em] text-[#1C1915]">Free Guides &amp; Checklists</h2>
+      <a href="freebies-library.html" class="btn-secondary section-action-btn">Browse freebies library <iconify-icon icon="solar:arrow-right-linear"></iconify-icon></a>
     </div>
+    <p>Structured resources for founders hiring support and VAs building professional systems. Available to read online or download by email.</p>
   </div>
 
   <div class="resource-grid">
